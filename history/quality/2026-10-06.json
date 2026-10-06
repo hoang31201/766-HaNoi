@@ -1,1210 +1,1210 @@
 {
-  "day": "2026-10-06",
-  "capturedAt": "2026-10-06T05:59:05.483Z",
-  "period": {
-    "timeType": "year",
-    "year": 2026
-  },
-  "department": {
-    "id": "019d2be3-6a86-70a8-a0af-76e986804225",
-    "code": "H26",
-    "name": "UBND Thành phố Hà Nội"
-  },
-  "totalScore": 54.79,
-  "totalMaxScore": 100,
-  "rank": 33,
-  "provinceCount": 34,
-  "groups": [
-    {
-      "code": "CKMB",
-      "name": "Công khai, minh bạch",
-      "score": 11.28,
-      "maxScore": 18,
-      "ratio": 62.67,
-      "metrics": [
-        {
-          "code": "PUBLISH_ON_TIME",
-          "name": "Tỷ lệ TTHC công bố đúng hạn",
-          "numerator": 0,
-          "denominator": 77,
-          "ratio": 0,
-          "score": 0,
-          "maxScore": 6,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "PUBLIC_UPDATE_ON_TIME",
-          "name": "Tỷ lệ TTHC cập nhật, công khai đúng hạn",
-          "numerator": 65,
-          "denominator": 78,
-          "ratio": 83.33,
-          "score": 3.33,
-          "maxScore": 4,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "PUBLIC_CONTENT_FULL",
-          "name": "Tỷ lệ TTHC công khai đầy đủ nội dung",
-          "numerator": 78,
-          "denominator": 80,
-          "ratio": 97.5,
-          "score": 1.95,
-          "maxScore": 2,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "DOSSIER_SYNC",
-          "name": "Tỷ lệ hồ sơ đồng bộ lên Cổng DVCQG",
-          "numerator": 812998,
-          "denominator": 812998,
-          "ratio": 100,
-          "score": 6,
-          "maxScore": 6,
-          "dataQualityStatus": "TEMP_NATIONAL_REPORT_DENOMINATOR",
-          "dataQualityMessage": "Mẫu số BCQG/GRIS đang dùng số tạm, cần thay bằng dữ liệu crawl hệ thống cũ.",
-          "direction": "up",
-          "unit": "%"
-        }
-      ]
-    },
-    {
-      "code": "TDGQ",
-      "name": "Tiến độ giải quyết",
-      "score": 14.77,
-      "maxScore": 20,
-      "ratio": 73.86,
-      "metrics": [
-        {
-          "code": "ON_TIME",
-          "name": "Tỷ lệ hồ sơ đúng hạn, trong hạn",
-          "ratio": 73.86,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "AVG_DAYS",
-          "name": "Thời gian giải quyết trung bình",
-          "value": 4.55,
-          "direction": "down",
-          "unit": "ngày"
-        },
-        {
-          "code": "RECEIVED",
-          "name": "Tổng hồ sơ tiếp nhận",
-          "value": 1015948,
-          "direction": "neutral",
-          "unit": "hồ sơ"
-        },
-        {
-          "code": "COMPLETED",
-          "name": "Hồ sơ đã hoàn thành",
-          "value": 664189,
-          "direction": "neutral",
-          "unit": "hồ sơ"
-        }
-      ]
-    },
-    {
-      "code": "CLGQ",
-      "name": "Dịch vụ công trực tuyến",
-      "score": 9.25,
-      "maxScore": 12,
-      "ratio": 77.08,
-      "metrics": [
-        {
-          "code": "FULL",
-          "name": "Tỷ lệ dịch vụ công toàn trình",
-          "numerator": 52,
-          "denominator": 81,
-          "ratio": 64.2,
-          "score": null,
-          "maxScore": null,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "HAS_ONLINE",
-          "name": "Tỷ lệ DVC có hồ sơ trực tuyến",
-          "numerator": 767,
-          "denominator": 1856,
-          "ratio": 41.33,
-          "score": null,
-          "maxScore": null,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "ONLINE_DOSSIERS",
-          "name": "Tỷ lệ hồ sơ nộp trực tuyến",
-          "numerator": 847306,
-          "denominator": 1015857,
-          "ratio": 83.41,
-          "score": null,
-          "maxScore": null,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "ONLINE_ON_TIME",
-          "name": "Tỷ lệ hồ sơ trực tuyến giải quyết đúng hạn",
-          "numerator": 588377,
-          "denominator": 847306,
-          "ratio": 69.44,
-          "score": null,
-          "maxScore": null,
-          "direction": "up",
-          "unit": "%"
-        }
-      ]
-    },
-    {
-      "code": "TTTT",
-      "name": "Thanh toán trực tuyến",
-      "score": 4.59,
-      "maxScore": 10,
-      "ratio": 45.9,
-      "metrics": [
-        {
-          "code": "PAY_DOSSIERS",
-          "name": "Tỷ lệ hồ sơ thanh toán trực tuyến",
-          "numerator": 209254,
-          "denominator": 403772,
-          "ratio": 51.82,
-          "score": null,
-          "maxScore": null,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "PAY_FORMALITIES",
-          "name": "Tỷ lệ TTHC có giao dịch thanh toán trực tuyến",
-          "numerator": 121,
-          "denominator": 320,
-          "ratio": 37.81,
-          "score": null,
-          "maxScore": null,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "PAY_PROVISION",
-          "name": "Tỷ lệ TTHC có nghĩa vụ tài chính được cung cấp trên Cổng DVCQG",
-          "numerator": 68,
-          "denominator": 320,
-          "ratio": 21.25,
-          "score": null,
-          "maxScore": null,
-          "direction": "up",
-          "unit": "%"
-        }
-      ]
-    },
-    {
-      "code": "MDHL",
-      "name": "Mức độ hài lòng",
-      "score": 7.05,
-      "maxScore": 18,
-      "ratio": 39.17,
-      "metrics": [
-        {
-          "code": "PETITION_CLASSIFICATION_TTHC",
-          "name": "Tỷ lệ PAKN về quy định, thủ tục hành chính",
-          "numerator": 3224,
-          "denominator": 4255,
-          "ratio": 75.77,
-          "score": null,
-          "maxScore": 0,
-          "direction": "neutral",
-          "unit": "%"
-        },
-        {
-          "code": "DOSSIER_RECEIVING_SATISFACTION",
-          "name": "Tỷ lệ hài lòng trong tiếp nhận, giải quyết TTHC",
-          "numerator": 747028,
-          "denominator": 1015948,
-          "ratio": 73.53,
-          "score": 4.9,
-          "maxScore": 6,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "PETITION_PROCESSING_ON_TIME",
-          "name": "Tỷ lệ PAKN xử lý đúng hạn",
-          "numerator": 852,
-          "denominator": 4255,
-          "ratio": 20.02,
-          "score": 1.2,
-          "maxScore": 6,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "PETITION_HANDLING_SATISFACTION",
-          "name": "Tỷ lệ hài lòng trong xử lý PAKN",
-          "numerator": 673,
-          "denominator": 4255,
-          "ratio": 15.82,
-          "score": 0.95,
-          "maxScore": 6,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "PETITION_CLASSIFICATION_STAFF",
-          "name": "Tỷ lệ PAKN về hành vi cán bộ, công chức, viên chức",
-          "numerator": 895,
-          "denominator": 4255,
-          "ratio": 21.03,
-          "score": null,
-          "maxScore": 0,
-          "direction": "neutral",
-          "unit": "%"
-        }
-      ]
-    },
-    {
-      "code": "MDSH",
-      "name": "Số hóa hồ sơ",
-      "score": 7.85,
-      "maxScore": 22,
-      "ratio": 35.68,
-      "metrics": [
-        {
-          "code": "ORIGINAL_RESULT_AVAILABLE",
-          "name": "Tỷ lệ hồ sơ thủ tục hành chính có cấp kết quả giải quyết thủ tục hành chính điện tử",
-          "numerator": 489310,
-          "denominator": 1015948,
-          "ratio": 48.16,
-          "score": 2.89,
-          "maxScore": 6,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "SO_HOA_GIAY_TO_GIAI_QUYET",
-          "name": "Tỷ lệ hồ sơ thủ tục hành chính thực hiện số hóa hồ sơ",
-          "numerator": 156006,
-          "denominator": 1015948,
-          "ratio": 15.36,
-          "score": 0.61,
-          "maxScore": 4,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "REUSED_DIGITIZED_DATA",
-          "name": "Tỷ lệ hồ sơ khai thác, sử dụng lại thông tin, dữ liệu số hóa",
-          "numerator": 328243,
-          "denominator": 1015948,
-          "ratio": 32.31,
-          "score": 0.81,
-          "maxScore": 2,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "SYNCED_WITH_DVCQG_PERSONAL_STORAGE",
-          "name": "Tỷ lệ hồ sơ TTHC được số hóa có kết nối, chia sẻ dữ liệu phục vụ tái sử dụng",
-          "numerator": 1236,
-          "denominator": 1015948,
-          "ratio": 0.12,
-          "score": 0,
-          "maxScore": 4,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "CITIZEN_DATA_CONNECTED_DOSSIER",
-          "name": "Tỷ lệ hồ sơ TTHC có sử dụng thông tin, dữ liệu dân cư",
-          "numerator": 395641,
-          "denominator": 1015948,
-          "ratio": 38.94,
-          "score": 0.78,
-          "maxScore": 2,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "CITIZEN_DATA_CONNECTED_FORMALITY",
-          "name": "Tỷ lệ TTHC triển khai kết nối, chia sẻ dữ liệu dân cư phục vụ GQ TTHC",
-          "numerator": 495,
-          "denominator": 1298,
-          "ratio": 38.14,
-          "score": 0.76,
-          "maxScore": 2,
-          "direction": "up",
-          "unit": "%"
-        },
-        {
-          "code": "ELECTRONIC_CERTIFIED_COPY",
-          "name": "Tỷ lệ cung cấp dịch vụ chứng thực bản sao điện tử từ bản chính",
-          "numerator": null,
-          "denominator": null,
-          "ratio": 100,
-          "score": 2,
-          "maxScore": 2,
-          "direction": "up",
-          "unit": "%"
-        }
-      ]
-    }
-  ],
-  "departments": [
-    {
-      "code": "H26.195",
-      "name": "UBND xã Phúc Lộc",
-      "score": 71.19,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.189",
-      "name": "UBND xã Ba Vì",
-      "score": 69.51,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.190",
-      "name": "UBND xã Yên Bài",
-      "score": 69.4,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.131",
-      "name": "UBND phường Yên Hoà",
-      "score": 68.82,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.174",
-      "name": "UBND xã Hồng Sơn",
-      "score": 68.35,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.194",
-      "name": "UBND xã Phúc Thọ",
-      "score": 68.26,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.188",
-      "name": "UBND xã Suối Hai",
-      "score": 68.25,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.203",
-      "name": "UBND xã Hưng Đạo",
-      "score": 67.88,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.212",
-      "name": "UBND xã Liên Minh",
-      "score": 67.54,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.149",
-      "name": "UBND phường Yên Nghĩa",
-      "score": 67.44,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.201",
-      "name": "UBND xã Yên Xuân",
-      "score": 67.28,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.196",
-      "name": "UBND xã Hát Môn",
-      "score": 67.21,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.191",
-      "name": "UBND phường Sơn Tây",
-      "score": 67.19,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.176",
-      "name": "UBND xã Hương Sơn",
-      "score": 67.09,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.183",
-      "name": "UBND xã Minh Châu",
-      "score": 67.04,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.175",
-      "name": "UBND xã Phúc Sơn",
-      "score": 67.03,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.154",
-      "name": "UBND xã Nam Phù",
-      "score": 67.02,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.217",
-      "name": "UBND xã Thư Lâm",
-      "score": 66.89,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.155",
-      "name": "UBND xã Ngọc Hồi",
-      "score": 66.67,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.186",
-      "name": "UBND xã Cổ Đô",
-      "score": 66.33,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.148",
-      "name": "UBND phường Dương Nội",
-      "score": 66.07,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.178",
-      "name": "UBND xã Phú Nghĩa",
-      "score": 65.87,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.204",
-      "name": "UBND xã Kiều Phú",
-      "score": 65.86,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.165",
-      "name": "UBND xã Thanh Oai",
-      "score": 65.62,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.158",
-      "name": "UBND xã Thường Tín",
-      "score": 65.3,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.228",
-      "name": "UBND xã Nội Bài",
-      "score": 64.8,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.18",
-      "name": "Sở Xây dựng Thành phố Hà Nội",
-      "score": 64.22,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.207",
-      "name": "UBND xã Dương Hoà",
-      "score": 64.14,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.127",
-      "name": "UBND phường Khương Đình",
-      "score": 64.11,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.192",
-      "name": "UBND phường Tùng Thiện",
-      "score": 64.07,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.185",
-      "name": "UBND xã Vật Lại",
-      "score": 63.7,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.177",
-      "name": "UBND phường Chương Mỹ",
-      "score": 63.04,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.163",
-      "name": "UBND xã Chuyên Mỹ",
-      "score": 62.25,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.100",
-      "name": "Ban Quản lý các Khu công nghệ cao và Khu công nghiệp Thành phố Hà Nội",
-      "score": 61.76,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.147",
-      "name": "UBND phường Hà Đông",
-      "score": 60.82,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.208",
-      "name": "UBND xã Sơn Đồng",
-      "score": 59.66,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.220",
-      "name": "UBND xã Thiên Lộc",
-      "score": 58.97,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.159",
-      "name": "UBND xã Chương Dương",
-      "score": 58.93,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.199",
-      "name": "UBND xã Tây Phương",
-      "score": 58.58,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.151",
-      "name": "UBND phường Kiến Hưng",
-      "score": 58.17,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.218",
-      "name": "UBND xã Đông Anh",
-      "score": 58.13,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.116",
-      "name": "UBND phường Láng",
-      "score": 57.58,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.125",
-      "name": "UBND phường Yên Sở",
-      "score": 57.41,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.170",
-      "name": "UBND xã Ứng Thiên",
-      "score": 57.31,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.180",
-      "name": "UBND xã Trần Phú",
-      "score": 57.25,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.150",
-      "name": "UBND phường Phú Lương",
-      "score": 56.71,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.146",
-      "name": "UBND phường Phúc Lợi",
-      "score": 56.49,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.129",
-      "name": "UBND phường Cầu Giấy",
-      "score": 56.32,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.171",
-      "name": "UBND xã Hoà Xá",
-      "score": 56,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.210",
-      "name": "UBND xã Đan Phượng",
-      "score": 55.8,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.167",
-      "name": "UBND xã Tam Hưng",
-      "score": 55.7,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.130",
-      "name": "UBND phường Nghĩa Đô",
-      "score": 55.53,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.226",
-      "name": "UBND xã Sóc Sơn",
-      "score": 55.48,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.179",
-      "name": "UBND xã Xuân Mai",
-      "score": 55.39,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.117",
-      "name": "UBND phường Ô Chợ Dừa",
-      "score": 55.24,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.200",
-      "name": "UBND xã Hoà Lạc",
-      "score": 55.19,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.197",
-      "name": "UBND xã Thạch Thất",
-      "score": 55.05,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.115",
-      "name": "UBND phường Văn Miếu - Quốc Tử Giám",
-      "score": 54.96,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.211",
-      "name": "UBND xã Ô Diên",
-      "score": 54.96,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.161",
-      "name": "UBND xã Phú Xuyên",
-      "score": 54.9,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.173",
-      "name": "UBND xã Mỹ Đức",
-      "score": 54.57,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.184",
-      "name": "UBND xã Quảng Oai",
-      "score": 54.48,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.187",
-      "name": "UBND xã Bất Bạt",
-      "score": 54.28,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.107",
-      "name": "UBND phường Ba Đình",
-      "score": 54.24,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.119",
-      "name": "UBND phường Lĩnh Nam",
-      "score": 54.1,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.202",
-      "name": "UBND xã Quốc Oai",
-      "score": 53.92,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.112",
-      "name": "UBND phường Bạch Mai",
-      "score": 53.88,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.193",
-      "name": "UBND xã Đoài Phương",
-      "score": 53.77,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.136",
-      "name": "UBND phường Xuân Đỉnh",
-      "score": 53.56,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.19",
-      "name": "Sở Y tế Thành phố Hà Nội",
-      "score": 53.49,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.162",
-      "name": "UBND xã Phượng Dực",
-      "score": 53.46,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.123",
-      "name": "UBND phường Định Công",
-      "score": 53.29,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.205",
-      "name": "UBND xã Phú Cát",
-      "score": 53.19,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.124",
-      "name": "UBND phường Hoàng Liệt",
-      "score": 53.09,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.126",
-      "name": "UBND phường Thanh Xuân",
-      "score": 53.04,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.152",
-      "name": "UBND xã Thanh Trì",
-      "score": 52.93,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.114",
-      "name": "UBND phường Kim Liên",
-      "score": 52.84,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.231",
-      "name": "Sở Văn hóa, Thể thao và Du lịch Thành phố Hà Nội",
-      "score": 52.75,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.10",
-      "name": "Sở Nội vụ Thành phố Hà Nội",
-      "score": 52.62,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.169",
-      "name": "UBND xã Vân Đình",
-      "score": 52.59,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.142",
-      "name": "UBND phường Đại Mỗ",
-      "score": 52.55,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.164",
-      "name": "UBND xã Đại Xuyên",
-      "score": 52.52,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.113",
-      "name": "UBND phường Đống Đa",
-      "score": 52.37,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.106",
-      "name": "UBND phường Cửa Nam",
-      "score": 52.25,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.221",
-      "name": "UBND xã Vĩnh Thanh",
-      "score": 52.24,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.219",
-      "name": "UBND xã Phúc Thịnh",
-      "score": 52.03,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.109",
-      "name": "UBND phường Giảng Võ",
-      "score": 51.95,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.110",
-      "name": "UBND phường Hai Bà Trưng",
-      "score": 51.83,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.213",
-      "name": "UBND xã Gia Lâm",
-      "score": 51.5,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.1",
-      "name": "Văn phòng UBND Thành phố  Hà Nội",
-      "score": 51.47,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.198",
-      "name": "UBND xã Hạ Bằng",
-      "score": 51.4,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.111",
-      "name": "UBND phường Vĩnh Tuy",
-      "score": 51.23,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.105",
-      "name": "UBND phường Hoàn Kiếm",
-      "score": 51.06,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.182",
-      "name": "UBND xã Quảng Bị",
-      "score": 51.06,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.121",
-      "name": "UBND phường Vĩnh Hưng",
-      "score": 51.03,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.134",
-      "name": "UBND phường Tây Tựu",
-      "score": 51.01,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.215",
-      "name": "UBND xã Bát Tràng",
-      "score": 50.93,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.224",
-      "name": "UBND xã Tiến Thắng",
-      "score": 50.82,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.144",
-      "name": "UBND phường Bồ Đề",
-      "score": 50.8,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.122",
-      "name": "UBND phường Tương Mai",
-      "score": 50.74,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.166",
-      "name": "UBND xã Bình Minh",
-      "score": 50.64,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.133",
-      "name": "UBND phường Phú Thượng",
-      "score": 50.46,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.145",
-      "name": "UBND phường Việt Hưng",
-      "score": 50.43,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.153",
-      "name": "UBND xã Đại Thanh",
-      "score": 50.32,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.229",
-      "name": "UBND xã Trung Giã",
-      "score": 49.9,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.216",
-      "name": "UBND xã Phù Đổng",
-      "score": 49.86,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.160",
-      "name": "UBND xã Hồng Vân",
-      "score": 49.61,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.157",
-      "name": "UBND xã Thượng Phúc",
-      "score": 49.22,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.132",
-      "name": "UBND phường Tây Hồ",
-      "score": 49.2,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.120",
-      "name": "UBND phường Hoàng Mai",
-      "score": 49.15,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.138",
-      "name": "UBND phường Thượng Cát",
-      "score": 49,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.223",
-      "name": "UBND xã Yên Lãng",
-      "score": 48.86,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.225",
-      "name": "UBND xã Quang Minh",
-      "score": 48.75,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.135",
-      "name": "UBND phường Phú Diễn",
-      "score": 48.72,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.222",
-      "name": "UBND xã Mê Linh",
-      "score": 48.7,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.227",
-      "name": "UBND xã Đa Phúc",
-      "score": 48.66,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.140",
-      "name": "UBND phường Xuân Phương",
-      "score": 48.54,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.156",
-      "name": "UBND phường Thanh Liệt",
-      "score": 48.52,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.118",
-      "name": "UBND phường Hồng Hà",
-      "score": 48.41,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.128",
-      "name": "UBND phường Phương Liệt",
-      "score": 48.25,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.137",
-      "name": "UBND phường Đông Ngạc",
-      "score": 48.2,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.7",
-      "name": "Sở khoa học và Công nghệ Thành phố Hà Nội",
-      "score": 48.06,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.172",
-      "name": "UBND xã Ứng Hoà",
-      "score": 48.05,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.168",
-      "name": "UBND xã Dân Hoà",
-      "score": 48.04,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.206",
-      "name": "UBND xã Hoài Đức",
-      "score": 47.88,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.214",
-      "name": "UBND xã Thuận An",
-      "score": 47.87,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.139",
-      "name": "UBND phường Từ Liêm",
-      "score": 47.76,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.181",
-      "name": "UBND xã Hoà Phú",
-      "score": 47.72,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.143",
-      "name": "UBND phường Long Biên",
-      "score": 47.57,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.230",
-      "name": "UBND xã Kim Anh",
-      "score": 47.33,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.16",
-      "name": "Sở Tư pháp Thành phố Hà Nội",
-      "score": 47.26,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.209",
-      "name": "UBND xã An Khánh",
-      "score": 47.11,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.108",
-      "name": "UBND phường Ngọc Hà",
-      "score": 46.99,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.2",
-      "name": "Sở Công Thương Thành phố Hà Nội",
-      "score": 46.4,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.141",
-      "name": "UBND phường Tây Mỗ",
-      "score": 46.35,
-      "type": "COMMUNE"
-    },
-    {
-      "code": "H26.101",
-      "name": "Trung tâm phục vụ hành chính công Thành phố Hà Nội",
-      "score": 41.47,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.4",
-      "name": "Sở Giáo dục và Đào tạo Thành phố Hà Nội",
-      "score": 33.09,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.103",
-      "name": "Sở Nông nghiệp và Môi trường Thành phố Hà Nội",
-      "score": 30.45,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.13",
-      "name": "Sở Tài chính Thành phố Hà Nội",
-      "score": 27.92,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.102",
-      "name": "Sở Dân tộc và Tôn giáo Thành phố Hà Nội",
-      "score": 19.28,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.232",
-      "name": "Sở Ngoại vụ Thành phố Hà Nội",
-      "score": 19.28,
-      "type": "AGENCY"
-    },
-    {
-      "code": "H26.20",
-      "name": "Thanh tra Thành phố Hà Nội",
-      "score": 19.28,
-      "type": "AGENCY"
-    }
-  ]
+    "day":  "2026-10-06",
+    "capturedAt":  "2026-10-06T06:11:13.290Z",
+    "period":  {
+                   "timeType":  "year",
+                   "year":  2026
+               },
+    "department":  {
+                       "id":  "019d2be3-6a86-70a8-a0af-76e986804225",
+                       "code":  "H26",
+                       "name":  "UBND Thành phố Hà Nội"
+                   },
+    "totalScore":  54.79,
+    "totalMaxScore":  100,
+    "rank":  33,
+    "provinceCount":  34,
+    "groups":  [
+                   {
+                       "code":  "CKMB",
+                       "name":  "Công khai, minh bạch",
+                       "score":  11.28,
+                       "maxScore":  18,
+                       "ratio":  62.67,
+                       "metrics":  [
+                                       {
+                                           "code":  "PUBLISH_ON_TIME",
+                                           "name":  "Tỷ lệ TTHC công bố đúng hạn",
+                                           "numerator":  0,
+                                           "denominator":  77,
+                                           "ratio":  0,
+                                           "score":  0,
+                                           "maxScore":  6,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "PUBLIC_UPDATE_ON_TIME",
+                                           "name":  "Tỷ lệ TTHC cập nhật, công khai đúng hạn",
+                                           "numerator":  65,
+                                           "denominator":  78,
+                                           "ratio":  83.33,
+                                           "score":  3.33,
+                                           "maxScore":  4,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "PUBLIC_CONTENT_FULL",
+                                           "name":  "Tỷ lệ TTHC công khai đầy đủ nội dung",
+                                           "numerator":  78,
+                                           "denominator":  80,
+                                           "ratio":  97.5,
+                                           "score":  1.95,
+                                           "maxScore":  2,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "DOSSIER_SYNC",
+                                           "name":  "Tỷ lệ hồ sơ đồng bộ lên Cổng DVCQG",
+                                           "numerator":  812998,
+                                           "denominator":  812998,
+                                           "ratio":  100,
+                                           "score":  6,
+                                           "maxScore":  6,
+                                           "dataQualityStatus":  "TEMP_NATIONAL_REPORT_DENOMINATOR",
+                                           "dataQualityMessage":  "Mẫu số BCQG/GRIS đang dùng số tạm, cần thay bằng dữ liệu crawl hệ thống cũ.",
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       }
+                                   ]
+                   },
+                   {
+                       "code":  "TDGQ",
+                       "name":  "Tiến độ giải quyết",
+                       "score":  14.77,
+                       "maxScore":  20,
+                       "ratio":  73.86,
+                       "metrics":  [
+                                       {
+                                           "code":  "ON_TIME",
+                                           "name":  "Tỷ lệ hồ sơ đúng hạn, trong hạn",
+                                           "ratio":  73.86,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "AVG_DAYS",
+                                           "name":  "Thời gian giải quyết trung bình",
+                                           "value":  4.55,
+                                           "direction":  "down",
+                                           "unit":  "ngày"
+                                       },
+                                       {
+                                           "code":  "RECEIVED",
+                                           "name":  "Tổng hồ sơ tiếp nhận",
+                                           "value":  1015948,
+                                           "direction":  "neutral",
+                                           "unit":  "hồ sơ"
+                                       },
+                                       {
+                                           "code":  "COMPLETED",
+                                           "name":  "Hồ sơ đã hoàn thành",
+                                           "value":  664189,
+                                           "direction":  "neutral",
+                                           "unit":  "hồ sơ"
+                                       }
+                                   ]
+                   },
+                   {
+                       "code":  "CLGQ",
+                       "name":  "Dịch vụ công trực tuyến",
+                       "score":  9.25,
+                       "maxScore":  12,
+                       "ratio":  77.08,
+                       "metrics":  [
+                                       {
+                                           "code":  "FULL",
+                                           "name":  "Tỷ lệ dịch vụ công toàn trình",
+                                           "numerator":  52,
+                                           "denominator":  81,
+                                           "ratio":  64.2,
+                                           "score":  null,
+                                           "maxScore":  null,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "HAS_ONLINE",
+                                           "name":  "Tỷ lệ DVC có hồ sơ trực tuyến",
+                                           "numerator":  767,
+                                           "denominator":  1856,
+                                           "ratio":  41.33,
+                                           "score":  null,
+                                           "maxScore":  null,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "ONLINE_DOSSIERS",
+                                           "name":  "Tỷ lệ hồ sơ nộp trực tuyến",
+                                           "numerator":  847306,
+                                           "denominator":  1015857,
+                                           "ratio":  83.41,
+                                           "score":  null,
+                                           "maxScore":  null,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "ONLINE_ON_TIME",
+                                           "name":  "Tỷ lệ hồ sơ trực tuyến giải quyết đúng hạn",
+                                           "numerator":  588377,
+                                           "denominator":  847306,
+                                           "ratio":  69.44,
+                                           "score":  null,
+                                           "maxScore":  null,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       }
+                                   ]
+                   },
+                   {
+                       "code":  "TTTT",
+                       "name":  "Thanh toán trực tuyến",
+                       "score":  4.59,
+                       "maxScore":  10,
+                       "ratio":  45.9,
+                       "metrics":  [
+                                       {
+                                           "code":  "PAY_DOSSIERS",
+                                           "name":  "Tỷ lệ hồ sơ thanh toán trực tuyến",
+                                           "numerator":  209254,
+                                           "denominator":  403772,
+                                           "ratio":  51.82,
+                                           "score":  null,
+                                           "maxScore":  null,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "PAY_FORMALITIES",
+                                           "name":  "Tỷ lệ TTHC có giao dịch thanh toán trực tuyến",
+                                           "numerator":  121,
+                                           "denominator":  320,
+                                           "ratio":  37.81,
+                                           "score":  null,
+                                           "maxScore":  null,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "PAY_PROVISION",
+                                           "name":  "Tỷ lệ TTHC có nghĩa vụ tài chính được cung cấp trên Cổng DVCQG",
+                                           "numerator":  68,
+                                           "denominator":  320,
+                                           "ratio":  21.25,
+                                           "score":  null,
+                                           "maxScore":  null,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       }
+                                   ]
+                   },
+                   {
+                       "code":  "MDHL",
+                       "name":  "Mức độ hài lòng",
+                       "score":  7.05,
+                       "maxScore":  18,
+                       "ratio":  39.17,
+                       "metrics":  [
+                                       {
+                                           "code":  "PETITION_CLASSIFICATION_TTHC",
+                                           "name":  "Tỷ lệ PAKN về quy định, thủ tục hành chính",
+                                           "numerator":  3224,
+                                           "denominator":  4255,
+                                           "ratio":  75.77,
+                                           "score":  null,
+                                           "maxScore":  0,
+                                           "direction":  "neutral",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "DOSSIER_RECEIVING_SATISFACTION",
+                                           "name":  "Tỷ lệ hài lòng trong tiếp nhận, giải quyết TTHC",
+                                           "numerator":  747028,
+                                           "denominator":  1015948,
+                                           "ratio":  73.53,
+                                           "score":  4.9,
+                                           "maxScore":  6,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "PETITION_PROCESSING_ON_TIME",
+                                           "name":  "Tỷ lệ PAKN xử lý đúng hạn",
+                                           "numerator":  852,
+                                           "denominator":  4255,
+                                           "ratio":  20.02,
+                                           "score":  1.2,
+                                           "maxScore":  6,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "PETITION_HANDLING_SATISFACTION",
+                                           "name":  "Tỷ lệ hài lòng trong xử lý PAKN",
+                                           "numerator":  673,
+                                           "denominator":  4255,
+                                           "ratio":  15.82,
+                                           "score":  0.95,
+                                           "maxScore":  6,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "PETITION_CLASSIFICATION_STAFF",
+                                           "name":  "Tỷ lệ PAKN về hành vi cán bộ, công chức, viên chức",
+                                           "numerator":  895,
+                                           "denominator":  4255,
+                                           "ratio":  21.03,
+                                           "score":  null,
+                                           "maxScore":  0,
+                                           "direction":  "neutral",
+                                           "unit":  "%"
+                                       }
+                                   ]
+                   },
+                   {
+                       "code":  "MDSH",
+                       "name":  "Số hóa hồ sơ",
+                       "score":  7.85,
+                       "maxScore":  22,
+                       "ratio":  35.68,
+                       "metrics":  [
+                                       {
+                                           "code":  "ORIGINAL_RESULT_AVAILABLE",
+                                           "name":  "Tỷ lệ hồ sơ thủ tục hành chính có cấp kết quả giải quyết thủ tục hành chính điện tử",
+                                           "numerator":  489310,
+                                           "denominator":  1015948,
+                                           "ratio":  48.16,
+                                           "score":  2.89,
+                                           "maxScore":  6,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "SO_HOA_GIAY_TO_GIAI_QUYET",
+                                           "name":  "Tỷ lệ hồ sơ thủ tục hành chính thực hiện số hóa hồ sơ",
+                                           "numerator":  156006,
+                                           "denominator":  1015948,
+                                           "ratio":  15.36,
+                                           "score":  0.61,
+                                           "maxScore":  4,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "REUSED_DIGITIZED_DATA",
+                                           "name":  "Tỷ lệ hồ sơ khai thác, sử dụng lại thông tin, dữ liệu số hóa",
+                                           "numerator":  328243,
+                                           "denominator":  1015948,
+                                           "ratio":  32.31,
+                                           "score":  0.81,
+                                           "maxScore":  2,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "SYNCED_WITH_DVCQG_PERSONAL_STORAGE",
+                                           "name":  "Tỷ lệ hồ sơ TTHC được số hóa có kết nối, chia sẻ dữ liệu phục vụ tái sử dụng",
+                                           "numerator":  1236,
+                                           "denominator":  1015948,
+                                           "ratio":  0.12,
+                                           "score":  0,
+                                           "maxScore":  4,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "CITIZEN_DATA_CONNECTED_DOSSIER",
+                                           "name":  "Tỷ lệ hồ sơ TTHC có sử dụng thông tin, dữ liệu dân cư",
+                                           "numerator":  395641,
+                                           "denominator":  1015948,
+                                           "ratio":  38.94,
+                                           "score":  0.78,
+                                           "maxScore":  2,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "CITIZEN_DATA_CONNECTED_FORMALITY",
+                                           "name":  "Tỷ lệ TTHC triển khai kết nối, chia sẻ dữ liệu dân cư phục vụ GQ TTHC",
+                                           "numerator":  495,
+                                           "denominator":  1298,
+                                           "ratio":  38.14,
+                                           "score":  0.76,
+                                           "maxScore":  2,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       },
+                                       {
+                                           "code":  "ELECTRONIC_CERTIFIED_COPY",
+                                           "name":  "Tỷ lệ cung cấp dịch vụ chứng thực bản sao điện tử từ bản chính",
+                                           "numerator":  null,
+                                           "denominator":  null,
+                                           "ratio":  100,
+                                           "score":  2,
+                                           "maxScore":  2,
+                                           "direction":  "up",
+                                           "unit":  "%"
+                                       }
+                                   ]
+                   }
+               ],
+    "departments":  [
+                        {
+                            "code":  "H26.195",
+                            "name":  "UBND xã Phúc Lộc",
+                            "score":  71.19,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.189",
+                            "name":  "UBND xã Ba Vì",
+                            "score":  69.51,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.190",
+                            "name":  "UBND xã Yên Bài",
+                            "score":  69.4,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.131",
+                            "name":  "UBND phường Yên Hoà",
+                            "score":  68.82,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.174",
+                            "name":  "UBND xã Hồng Sơn",
+                            "score":  68.35,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.194",
+                            "name":  "UBND xã Phúc Thọ",
+                            "score":  68.26,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.188",
+                            "name":  "UBND xã Suối Hai",
+                            "score":  68.25,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.203",
+                            "name":  "UBND xã Hưng Đạo",
+                            "score":  67.88,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.212",
+                            "name":  "UBND xã Liên Minh",
+                            "score":  67.54,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.149",
+                            "name":  "UBND phường Yên Nghĩa",
+                            "score":  67.44,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.201",
+                            "name":  "UBND xã Yên Xuân",
+                            "score":  67.28,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.196",
+                            "name":  "UBND xã Hát Môn",
+                            "score":  67.21,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.191",
+                            "name":  "UBND phường Sơn Tây",
+                            "score":  67.19,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.176",
+                            "name":  "UBND xã Hương Sơn",
+                            "score":  67.09,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.183",
+                            "name":  "UBND xã Minh Châu",
+                            "score":  67.04,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.175",
+                            "name":  "UBND xã Phúc Sơn",
+                            "score":  67.03,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.154",
+                            "name":  "UBND xã Nam Phù",
+                            "score":  67.02,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.217",
+                            "name":  "UBND xã Thư Lâm",
+                            "score":  66.89,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.155",
+                            "name":  "UBND xã Ngọc Hồi",
+                            "score":  66.67,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.186",
+                            "name":  "UBND xã Cổ Đô",
+                            "score":  66.33,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.148",
+                            "name":  "UBND phường Dương Nội",
+                            "score":  66.07,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.178",
+                            "name":  "UBND xã Phú Nghĩa",
+                            "score":  65.87,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.204",
+                            "name":  "UBND xã Kiều Phú",
+                            "score":  65.86,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.165",
+                            "name":  "UBND xã Thanh Oai",
+                            "score":  65.62,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.158",
+                            "name":  "UBND xã Thường Tín",
+                            "score":  65.3,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.228",
+                            "name":  "UBND xã Nội Bài",
+                            "score":  64.8,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.18",
+                            "name":  "Sở Xây dựng Thành phố Hà Nội",
+                            "score":  64.22,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.207",
+                            "name":  "UBND xã Dương Hoà",
+                            "score":  64.14,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.127",
+                            "name":  "UBND phường Khương Đình",
+                            "score":  64.11,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.192",
+                            "name":  "UBND phường Tùng Thiện",
+                            "score":  64.07,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.185",
+                            "name":  "UBND xã Vật Lại",
+                            "score":  63.7,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.177",
+                            "name":  "UBND phường Chương Mỹ",
+                            "score":  63.04,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.163",
+                            "name":  "UBND xã Chuyên Mỹ",
+                            "score":  62.25,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.100",
+                            "name":  "Ban Quản lý các Khu công nghệ cao và Khu công nghiệp Thành phố Hà Nội",
+                            "score":  61.76,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.147",
+                            "name":  "UBND phường Hà Đông",
+                            "score":  60.82,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.208",
+                            "name":  "UBND xã Sơn Đồng",
+                            "score":  59.66,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.220",
+                            "name":  "UBND xã Thiên Lộc",
+                            "score":  58.97,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.159",
+                            "name":  "UBND xã Chương Dương",
+                            "score":  58.93,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.199",
+                            "name":  "UBND xã Tây Phương",
+                            "score":  58.58,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.151",
+                            "name":  "UBND phường Kiến Hưng",
+                            "score":  58.17,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.218",
+                            "name":  "UBND xã Đông Anh",
+                            "score":  58.13,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.116",
+                            "name":  "UBND phường Láng",
+                            "score":  57.58,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.125",
+                            "name":  "UBND phường Yên Sở",
+                            "score":  57.41,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.170",
+                            "name":  "UBND xã Ứng Thiên",
+                            "score":  57.31,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.180",
+                            "name":  "UBND xã Trần Phú",
+                            "score":  57.25,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.150",
+                            "name":  "UBND phường Phú Lương",
+                            "score":  56.71,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.146",
+                            "name":  "UBND phường Phúc Lợi",
+                            "score":  56.49,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.129",
+                            "name":  "UBND phường Cầu Giấy",
+                            "score":  56.32,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.171",
+                            "name":  "UBND xã Hoà Xá",
+                            "score":  56,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.210",
+                            "name":  "UBND xã Đan Phượng",
+                            "score":  55.8,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.167",
+                            "name":  "UBND xã Tam Hưng",
+                            "score":  55.7,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.130",
+                            "name":  "UBND phường Nghĩa Đô",
+                            "score":  55.53,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.226",
+                            "name":  "UBND xã Sóc Sơn",
+                            "score":  55.48,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.179",
+                            "name":  "UBND xã Xuân Mai",
+                            "score":  55.39,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.117",
+                            "name":  "UBND phường Ô Chợ Dừa",
+                            "score":  55.24,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.200",
+                            "name":  "UBND xã Hoà Lạc",
+                            "score":  55.19,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.197",
+                            "name":  "UBND xã Thạch Thất",
+                            "score":  55.05,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.115",
+                            "name":  "UBND phường Văn Miếu - Quốc Tử Giám",
+                            "score":  54.96,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.211",
+                            "name":  "UBND xã Ô Diên",
+                            "score":  54.96,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.161",
+                            "name":  "UBND xã Phú Xuyên",
+                            "score":  54.9,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.173",
+                            "name":  "UBND xã Mỹ Đức",
+                            "score":  54.57,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.184",
+                            "name":  "UBND xã Quảng Oai",
+                            "score":  54.48,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.187",
+                            "name":  "UBND xã Bất Bạt",
+                            "score":  54.28,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.107",
+                            "name":  "UBND phường Ba Đình",
+                            "score":  54.24,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.119",
+                            "name":  "UBND phường Lĩnh Nam",
+                            "score":  54.1,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.202",
+                            "name":  "UBND xã Quốc Oai",
+                            "score":  53.92,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.112",
+                            "name":  "UBND phường Bạch Mai",
+                            "score":  53.88,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.193",
+                            "name":  "UBND xã Đoài Phương",
+                            "score":  53.77,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.136",
+                            "name":  "UBND phường Xuân Đỉnh",
+                            "score":  53.56,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.19",
+                            "name":  "Sở Y tế Thành phố Hà Nội",
+                            "score":  53.49,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.162",
+                            "name":  "UBND xã Phượng Dực",
+                            "score":  53.46,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.123",
+                            "name":  "UBND phường Định Công",
+                            "score":  53.29,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.205",
+                            "name":  "UBND xã Phú Cát",
+                            "score":  53.19,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.124",
+                            "name":  "UBND phường Hoàng Liệt",
+                            "score":  53.09,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.126",
+                            "name":  "UBND phường Thanh Xuân",
+                            "score":  53.04,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.152",
+                            "name":  "UBND xã Thanh Trì",
+                            "score":  52.93,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.114",
+                            "name":  "UBND phường Kim Liên",
+                            "score":  52.84,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.231",
+                            "name":  "Sở Văn hóa, Thể thao và Du lịch Thành phố Hà Nội",
+                            "score":  52.75,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.10",
+                            "name":  "Sở Nội vụ Thành phố Hà Nội",
+                            "score":  52.62,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.169",
+                            "name":  "UBND xã Vân Đình",
+                            "score":  52.59,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.142",
+                            "name":  "UBND phường Đại Mỗ",
+                            "score":  52.55,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.164",
+                            "name":  "UBND xã Đại Xuyên",
+                            "score":  52.52,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.113",
+                            "name":  "UBND phường Đống Đa",
+                            "score":  52.37,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.106",
+                            "name":  "UBND phường Cửa Nam",
+                            "score":  52.25,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.221",
+                            "name":  "UBND xã Vĩnh Thanh",
+                            "score":  52.24,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.219",
+                            "name":  "UBND xã Phúc Thịnh",
+                            "score":  52.03,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.109",
+                            "name":  "UBND phường Giảng Võ",
+                            "score":  51.95,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.110",
+                            "name":  "UBND phường Hai Bà Trưng",
+                            "score":  51.83,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.213",
+                            "name":  "UBND xã Gia Lâm",
+                            "score":  51.5,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.1",
+                            "name":  "Văn phòng UBND Thành phố  Hà Nội",
+                            "score":  51.47,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.198",
+                            "name":  "UBND xã Hạ Bằng",
+                            "score":  51.4,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.111",
+                            "name":  "UBND phường Vĩnh Tuy",
+                            "score":  51.23,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.105",
+                            "name":  "UBND phường Hoàn Kiếm",
+                            "score":  51.06,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.182",
+                            "name":  "UBND xã Quảng Bị",
+                            "score":  51.06,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.121",
+                            "name":  "UBND phường Vĩnh Hưng",
+                            "score":  51.03,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.134",
+                            "name":  "UBND phường Tây Tựu",
+                            "score":  51.01,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.215",
+                            "name":  "UBND xã Bát Tràng",
+                            "score":  50.93,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.224",
+                            "name":  "UBND xã Tiến Thắng",
+                            "score":  50.82,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.144",
+                            "name":  "UBND phường Bồ Đề",
+                            "score":  50.8,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.122",
+                            "name":  "UBND phường Tương Mai",
+                            "score":  50.74,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.166",
+                            "name":  "UBND xã Bình Minh",
+                            "score":  50.64,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.133",
+                            "name":  "UBND phường Phú Thượng",
+                            "score":  50.46,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.145",
+                            "name":  "UBND phường Việt Hưng",
+                            "score":  50.43,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.153",
+                            "name":  "UBND xã Đại Thanh",
+                            "score":  50.32,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.229",
+                            "name":  "UBND xã Trung Giã",
+                            "score":  49.9,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.216",
+                            "name":  "UBND xã Phù Đổng",
+                            "score":  49.86,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.160",
+                            "name":  "UBND xã Hồng Vân",
+                            "score":  49.61,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.157",
+                            "name":  "UBND xã Thượng Phúc",
+                            "score":  49.22,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.132",
+                            "name":  "UBND phường Tây Hồ",
+                            "score":  49.2,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.120",
+                            "name":  "UBND phường Hoàng Mai",
+                            "score":  49.15,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.138",
+                            "name":  "UBND phường Thượng Cát",
+                            "score":  49,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.223",
+                            "name":  "UBND xã Yên Lãng",
+                            "score":  48.86,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.225",
+                            "name":  "UBND xã Quang Minh",
+                            "score":  48.75,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.135",
+                            "name":  "UBND phường Phú Diễn",
+                            "score":  48.72,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.222",
+                            "name":  "UBND xã Mê Linh",
+                            "score":  48.7,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.227",
+                            "name":  "UBND xã Đa Phúc",
+                            "score":  48.66,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.140",
+                            "name":  "UBND phường Xuân Phương",
+                            "score":  48.54,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.156",
+                            "name":  "UBND phường Thanh Liệt",
+                            "score":  48.52,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.118",
+                            "name":  "UBND phường Hồng Hà",
+                            "score":  48.41,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.128",
+                            "name":  "UBND phường Phương Liệt",
+                            "score":  48.25,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.137",
+                            "name":  "UBND phường Đông Ngạc",
+                            "score":  48.2,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.7",
+                            "name":  "Sở khoa học và Công nghệ Thành phố Hà Nội",
+                            "score":  48.06,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.172",
+                            "name":  "UBND xã Ứng Hoà",
+                            "score":  48.05,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.168",
+                            "name":  "UBND xã Dân Hoà",
+                            "score":  48.04,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.206",
+                            "name":  "UBND xã Hoài Đức",
+                            "score":  47.88,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.214",
+                            "name":  "UBND xã Thuận An",
+                            "score":  47.87,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.139",
+                            "name":  "UBND phường Từ Liêm",
+                            "score":  47.76,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.181",
+                            "name":  "UBND xã Hoà Phú",
+                            "score":  47.72,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.143",
+                            "name":  "UBND phường Long Biên",
+                            "score":  47.57,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.230",
+                            "name":  "UBND xã Kim Anh",
+                            "score":  47.33,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.16",
+                            "name":  "Sở Tư pháp Thành phố Hà Nội",
+                            "score":  47.26,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.209",
+                            "name":  "UBND xã An Khánh",
+                            "score":  47.11,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.108",
+                            "name":  "UBND phường Ngọc Hà",
+                            "score":  46.99,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.2",
+                            "name":  "Sở Công Thương Thành phố Hà Nội",
+                            "score":  46.4,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.141",
+                            "name":  "UBND phường Tây Mỗ",
+                            "score":  46.35,
+                            "type":  "COMMUNE"
+                        },
+                        {
+                            "code":  "H26.101",
+                            "name":  "Trung tâm phục vụ hành chính công Thành phố Hà Nội",
+                            "score":  41.47,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.4",
+                            "name":  "Sở Giáo dục và Đào tạo Thành phố Hà Nội",
+                            "score":  33.09,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.103",
+                            "name":  "Sở Nông nghiệp và Môi trường Thành phố Hà Nội",
+                            "score":  30.45,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.13",
+                            "name":  "Sở Tài chính Thành phố Hà Nội",
+                            "score":  27.92,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.102",
+                            "name":  "Sở Dân tộc và Tôn giáo Thành phố Hà Nội",
+                            "score":  19.28,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.232",
+                            "name":  "Sở Ngoại vụ Thành phố Hà Nội",
+                            "score":  19.28,
+                            "type":  "AGENCY"
+                        },
+                        {
+                            "code":  "H26.20",
+                            "name":  "Thanh tra Thành phố Hà Nội",
+                            "score":  19.28,
+                            "type":  "AGENCY"
+                        }
+                    ]
 }

@@ -1,0 +1,78 @@
+name: Update Hanoi quality and publish
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 1,10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-pages
+  cancel-in-progress: false
+
+jobs:
+  collect-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      QUALITY_DATA_DIR: ${{ github.workspace }}/history/quality
+      NODE_ENV: production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check application
+        run: node --test tools/quality-deployment.test.mjs tools/quality-pages.test.mjs
+      - name: Collect Hanoi indicators
+        if: github.event_name != 'push'
+        run: node tools/crawl-quality.mjs
+      - name: Save daily history
+        if: github.event_name != 'push'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add history/quality/*.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Hanoi daily quality snapshot"
+            git push origin HEAD:main
+          fi
+      - name: Keep original response for seven days
+        if: github.event_name != 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-source-${{ github.run_id }}
+          path: history/quality/raw/*.json
+          retention-days: 7
+          if-no-files-found: ignore
+      - name: Build public dashboard
+        run: node tools/build-quality-pages.mjs
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+          retention-days: 1
+
+  deploy:
+    needs: collect-and-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Publish GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

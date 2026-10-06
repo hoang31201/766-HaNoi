@@ -4,11 +4,11 @@ Web tinh hien thi 6 nhom va 27 chi tieu cua Ha Noi tu Cong DVCQG, luu so lieu na
 
 ## Publish mien phi
 
-1. Tao repository PUBLIC ten `hanoi-quality-766`, nhanh mac dinh `main`. GitHub Pages tren GitHub Free can repository public; runner Ubuntu tieu chuan cua Actions tren repository public khong tinh phi thoi gian chay.
+1. Repository PUBLIC cua ban: https://github.com/hoang31201/766-HaNoi, nhanh mac dinh `main`. GitHub Pages tren GitHub Free can repository public; runner Ubuntu tieu chuan cua Actions tren repository public khong tinh phi thoi gian chay.
 2. Dua NOI DUNG thu muc `outputs/github-ready` len goc repository, gom ca `.github/workflows/update-quality.yml`. Khong upload thu muc API ho so, database, cookie hay file Excel.
 3. Settings > Pages > Build and deployment > Source: GitHub Actions.
 4. Actions > Update Hanoi quality and publish > Run workflow > main > Run workflow. Tac vu lay so lieu, luu JSON vao repository va publish Pages.
-5. Xem URL tai Settings > Pages hoac deployment github-pages. URL thuong la `https://TEN_TAI_KHOAN.github.io/hanoi-quality-766/`.
+5. Xem URL tai Settings > Pages hoac deployment github-pages. Duong dan cua ban: `https://hoang31201.github.io/766-HaNoi/` (chi hoat dong sau khi deploy thanh cong).
 
 ## Lich lay va luu
 
@@ -26,7 +26,7 @@ Trang va cac chi tieu tong hop la cong khai. Toan bo app dung du lieu cong khai 
 
 ```sh
 node --test tools/quality-deployment.test.mjs
-QUALITY_DATA_DIR=history/quality GITHUB_REPOSITORY=OWNER/hanoi-quality-766 node tools/build-quality-pages.mjs
+QUALITY_DATA_DIR=history/quality GITHUB_REPOSITORY=hoang31201/766-HaNoi node tools/build-quality-pages.mjs
 ```
 
 Du lieu trong dist la trang tinh, hoat dong ca duoi duong dan repository (khong goi API may chu).

@@ -21,7 +21,10 @@ test('Pages build includes only public assets and relative paths', async t => {
   const records = JSON.parse(await fs.readFile(path.join(outDir, 'data', 'quality-history.json'), 'utf8'));
   assert.equal(records[0].totalScore, 54.79); assert.equal(records[0].rawFile, undefined);
   const html = await fs.readFile(path.join(outDir, 'index.html'), 'utf8');
-  assert.ok(!html.includes('src="/')); assert.match(html, /src="config.js"/);
+  assert.ok(!html.includes('src="/')); assert.match(html, /src="config.js\?v=[a-f0-9]{12}"/);
+  assert.match(html, /src="app.js\?v=[a-f0-9]{12}"/);
+  assert.match(html, /href="styles.css\?v=[a-f0-9]{12}"/);
+  assert.match(html, /src="data\/quality-history.js\?v=[a-f0-9]{12}"/);
   await assert.rejects(buildPages({ dataDir, outDir, repository: 'https://malicious.invalid' }), /Invalid GitHub repository/);
 });
 test('Workflow publishes locally collected history with read-only source access', async () => {

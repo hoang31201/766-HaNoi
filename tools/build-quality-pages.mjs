@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { root, store } from './quality-data.mjs';
 
@@ -20,6 +21,12 @@ export async function buildPages({ sourceRoot = root, dataDir = store, outDir = 
   await fs.writeFile(path.join(outDir, 'config.js'), `window.QUALITY_CONFIG = ${JSON.stringify(config)};\n`);
   await fs.writeFile(path.join(outDir, 'data', 'quality-history.js'), `window.QUALITY_HISTORY = ${JSON.stringify(snapshots)};\n`);
   await fs.writeFile(path.join(outDir, 'data', 'quality-history.json'), JSON.stringify(snapshots));
+  let html = await fs.readFile(path.join(outDir, 'index.html'), 'utf8');
+  for (const asset of ['styles.css', 'app.js', 'config.js', 'data/quality-history.js']) {
+    const revision = createHash('sha256').update(await fs.readFile(path.join(outDir, asset))).digest('hex').slice(0, 12);
+    html = html.replaceAll(`"${asset}"`, `"${asset}?v=${revision}"`);
+  }
+  await fs.writeFile(path.join(outDir, 'index.html'), html);
   await fs.writeFile(path.join(outDir, '.nojekyll'), '');
   console.log(`Pages built: ${outDir}; ${snapshots.length} saved days.`);
   return snapshots;

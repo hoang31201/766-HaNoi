@@ -1,0 +1,12 @@
+node_modules/
+outputs/
+*.sqlite3*
+*.xlsx
+*.zip
+API_*.txt
+.env
+.env.*
+.hsps_build/
+webapp/data/hanoi_766_data.js
+dist/
+history/quality/raw/

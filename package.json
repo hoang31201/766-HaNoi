@@ -1,0 +1,14 @@
+{
+  "name": "hanoi-quality-pages",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test tools/quality-deployment.test.mjs tools/quality-pages.test.mjs",
+    "crawl": "node tools/crawl-quality.mjs",
+    "build": "node tools/build-quality-pages.mjs"
+  }
+}

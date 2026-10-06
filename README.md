@@ -26,9 +26,17 @@ Moi bang don vi co STT va mac dinh sap xep diem hien tai giam dan; bam tieu de d
 
 Chon Nhom tieu chi de xem diem nhom cua tung don vi, kem diem toi da. Diem doi chieu, bien dong va sap xep deu theo nhom dang chon. Tat ca nhom hien diem tong hop. Snapshot moi luu `departments[].groupScores` tu tung endpoint nguon, ghep theo ID don vi; ban luu cu chua co diem nhom hien dau gach, khong thay bang diem tong hop. Da bo lien ket Lich su cap nhat o goc tren.
 
-Lam moi du lieu tai ban da cong bo moi nhat. Lich su cap nhat mo trang workflow de xem ket qua publish. Khach xem web khong duoc cap token hay quyen ghi.
+Lam moi du lieu tai ban da cong bo moi nhat. Khach xem web khong duoc cap token hay quyen ghi.
 
 Trang va cac chi tieu tong hop la cong khai. Toan bo app dung du lieu cong khai cua Cong DVCQG. Danh sach ho so, cookie va SQLite khong nam trong ban nay.
+
+## Ban do dia ban
+
+Ban do Leaflet 1.9.4 to mau 126 xa/phuong theo nhom tieu chi dang chon. Popup hien diem nhom, diem tong hop va bien dong; bang KPI ben canh co bieu do Chart.js 4.5.1 theo nhom va theo ngay. Bo loc gom xa/phuong, trang thai, ten dia ban va chon don vi. Nguong diem mac dinh do duoi 50%, vang duoi 70% diem toi da; day la nguong theo doi cua app, khong phai xep loai chinh thuc. Che do suy giam dung nguong bien dong chung: vang giam tu 1 lan nguong, do giam tu 2 lan nguong. Thieu ngay doi chieu, thieu diem hoac khac thang diem thi khong tinh bien dong.
+
+Ranh gioi tham khao tu Vietnamese Provinces Database, revision `8b78ba5118715e1fa81769286724db79346abf52`, MIT: https://github.com/thanglequoc/vietnamese-provinces-database . Nguon GIS goc duoc du an ghi la sapnhap.bando.com.vn. Khong dung ban do nay xac dinh dia gioi phap ly. Ghep don vi theo ten chuan hoa (giu loai xa/phuong), khong ghep gan dung; don vi khong khop hien chua du so lieu. `tools/import-quality-map.mjs` tao du lieu dia ly va tai cac thu vien co phien ban co dinh. Thu vien, ranh gioi va giay phep duoc luu cung app; khong goi tile server, khong can API key, khong tinh phi va hoat dong voi file HTML tren may. Lucide 0.468.0 dung cho icon, giay phep ISC; Leaflet BSD-2-Clause, Chart.js MIT.
+
+Chu repository da xac nhan commit va xuat ban thay doi ban do len GitHub.
 
 ## Chay thu
 

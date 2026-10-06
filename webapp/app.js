@@ -66,6 +66,7 @@ function fillBaseline() {
 }
 function render() {
   const current = snapshots.find(s => s.day === $('current').value), baseline = snapshots.find(s => s.day === $('baseline').value);
+  window.renderQualityMap?.({ current, baseline, snapshots, group: $('group').value, groupName: $('group').selectedOptions[0]?.textContent === 'Tất cả nhóm' ? 'Điểm tổng hợp' : $('group').selectedOptions[0]?.textContent, threshold: threshold() });
   if (!current) { notify(pages ? 'Chưa có số liệu được công bố. Đang chờ lần lấy số liệu đầu tiên.' : 'Chưa có số liệu chất lượng phục vụ. Bấm Cập nhật số liệu để lấy dữ liệu Hà Nội.'); rows = []; for (const id of ['summary', 'groups', 'metrics', 'agencies', 'communes', 'others', 'period', 'comparison', 'count', 'agencyCount', 'communeCount', 'otherCount', 'chartDates', 'footer']) $(id).textContent = ''; $('otherUnits').hidden = true; $('chart').getContext('2d').clearRect(0, 0, $('chart').width, $('chart').height); $('alerts').innerHTML = '<p class="empty">Chưa có dữ liệu.</p>'; $('updated').textContent = 'Chưa có số liệu'; $('export').disabled = true; return; }
   $('export').disabled = false;
   const warnings = [];

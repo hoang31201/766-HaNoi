@@ -1,0 +1,4907 @@
+{
+  "day": "2026-10-04",
+  "capturedAt": "2026-10-06T19:19:47.933423+07:00",
+  "importedAt": "2026-10-06T19:19:47.933423+07:00",
+  "period": {
+    "timeType": "year",
+    "year": 2026
+  },
+  "department": {
+    "id": "019d2be3-6a86-70a8-a0af-76e986804225",
+    "code": "H26",
+    "name": "UBND Thành phố Hà Nội"
+  },
+  "totalScore": 54.61,
+  "totalMaxScore": 100,
+  "rank": 33.0,
+  "provinceCount": 34,
+  "groups": [
+    {
+      "code": "CKMB",
+      "name": "Công khai, minh bạch",
+      "score": 11.28,
+      "maxScore": 18,
+      "ratio": 62.66666666666666,
+      "metrics": []
+    },
+    {
+      "code": "TDGQ",
+      "name": "Tiến độ giải quyết",
+      "score": 14.73,
+      "maxScore": 20,
+      "ratio": 73.65,
+      "metrics": []
+    },
+    {
+      "code": "CLGQ",
+      "name": "Dịch vụ công trực tuyến",
+      "score": 9.24,
+      "maxScore": 12,
+      "ratio": 77.0,
+      "metrics": []
+    },
+    {
+      "code": "TTTT",
+      "name": "Thanh toán trực tuyến",
+      "score": 4.49,
+      "maxScore": 10,
+      "ratio": 44.9,
+      "metrics": []
+    },
+    {
+      "code": "MDHL",
+      "name": "Mức độ hài lòng",
+      "score": 6.98,
+      "maxScore": 18,
+      "ratio": 38.77777777777778,
+      "metrics": []
+    },
+    {
+      "code": "MDSH",
+      "name": "Số hóa hồ sơ",
+      "score": 7.89,
+      "maxScore": 22,
+      "ratio": 35.86363636363637,
+      "metrics": []
+    }
+  ],
+  "departments": [
+    {
+      "id": "019d2be3-6a87-7317-8556-defbdd6c2065",
+      "code": "H26.18",
+      "name": "Sở Xây dựng Thành phố Hà Nội",
+      "sourceName": "Sở Xây dựng Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 64.21,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.57,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 7.63,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.27,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 13.6,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 11.86,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a86-70a8-a0af-e03032659215",
+      "code": "H26.100",
+      "name": "Ban Quản lý các Khu công nghệ cao và Khu công nghiệp Thành phố Hà Nội",
+      "sourceName": "Ban Quản lý các Khu công nghệ cao và Khu công nghiệp Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 61.61,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.51,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 7.7,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.83,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.29,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a86-70a8-a0af-8005f48e803f",
+      "code": "H26.10",
+      "name": "Sở Nội vụ Thành phố Hà Nội",
+      "sourceName": "Sở Nội vụ Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 52.82,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.3,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.99,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.2,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 8.05,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.0,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a87-7317-8556-f7d97e70d8df",
+      "code": "H26.19",
+      "name": "Sở Y tế Thành phố Hà Nội",
+      "sourceName": "Sở Y tế Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 52.55,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.85,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 7.36,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.25,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.28,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 11.53,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "01a01e01-c9a8-7649-8070-b27072122644",
+      "code": "H26.231",
+      "name": "Sở Văn hóa, Thể thao và Du lịch Thành phố Hà Nội",
+      "sourceName": "Sở Văn hóa, Thể thao và Du lịch Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 52.35,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.19,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 7.43,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 7.11,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.01,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.33,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a86-70a8-a0af-7da9b2b7fbdd",
+      "code": "H26.1",
+      "name": "Văn phòng UBND Thành phố  Hà Nội",
+      "sourceName": "Văn phòng UBND Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 50.95,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 11.29,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 7.0,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 15.76,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.62,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a87-7317-8557-71b747b9e153",
+      "code": "H26.7",
+      "name": "Sở khoa học và Công nghệ Thành phố Hà Nội",
+      "sourceName": "Sở khoa học và Công nghệ Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 47.92,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 13.76,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 8.0,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.79,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 4.58,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.51,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a87-7317-8556-a0dc6006eb65",
+      "code": "H26.16",
+      "name": "Sở Tư pháp Thành phố Hà Nội",
+      "sourceName": "Sở Tư pháp Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 47.21,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 14.46,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 7.37,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.13,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 4.78,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.19,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a87-7317-8556-fda33f737875",
+      "code": "H26.2",
+      "name": "Sở Công Thương Thành phố Hà Nội",
+      "sourceName": "Sở Công Thương Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 46.4,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 14.51,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 7.48,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 4.82,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.31,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6adb-7552-9a1f-fbe6380f2428",
+      "code": "H26.101",
+      "name": "Trung tâm phục vụ hành chính công Thành phố Hà Nội",
+      "sourceName": "Trung tâm phục vụ hành chính công Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 41.47,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.0,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 4.41,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.33,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 4.45,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a87-7317-8557-1db607913277",
+      "code": "H26.4",
+      "name": "Sở Giáo dục và Đào tạo Thành phố Hà Nội",
+      "sourceName": "Sở Giáo dục và Đào tạo Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 32.84,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 7.85,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.75,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 2.56,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 4.4,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a86-70a8-a0b0-20fe272a696a",
+      "code": "H26.103",
+      "name": "Sở Nông nghiệp và Môi trường Thành phố Hà Nội",
+      "sourceName": "Sở Nông nghiệp và Môi trường Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 30.36,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 3.5,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 7.57,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.33,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 1.15,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.53,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a86-70a8-a0b0-e45ba55a286a",
+      "code": "H26.13",
+      "name": "Sở Tài chính Thành phố Hà Nội",
+      "sourceName": "Sở Tài chính Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 27.92,
+      "groupScores": {
+        "CKMB": {
+          "score": 5.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 7.98,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.0,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 2.66,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.0,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a86-70a8-a0b0-1d0de636c2df",
+      "code": "H26.102",
+      "name": "Sở Dân tộc và Tôn giáo Thành phố Hà Nội",
+      "sourceName": "Sở Dân tộc và Tôn giáo Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 19.28,
+      "groupScores": {
+        "CKMB": {
+          "score": 5.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 0.0,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 0.0,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 12.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 2.0,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "01a01e02-4945-72b8-8b82-c837985f277b",
+      "code": "H26.232",
+      "name": "Sở Ngoại vụ Thành phố Hà Nội",
+      "sourceName": "Sở Ngoại vụ Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 19.28,
+      "groupScores": {
+        "CKMB": {
+          "score": 5.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 0.0,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 0.0,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 12.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 2.0,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a87-7317-8557-0b3f6e416cec",
+      "code": "H26.20",
+      "name": "Thanh tra Thành phố Hà Nội",
+      "sourceName": "Thanh tra Thành phố Hà Nội",
+      "type": "AGENCY",
+      "score": 19.28,
+      "groupScores": {
+        "CKMB": {
+          "score": 5.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 0.0,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 0.0,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 12.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 2.0,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-b6edcfe7c605",
+      "code": "H26.195",
+      "name": "UBND xã Phúc Lộc",
+      "sourceName": "UBND xã Phúc Lộc",
+      "type": "COMMUNE",
+      "score": 71.23,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.84,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 6.1,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 10.47,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-9a4db201da97",
+      "code": "H26.189",
+      "name": "UBND xã Ba Vì",
+      "sourceName": "UBND xã Ba Vì",
+      "type": "COMMUNE",
+      "score": 69.53,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.48,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.32,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.09,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.36,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-a343bd26029f",
+      "code": "H26.190",
+      "name": "UBND xã Yên Bài",
+      "sourceName": "UBND xã Yên Bài",
+      "type": "COMMUNE",
+      "score": 69.46,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.32,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.59,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.58,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.69,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-4cd43f9690c2",
+      "code": "H26.170",
+      "name": "UBND xã Ứng Thiên",
+      "sourceName": "UBND xã Ứng Thiên",
+      "type": "COMMUNE",
+      "score": 69.36,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.38,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.46,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.42,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.82,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-b2c24faa25de",
+      "code": "H26.131",
+      "name": "UBND phường Yên Hoà",
+      "sourceName": "UBND phường Yên Hoà",
+      "type": "COMMUNE",
+      "score": 68.84,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.3,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.75,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.4,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.11,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-5dd24b69f2cb",
+      "code": "H26.174",
+      "name": "UBND xã Hồng Sơn",
+      "sourceName": "UBND xã Hồng Sơn",
+      "type": "COMMUNE",
+      "score": 68.39,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.79,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.44,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.88,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.0,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-953578c62cc9",
+      "code": "H26.188",
+      "name": "UBND xã Suối Hai",
+      "sourceName": "UBND xã Suối Hai",
+      "type": "COMMUNE",
+      "score": 68.38,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.07,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.12,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.55,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.36,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-b278287ec1d2",
+      "code": "H26.194",
+      "name": "UBND xã Phúc Thọ",
+      "sourceName": "UBND xã Phúc Thọ",
+      "type": "COMMUNE",
+      "score": 68.3,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.38,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.63,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.45,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.56,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-d70050488e0e",
+      "code": "H26.203",
+      "name": "UBND xã Hưng Đạo",
+      "sourceName": "UBND xã Hưng Đạo",
+      "type": "COMMUNE",
+      "score": 67.9,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.9,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.23,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.12,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.37,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-f1866713e9b0",
+      "code": "H26.210",
+      "name": "UBND xã Đan Phượng",
+      "sourceName": "UBND xã Đan Phượng",
+      "type": "COMMUNE",
+      "score": 67.86,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.84,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.53,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.07,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.14,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-f95853df5d14",
+      "code": "H26.212",
+      "name": "UBND xã Liên Minh",
+      "sourceName": "UBND xã Liên Minh",
+      "type": "COMMUNE",
+      "score": 67.6,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.65,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.51,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.02,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.14,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-fbe7163996dd",
+      "code": "H26.149",
+      "name": "UBND phường Yên Nghĩa",
+      "sourceName": "UBND phường Yên Nghĩa",
+      "type": "COMMUNE",
+      "score": 67.42,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.22,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 3.97,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.54,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.41,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-cda7f7445c4c",
+      "code": "H26.201",
+      "name": "UBND xã Yên Xuân",
+      "sourceName": "UBND xã Yên Xuân",
+      "type": "COMMUNE",
+      "score": 67.28,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.53,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.78,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.27,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.42,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-b9a60f2a23d0",
+      "code": "H26.196",
+      "name": "UBND xã Hát Môn",
+      "sourceName": "UBND xã Hát Môn",
+      "type": "COMMUNE",
+      "score": 67.27,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.03,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.64,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.56,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.76,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-a497060e34c7",
+      "code": "H26.191",
+      "name": "UBND phường Sơn Tây",
+      "sourceName": "UBND phường Sơn Tây",
+      "type": "COMMUNE",
+      "score": 67.23,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.67,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.51,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.99,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.78,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-65ffec110760",
+      "code": "H26.176",
+      "name": "UBND xã Hương Sơn",
+      "sourceName": "UBND xã Hương Sơn",
+      "type": "COMMUNE",
+      "score": 67.12,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.75,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.32,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.01,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.91,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.85,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-63c02a697f19",
+      "code": "H26.175",
+      "name": "UBND xã Phúc Sơn",
+      "sourceName": "UBND xã Phúc Sơn",
+      "type": "COMMUNE",
+      "score": 67.08,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.32,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 4.18,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.06,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.24,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-0cbb8a6f3830",
+      "code": "H26.154",
+      "name": "UBND xã Nam Phù",
+      "sourceName": "UBND xã Nam Phù",
+      "type": "COMMUNE",
+      "score": 67.03,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.9,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.57,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.02,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.95,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.31,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-80aa40d2a681",
+      "code": "H26.183",
+      "name": "UBND xã Minh Châu",
+      "sourceName": "UBND xã Minh Châu",
+      "type": "COMMUNE",
+      "score": 67.02,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.3,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.84,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.32,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.28,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-0f599ad6d308",
+      "code": "H26.217",
+      "name": "UBND xã Thư Lâm",
+      "sourceName": "UBND xã Thư Lâm",
+      "type": "COMMUNE",
+      "score": 66.95,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.47,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.79,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.22,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.19,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-13df88bfe4e2",
+      "code": "H26.155",
+      "name": "UBND xã Ngọc Hồi",
+      "sourceName": "UBND xã Ngọc Hồi",
+      "type": "COMMUNE",
+      "score": 66.76,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.84,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 4.35,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.06,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.23,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-8f06edebd2e9",
+      "code": "H26.186",
+      "name": "UBND xã Cổ Đô",
+      "sourceName": "UBND xã Cổ Đô",
+      "type": "COMMUNE",
+      "score": 66.36,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.27,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.79,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.47,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.55,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-f72e09a7d3d4",
+      "code": "H26.148",
+      "name": "UBND phường Dương Nội",
+      "sourceName": "UBND phường Dương Nội",
+      "type": "COMMUNE",
+      "score": 65.99,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.2,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.93,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.01,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.57,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-6c2822059581",
+      "code": "H26.178",
+      "name": "UBND xã Phú Nghĩa",
+      "sourceName": "UBND xã Phú Nghĩa",
+      "type": "COMMUNE",
+      "score": 65.89,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.26,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.34,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.74,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.27,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-da7f6a033051",
+      "code": "H26.204",
+      "name": "UBND xã Kiều Phú",
+      "sourceName": "UBND xã Kiều Phú",
+      "type": "COMMUNE",
+      "score": 65.89,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.46,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.42,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.91,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.82,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-389bb3dc2709",
+      "code": "H26.165",
+      "name": "UBND xã Thanh Oai",
+      "sourceName": "UBND xã Thanh Oai",
+      "type": "COMMUNE",
+      "score": 65.67,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.17,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.47,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.33,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.42,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-1fb9beaa5a0d",
+      "code": "H26.158",
+      "name": "UBND xã Thường Tín",
+      "sourceName": "UBND xã Thường Tín",
+      "type": "COMMUNE",
+      "score": 65.42,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.45,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.55,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.51,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.63,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-384674e40bf9",
+      "code": "H26.228",
+      "name": "UBND xã Nội Bài",
+      "sourceName": "UBND xã Nội Bài",
+      "type": "COMMUNE",
+      "score": 64.81,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.26,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.63,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.76,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.88,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-a8e6bc0ab45e",
+      "code": "H26.192",
+      "name": "UBND phường Tùng Thiện",
+      "sourceName": "UBND phường Tùng Thiện",
+      "type": "COMMUNE",
+      "score": 64.22,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.86,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 4.81,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.54,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 18.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.73,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-a0aff7d088c5",
+      "code": "H26.127",
+      "name": "UBND phường Khương Đình",
+      "sourceName": "UBND phường Khương Đình",
+      "type": "COMMUNE",
+      "score": 64.15,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.97,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.67,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.62,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.95,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.66,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-e7d4b3eceb3e",
+      "code": "H26.207",
+      "name": "UBND xã Dương Hoà",
+      "sourceName": "UBND xã Dương Hoà",
+      "type": "COMMUNE",
+      "score": 63.86,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.93,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.68,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.97,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.46,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-895c1cf6ab4d",
+      "code": "H26.185",
+      "name": "UBND xã Vật Lại",
+      "sourceName": "UBND xã Vật Lại",
+      "type": "COMMUNE",
+      "score": 63.72,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.75,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 4.98,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.21,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.92,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.58,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-68bcddb9d5ed",
+      "code": "H26.177",
+      "name": "UBND phường Chương Mỹ",
+      "sourceName": "UBND phường Chương Mỹ",
+      "type": "COMMUNE",
+      "score": 62.78,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.68,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.96,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.89,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.43,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-30c67d8285cf",
+      "code": "H26.163",
+      "name": "UBND xã Chuyên Mỹ",
+      "sourceName": "UBND xã Chuyên Mỹ",
+      "type": "COMMUNE",
+      "score": 62.3,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.44,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.33,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.49,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.47,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.29,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-f276b118e689",
+      "code": "H26.147",
+      "name": "UBND phường Hà Đông",
+      "sourceName": "UBND phường Hà Đông",
+      "type": "COMMUNE",
+      "score": 60.86,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.75,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.9,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.18,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 12.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.75,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-ea70e1ca4bcd",
+      "code": "H26.208",
+      "name": "UBND xã Sơn Đồng",
+      "sourceName": "UBND xã Sơn Đồng",
+      "type": "COMMUNE",
+      "score": 59.57,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.22,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.51,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.7,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.4,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.46,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-2267d536a966",
+      "code": "H26.159",
+      "name": "UBND xã Chương Dương",
+      "sourceName": "UBND xã Chương Dương",
+      "type": "COMMUNE",
+      "score": 59.0,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.0,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.5,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.08,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 10.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.14,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-1af711a3fbc8",
+      "code": "H26.220",
+      "name": "UBND xã Thiên Lộc",
+      "sourceName": "UBND xã Thiên Lộc",
+      "type": "COMMUNE",
+      "score": 58.97,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.59,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.51,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.26,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.5,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.83,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-c4de68ec58f5",
+      "code": "H26.199",
+      "name": "UBND xã Tây Phương",
+      "sourceName": "UBND xã Tây Phương",
+      "type": "COMMUNE",
+      "score": 58.63,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.57,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.6,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.88,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.3,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-01bf1a6dc72b",
+      "code": "H26.151",
+      "name": "UBND phường Kiến Hưng",
+      "sourceName": "UBND phường Kiến Hưng",
+      "type": "COMMUNE",
+      "score": 58.26,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.0,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.67,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.62,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.69,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-122baf6d384a",
+      "code": "H26.218",
+      "name": "UBND xã Đông Anh",
+      "sourceName": "UBND xã Đông Anh",
+      "type": "COMMUNE",
+      "score": 58.12,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.22,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.69,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.51,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.39,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.03,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-74faae14d285",
+      "code": "H26.116",
+      "name": "UBND phường Láng",
+      "sourceName": "UBND phường Láng",
+      "type": "COMMUNE",
+      "score": 57.65,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.85,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.64,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.36,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.52,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-9ab3375d0527",
+      "code": "H26.125",
+      "name": "UBND phường Yên Sở",
+      "sourceName": "UBND phường Yên Sở",
+      "type": "COMMUNE",
+      "score": 57.51,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.63,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.28,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.12,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 17.49,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.71,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-768707e33ee9",
+      "code": "H26.180",
+      "name": "UBND xã Trần Phú",
+      "sourceName": "UBND xã Trần Phú",
+      "type": "COMMUNE",
+      "score": 57.3,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.47,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.7,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.35,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.5,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-fcb15074bab7",
+      "code": "H26.150",
+      "name": "UBND phường Phú Lương",
+      "sourceName": "UBND phường Phú Lương",
+      "type": "COMMUNE",
+      "score": 56.82,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.57,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.67,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.09,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.21,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-ec81a90c0e5f",
+      "code": "H26.146",
+      "name": "UBND phường Phúc Lợi",
+      "sourceName": "UBND phường Phúc Lợi",
+      "type": "COMMUNE",
+      "score": 56.55,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.58,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.61,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.13,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 7.84,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.11,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-aa5aaa14080d",
+      "code": "H26.129",
+      "name": "UBND phường Cầu Giấy",
+      "sourceName": "UBND phường Cầu Giấy",
+      "type": "COMMUNE",
+      "score": 56.35,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.24,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.42,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.67,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.74,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-52e26ed966d1",
+      "code": "H26.171",
+      "name": "UBND xã Hoà Xá",
+      "sourceName": "UBND xã Hoà Xá",
+      "type": "COMMUNE",
+      "score": 56.1,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.12,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.19,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.66,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.85,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-41b89014d43d",
+      "code": "H26.167",
+      "name": "UBND xã Tam Hưng",
+      "sourceName": "UBND xã Tam Hưng",
+      "type": "COMMUNE",
+      "score": 55.81,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.49,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.49,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.63,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 8.4,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.52,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-ac143747c9ee",
+      "code": "H26.130",
+      "name": "UBND phường Nghĩa Đô",
+      "sourceName": "UBND phường Nghĩa Đô",
+      "type": "COMMUNE",
+      "score": 55.59,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.63,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.71,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.86,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.11,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-31e1de7630d2",
+      "code": "H26.226",
+      "name": "UBND xã Sóc Sơn",
+      "sourceName": "UBND xã Sóc Sơn",
+      "type": "COMMUNE",
+      "score": 55.51,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.62,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.44,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.47,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.7,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-70a57758ddb6",
+      "code": "H26.179",
+      "name": "UBND xã Xuân Mai",
+      "sourceName": "UBND xã Xuân Mai",
+      "type": "COMMUNE",
+      "score": 55.42,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.3,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.68,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.08,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.08,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-cb0d26317d97",
+      "code": "H26.200",
+      "name": "UBND xã Hoà Lạc",
+      "sourceName": "UBND xã Hoà Lạc",
+      "type": "COMMUNE",
+      "score": 55.29,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.49,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 3.25,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 6.06,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.21,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-78c656f95a4a",
+      "code": "H26.117",
+      "name": "UBND phường Ô Chợ Dừa",
+      "sourceName": "UBND phường Ô Chợ Dừa",
+      "type": "COMMUNE",
+      "score": 55.26,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.56,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.59,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.4,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.43,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-bf65376dc6cd",
+      "code": "H26.197",
+      "name": "UBND xã Thạch Thất",
+      "sourceName": "UBND xã Thạch Thất",
+      "type": "COMMUNE",
+      "score": 55.11,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.24,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.59,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.06,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.94,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-f5f0e1281026",
+      "code": "H26.211",
+      "name": "UBND xã Ô Diên",
+      "sourceName": "UBND xã Ô Diên",
+      "type": "COMMUNE",
+      "score": 55.01,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.77,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.69,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.71,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.56,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-7188b3dc07ae",
+      "code": "H26.115",
+      "name": "UBND phường Văn Miếu - Quốc Tử Giám",
+      "sourceName": "UBND phường Văn Miếu - Quốc Tử Giám",
+      "type": "COMMUNE",
+      "score": 54.98,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.13,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.7,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.74,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.13,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-2b3ce14434dc",
+      "code": "H26.161",
+      "name": "UBND xã Phú Xuyên",
+      "sourceName": "UBND xã Phú Xuyên",
+      "type": "COMMUNE",
+      "score": 54.97,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.98,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.5,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.67,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-58772b69f10a",
+      "code": "H26.173",
+      "name": "UBND xã Mỹ Đức",
+      "sourceName": "UBND xã Mỹ Đức",
+      "type": "COMMUNE",
+      "score": 54.64,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.81,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.46,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.8,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.29,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-853d416a2431",
+      "code": "H26.184",
+      "name": "UBND xã Quảng Oai",
+      "sourceName": "UBND xã Quảng Oai",
+      "type": "COMMUNE",
+      "score": 54.57,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.33,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.49,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.61,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.86,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-927f33ccbbe8",
+      "code": "H26.187",
+      "name": "UBND xã Bất Bạt",
+      "sourceName": "UBND xã Bất Bạt",
+      "type": "COMMUNE",
+      "score": 54.36,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.57,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.42,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.18,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.85,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.06,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-808b16ca5f59",
+      "code": "H26.119",
+      "name": "UBND phường Lĩnh Nam",
+      "sourceName": "UBND phường Lĩnh Nam",
+      "type": "COMMUNE",
+      "score": 54.33,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.25,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.43,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.29,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.08,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-522409d94bfd",
+      "code": "H26.107",
+      "name": "UBND phường Ba Đình",
+      "sourceName": "UBND phường Ba Đình",
+      "type": "COMMUNE",
+      "score": 54.1,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.47,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.66,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.5,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 7.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.19,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-d1a99a922110",
+      "code": "H26.202",
+      "name": "UBND xã Quốc Oai",
+      "sourceName": "UBND xã Quốc Oai",
+      "type": "COMMUNE",
+      "score": 53.95,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.74,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.6,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.37,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.96,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-6645eb4a3957",
+      "code": "H26.112",
+      "name": "UBND phường Bạch Mai",
+      "sourceName": "UBND phường Bạch Mai",
+      "type": "COMMUNE",
+      "score": 53.9,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.23,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.63,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.49,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 12.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 4.27,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-af17825a7d71",
+      "code": "H26.193",
+      "name": "UBND xã Đoài Phương",
+      "sourceName": "UBND xã Đoài Phương",
+      "type": "COMMUNE",
+      "score": 53.82,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.32,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 5.52,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.01,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.69,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-c4163d58ab9e",
+      "code": "H26.136",
+      "name": "UBND phường Xuân Đỉnh",
+      "sourceName": "UBND phường Xuân Đỉnh",
+      "type": "COMMUNE",
+      "score": 53.64,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.22,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.63,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.94,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.57,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-2ff478abc330",
+      "code": "H26.162",
+      "name": "UBND xã Phượng Dực",
+      "sourceName": "UBND xã Phượng Dực",
+      "type": "COMMUNE",
+      "score": 53.43,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.38,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.42,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.61,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.74,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-92a9bf6a70f7",
+      "code": "H26.123",
+      "name": "UBND phường Định Công",
+      "sourceName": "UBND phường Định Công",
+      "type": "COMMUNE",
+      "score": 53.31,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.41,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.57,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.32,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.73,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-debd40e7cff7",
+      "code": "H26.205",
+      "name": "UBND xã Phú Cát",
+      "sourceName": "UBND xã Phú Cát",
+      "type": "COMMUNE",
+      "score": 53.22,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.17,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.39,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.35,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.72,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.31,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-949bee5807fd",
+      "code": "H26.124",
+      "name": "UBND phường Hoàng Liệt",
+      "sourceName": "UBND phường Hoàng Liệt",
+      "type": "COMMUNE",
+      "score": 53.06,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.93,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.38,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.92,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.01,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-9fe62fd6bba4",
+      "code": "H26.126",
+      "name": "UBND phường Thanh Xuân",
+      "sourceName": "UBND phường Thanh Xuân",
+      "type": "COMMUNE",
+      "score": 53.03,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.81,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.18,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.51,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.25,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-079775894d05",
+      "code": "H26.152",
+      "name": "UBND xã Thanh Trì",
+      "sourceName": "UBND xã Thanh Trì",
+      "type": "COMMUNE",
+      "score": 52.92,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.12,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.51,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.23,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.78,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-6e99daf31d58",
+      "code": "H26.114",
+      "name": "UBND phường Kim Liên",
+      "sourceName": "UBND phường Kim Liên",
+      "type": "COMMUNE",
+      "score": 52.85,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.25,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.68,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.68,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.73,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.23,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-de728a738d87",
+      "code": "H26.142",
+      "name": "UBND phường Đại Mỗ",
+      "sourceName": "UBND phường Đại Mỗ",
+      "type": "COMMUNE",
+      "score": 52.58,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.38,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.61,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.95,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.36,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-484883e0ff4a",
+      "code": "H26.169",
+      "name": "UBND xã Vân Đình",
+      "sourceName": "UBND xã Vân Đình",
+      "type": "COMMUNE",
+      "score": 52.53,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.34,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.46,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.26,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.19,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-368f9457868b",
+      "code": "H26.164",
+      "name": "UBND xã Đại Xuyên",
+      "sourceName": "UBND xã Đại Xuyên",
+      "type": "COMMUNE",
+      "score": 52.52,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.98,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.52,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.45,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.65,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.64,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-6b6a959ba7a6",
+      "code": "H26.113",
+      "name": "UBND phường Đống Đa",
+      "sourceName": "UBND phường Đống Đa",
+      "type": "COMMUNE",
+      "score": 52.42,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.21,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.72,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.97,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.24,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-4e0d0a36ffe8",
+      "code": "H26.106",
+      "name": "UBND phường Cửa Nam",
+      "sourceName": "UBND phường Cửa Nam",
+      "type": "COMMUNE",
+      "score": 52.25,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.44,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.56,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.85,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.12,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-1cdbda7040e3",
+      "code": "H26.221",
+      "name": "UBND xã Vĩnh Thanh",
+      "sourceName": "UBND xã Vĩnh Thanh",
+      "type": "COMMUNE",
+      "score": 52.22,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.4,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.38,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.78,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.84,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-1406c994432d",
+      "code": "H26.219",
+      "name": "UBND xã Phúc Thịnh",
+      "sourceName": "UBND xã Phúc Thịnh",
+      "type": "COMMUNE",
+      "score": 52.04,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.98,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.7,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.11,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.64,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.33,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-5abcf89265cf",
+      "code": "H26.109",
+      "name": "UBND phường Giảng Võ",
+      "sourceName": "UBND phường Giảng Võ",
+      "type": "COMMUNE",
+      "score": 51.98,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.61,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.78,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 4.06,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.25,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-5e522475119c",
+      "code": "H26.110",
+      "name": "UBND phường Hai Bà Trưng",
+      "sourceName": "UBND phường Hai Bà Trưng",
+      "type": "COMMUNE",
+      "score": 51.86,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.46,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.77,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.85,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.5,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-fd7a05d41a7c",
+      "code": "H26.213",
+      "name": "UBND xã Gia Lâm",
+      "sourceName": "UBND xã Gia Lâm",
+      "type": "COMMUNE",
+      "score": 51.43,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.57,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.59,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.2,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.79,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-c12c618ba526",
+      "code": "H26.198",
+      "name": "UBND xã Hạ Bằng",
+      "sourceName": "UBND xã Hạ Bằng",
+      "type": "COMMUNE",
+      "score": 51.37,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.21,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.49,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 5.68,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.06,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.65,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-63f3c4323e40",
+      "code": "H26.111",
+      "name": "UBND phường Vĩnh Tuy",
+      "sourceName": "UBND phường Vĩnh Tuy",
+      "type": "COMMUNE",
+      "score": 51.16,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.76,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.73,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.29,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.85,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.25,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-4963e863410a",
+      "code": "H26.105",
+      "name": "UBND phường Hoàn Kiếm",
+      "sourceName": "UBND phường Hoàn Kiếm",
+      "type": "COMMUNE",
+      "score": 51.07,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.91,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.84,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.55,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.49,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-be448cd2c06a",
+      "code": "H26.134",
+      "name": "UBND phường Tây Tựu",
+      "sourceName": "UBND phường Tây Tựu",
+      "type": "COMMUNE",
+      "score": 51.04,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.75,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.53,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.68,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.88,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.92,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-8b802c919c06",
+      "code": "H26.121",
+      "name": "UBND phường Vĩnh Hưng",
+      "sourceName": "UBND phường Vĩnh Hưng",
+      "type": "COMMUNE",
+      "score": 51.03,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.35,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.68,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.53,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.77,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.42,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-7e715c2cc9d2",
+      "code": "H26.182",
+      "name": "UBND xã Quảng Bị",
+      "sourceName": "UBND xã Quảng Bị",
+      "type": "COMMUNE",
+      "score": 51.01,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.95,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.5,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.32,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.42,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-062d8ff6fc11",
+      "code": "H26.215",
+      "name": "UBND xã Bát Tràng",
+      "sourceName": "UBND xã Bát Tràng",
+      "type": "COMMUNE",
+      "score": 50.89,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.8,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.46,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.0,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.92,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.43,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-e613e932f60a",
+      "code": "H26.144",
+      "name": "UBND phường Bồ Đề",
+      "sourceName": "UBND phường Bồ Đề",
+      "type": "COMMUNE",
+      "score": 50.87,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.15,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.8,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.44,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.2,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-288c38dd5d21",
+      "code": "H26.224",
+      "name": "UBND xã Tiến Thắng",
+      "sourceName": "UBND xã Tiến Thắng",
+      "type": "COMMUNE",
+      "score": 50.8,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.28,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.53,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.17,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 9.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.54,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-3fa6456a8b1b",
+      "code": "H26.166",
+      "name": "UBND xã Bình Minh",
+      "sourceName": "UBND xã Bình Minh",
+      "type": "COMMUNE",
+      "score": 50.66,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.33,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.55,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.77,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.19,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-8d9e7530c462",
+      "code": "H26.122",
+      "name": "UBND phường Tương Mai",
+      "sourceName": "UBND phường Tương Mai",
+      "type": "COMMUNE",
+      "score": 50.66,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.1,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.68,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.41,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.31,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.88,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-088ba68b16f4",
+      "code": "H26.153",
+      "name": "UBND xã Đại Thanh",
+      "sourceName": "UBND xã Đại Thanh",
+      "type": "COMMUNE",
+      "score": 50.56,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.96,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.49,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.55,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.97,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.31,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-ba7e8d0c4398",
+      "code": "H26.133",
+      "name": "UBND phường Phú Thượng",
+      "sourceName": "UBND phường Phú Thượng",
+      "type": "COMMUNE",
+      "score": 50.45,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.46,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.7,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.41,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.47,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.13,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-e9ba044bfd47",
+      "code": "H26.145",
+      "name": "UBND phường Việt Hưng",
+      "sourceName": "UBND phường Việt Hưng",
+      "type": "COMMUNE",
+      "score": 50.39,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.89,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.7,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.37,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.95,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.2,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-080b728db9f9",
+      "code": "H26.216",
+      "name": "UBND xã Phù Đổng",
+      "sourceName": "UBND xã Phù Đổng",
+      "type": "COMMUNE",
+      "score": 49.92,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.28,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.43,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.17,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.76,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 9.0,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-3f65282c2858",
+      "code": "H26.229",
+      "name": "UBND xã Trung Giã",
+      "sourceName": "UBND xã Trung Giã",
+      "type": "COMMUNE",
+      "score": 49.8,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.85,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.49,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.79,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.94,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.45,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-27ae1c0049ae",
+      "code": "H26.160",
+      "name": "UBND xã Hồng Vân",
+      "sourceName": "UBND xã Hồng Vân",
+      "type": "COMMUNE",
+      "score": 49.57,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.1,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.44,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.04,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 4.71,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-b5978a4599f9",
+      "code": "H26.132",
+      "name": "UBND phường Tây Hồ",
+      "sourceName": "UBND phường Tây Hồ",
+      "type": "COMMUNE",
+      "score": 49.23,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.61,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.79,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.6,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.49,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.46,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-873c4a8d944f",
+      "code": "H26.120",
+      "name": "UBND phường Hoàng Mai",
+      "sourceName": "UBND phường Hoàng Mai",
+      "type": "COMMUNE",
+      "score": 49.22,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.75,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.5,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.18,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.86,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.65,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-1ba1bccb117e",
+      "code": "H26.157",
+      "name": "UBND xã Thượng Phúc",
+      "sourceName": "UBND xã Thượng Phúc",
+      "type": "COMMUNE",
+      "score": 49.06,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.09,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.46,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.14,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.68,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.41,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-2554a0cb9c83",
+      "code": "H26.223",
+      "name": "UBND xã Yên Lãng",
+      "sourceName": "UBND xã Yên Lãng",
+      "type": "COMMUNE",
+      "score": 48.9,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.3,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.54,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.51,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.27,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-d566a1bd36cd",
+      "code": "H26.140",
+      "name": "UBND phường Xuân Phương",
+      "sourceName": "UBND phường Xuân Phương",
+      "type": "COMMUNE",
+      "score": 48.84,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.3,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.61,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.01,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.42,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.22,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-ce44b6e75040",
+      "code": "H26.138",
+      "name": "UBND phường Thượng Cát",
+      "sourceName": "UBND phường Thượng Cát",
+      "type": "COMMUNE",
+      "score": 48.73,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.07,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.42,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.01,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.67,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.28,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-34532dd778a1",
+      "code": "H26.227",
+      "name": "UBND xã Đa Phúc",
+      "sourceName": "UBND xã Đa Phúc",
+      "type": "COMMUNE",
+      "score": 48.62,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 18.15,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.49,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.32,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.38,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-2e3f0cba4160",
+      "code": "H26.225",
+      "name": "UBND xã Quang Minh",
+      "sourceName": "UBND xã Quang Minh",
+      "type": "COMMUNE",
+      "score": 48.54,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.23,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.68,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.76,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.37,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.22,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-22868a1de53f",
+      "code": "H26.222",
+      "name": "UBND xã Mê Linh",
+      "sourceName": "UBND xã Mê Linh",
+      "type": "COMMUNE",
+      "score": 48.52,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.95,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.67,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.54,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.28,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.8,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-1428fbf45e55",
+      "code": "H26.156",
+      "name": "UBND phường Thanh Liệt",
+      "sourceName": "UBND phường Thanh Liệt",
+      "type": "COMMUNE",
+      "score": 48.49,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.38,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.58,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.59,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.09,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.57,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-a66987d66f83",
+      "code": "H26.128",
+      "name": "UBND phường Phương Liệt",
+      "sourceName": "UBND phường Phương Liệt",
+      "type": "COMMUNE",
+      "score": 48.38,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.97,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.53,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.5,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.62,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.48,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-c271ea7444f7",
+      "code": "H26.135",
+      "name": "UBND phường Phú Diễn",
+      "sourceName": "UBND phường Phú Diễn",
+      "type": "COMMUNE",
+      "score": 48.37,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.72,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.7,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.33,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.53,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.81,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-7dab3c2bd52f",
+      "code": "H26.118",
+      "name": "UBND phường Hồng Hà",
+      "sourceName": "UBND phường Hồng Hà",
+      "type": "COMMUNE",
+      "score": 48.36,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.26,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.59,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.18,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.71,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.34,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-c98b887a6c6b",
+      "code": "H26.137",
+      "name": "UBND phường Đông Ngạc",
+      "sourceName": "UBND phường Đông Ngạc",
+      "type": "COMMUNE",
+      "score": 48.23,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 17.24,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.67,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.82,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.69,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.53,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-564a278aa30a",
+      "code": "H26.172",
+      "name": "UBND xã Ứng Hoà",
+      "sourceName": "UBND xã Ứng Hoà",
+      "type": "COMMUNE",
+      "score": 48.06,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 19.12,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.52,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.64,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.0,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 4.5,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-01a13a772a16",
+      "code": "H26.214",
+      "name": "UBND xã Thuận An",
+      "sourceName": "UBND xã Thuận An",
+      "type": "COMMUNE",
+      "score": 47.92,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.06,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.58,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.27,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.34,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.39,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-46fb2d0efd51",
+      "code": "H26.168",
+      "name": "UBND xã Dân Hoà",
+      "sourceName": "UBND xã Dân Hoà",
+      "type": "COMMUNE",
+      "score": 47.79,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.35,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.49,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.47,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.11,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.09,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-e23c7b588407",
+      "code": "H26.206",
+      "name": "UBND xã Hoài Đức",
+      "sourceName": "UBND xã Hoài Đức",
+      "type": "COMMUNE",
+      "score": 47.68,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.79,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.55,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.56,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.59,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.91,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-e069e28036e5",
+      "code": "H26.143",
+      "name": "UBND phường Long Biên",
+      "sourceName": "UBND phường Long Biên",
+      "type": "COMMUNE",
+      "score": 47.61,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.55,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.72,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.46,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.49,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.11,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-d1ebb009c63a",
+      "code": "H26.139",
+      "name": "UBND phường Từ Liêm",
+      "sourceName": "UBND phường Từ Liêm",
+      "type": "COMMUNE",
+      "score": 47.55,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.86,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.74,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.87,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 6.72,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.08,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-7bde81c4620e",
+      "code": "H26.181",
+      "name": "UBND xã Hoà Phú",
+      "sourceName": "UBND xã Hoà Phú",
+      "type": "COMMUNE",
+      "score": 47.55,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 13.68,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.44,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 3.48,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 4.55,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 8.12,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810d-82019a1fd48e",
+      "code": "H26.230",
+      "name": "UBND xã Kim Anh",
+      "sourceName": "UBND xã Kim Anh",
+      "type": "COMMUNE",
+      "score": 47.3,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.12,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.47,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.32,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.37,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 7.74,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-54a228557232",
+      "code": "H26.108",
+      "name": "UBND phường Ngọc Hà",
+      "sourceName": "UBND phường Ngọc Hà",
+      "type": "COMMUNE",
+      "score": 46.99,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 15.22,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.75,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 2.96,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.05,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 5.73,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810c-ee88731dac61",
+      "code": "H26.209",
+      "name": "UBND xã An Khánh",
+      "sourceName": "UBND xã An Khánh",
+      "type": "COMMUNE",
+      "score": 46.77,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.74,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.63,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 0.26,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.53,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 6.33,
+          "maxScore": 22
+        }
+      }
+    },
+    {
+      "id": "019d2be3-6a97-765e-810b-d815258f07d3",
+      "code": "H26.141",
+      "name": "UBND phường Tây Mỗ",
+      "sourceName": "UBND phường Tây Mỗ",
+      "type": "COMMUNE",
+      "score": 45.9,
+      "groupScores": {
+        "CKMB": {
+          "score": 11.28,
+          "maxScore": 18
+        },
+        "TDGQ": {
+          "score": 16.46,
+          "maxScore": 20
+        },
+        "CLGQ": {
+          "score": 6.63,
+          "maxScore": 12
+        },
+        "TTTT": {
+          "score": 1.24,
+          "maxScore": 10
+        },
+        "MDHL": {
+          "score": 5.38,
+          "maxScore": 18
+        },
+        "MDSH": {
+          "score": 4.91,
+          "maxScore": 22
+        }
+      }
+    }
+  ],
+  "source": {
+    "name": "kq766.anhminh.com.vn",
+    "url": "https://kq766.anhminh.com.vn/province/019d2be3-6a86-70a8-a0af-76e986804225?query_date=2026-10-04",
+    "scope": "public-group-scores",
+    "captureTimeKnown": false,
+    "inconsistentUnitCount": 0,
+    "cityScoreDiscrepancy": null,
+    "note": "Bản điểm công khai theo ngày của nguồn phụ; chưa xác minh thời điểm chốt và cách tổng hợp trùng với nguồn DVCQG. Chỉ có điểm tổng và 6 nhóm, không có chi tiết hồ sơ."
+  }
+}

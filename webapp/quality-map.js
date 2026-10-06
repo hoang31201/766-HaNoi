@@ -40,6 +40,7 @@
     if (unit) {
       const button = document.createElement('button'); button.textContent = 'Xem KPI địa bàn';
       button.addEventListener('click', () => selectUnit(unit.code, false)); content.append(button);
+      const link = document.createElement('a'); link.textContent = 'Chi tiết tiêu chí'; link.href = `#history?day=${encodeURIComponent(context.current.day)}&unit=${encodeURIComponent(unit.code)}`; content.append(document.createElement('br'), link);
     }
     return content;
   }

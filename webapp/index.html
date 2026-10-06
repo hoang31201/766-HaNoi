@@ -4,19 +4,46 @@
 <title>Chất lượng phục vụ Hà Nội</title><link rel="icon" href="data:,"><link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="styles.css">
 </head><body><main class="shell">
 <header><div><p class="eyebrow">BỘ CHỈ SỐ 766 · THÀNH PHỐ HÀ NỘI</p><h1>Chất lượng phục vụ</h1><p id="updated">Đang tải số liệu...</p></div><div class="actions"><a href="https://dichvucong.gov.vn/danh-gia-chat-luong-phuc-vu" target="_blank" rel="noreferrer">Nguồn số liệu ↗</a><button id="refresh">↻ Cập nhật số liệu</button><button id="export" title="Xuất bảng so sánh CSV">↓ Xuất CSV</button></div></header>
-<nav class="page-nav" aria-label="Trang dữ liệu"><a id="overviewLink" href="#overview">Tổng quan hôm nay</a><a id="historyLink" href="#history">Số liệu theo ngày</a></nav>
+<nav class="page-nav" aria-label="Trang dữ liệu"><a id="overviewLink" href="#overview">Tổng quan</a><a id="unitsLink" href="#units">Đơn vị</a><a id="historyLink" href="#history">Theo ngày</a></nav>
+<div class="unit-picker"><label for="unitChooser">Đơn vị theo dõi</label><select id="unitChooser"><option value="">Chọn đơn vị...</option></select><span id="unitCapture"></span></div>
 <p id="notice" class="notice" role="status" hidden></p>
-<section id="historyPage" class="section" hidden><div class="section-title"><h2>Các ngày đã lưu</h2><span id="historyCount"></span></div><div class="table-wrap"><table><thead><tr><th>Ngày lưu</th><th>Lần cập nhật</th><th>Tổng điểm</th><th>Công khai</th><th>Tiến độ</th><th>DVC trực tuyến</th><th>Thanh toán</th><th>Hài lòng</th><th>Số hóa</th></tr></thead><tbody id="historyRows"></tbody></table></div></section>
+<section id="historyPage" class="section" hidden><div class="section-title"><h2>Các ngày đã lưu</h2><span id="historyCount"></span></div><div class="table-wrap"><table class="history-table"><thead><tr><th>Ngày</th><th>Cập nhật lúc</th><th>Điểm Hà Nội</th><th></th></tr></thead><tbody id="historyRows"></tbody></table></div></section>
+<a id="dayBack" class="back-link" href="#history" hidden>Quay lại các ngày đã lưu</a>
 <section class="filters" aria-label="So sánh và cảnh báo">
-<label>Ngày theo dõi<select id="current"></select></label><label>Ngày đối chiếu<select id="baseline"></select></label><label>Ngưỡng biến động<input id="threshold" type="number" min="0.01" max="100" step="0.1" value="0.5"></label><label>Nhóm tiêu chí<select id="group"><option value="all">Tất cả nhóm</option></select></label><label class="check"><input id="onlyChanged" type="checkbox">Chỉ hiện biến động</label>
+<label>Ngày theo dõi<select id="current"></select></label><label>So với ngày<select id="baseline"></select></label>
+<button id="advancedToggle" type="button" aria-expanded="false" aria-controls="advancedFilters"><i data-lucide="sliders-horizontal"></i><span>Tùy chọn nâng cao</span><i data-lucide="chevron-down" class="advanced-chevron"></i></button>
+<div id="advancedFilters" class="advanced-content" hidden><label>Nhóm tiêu chí<select id="group"><option value="all">Tất cả nhóm</option></select></label><label>Ngưỡng cảnh báo<input id="threshold" type="number" min="0.01" max="100" step="0.1" value="0.5"></label><label class="check"><input id="onlyChanged" type="checkbox">Chỉ hiện biến động</label><button id="resetFilters" type="button" title="Khôi phục bộ lọc mặc định"><i data-lucide="rotate-ccw"></i>Đặt lại</button></div>
 </section>
 <div class="context"><span id="period"></span><span id="comparison"></span></div>
+<section id="unitPage" hidden aria-label="Chi tiết đơn vị">
+<a id="unitBack" href="#overview">Quay lại danh sách</a>
+<div id="unitKpis" class="unit-kpis"></div>
+<nav class="unit-tabs" role="tablist" aria-label="Góc nhìn đơn vị"><button id="unitOverviewTab" role="tab" aria-controls="unitOverviewPanel" aria-selected="true" data-unit-tab="overview">Tổng quan</button><button id="unitCriteriaTab" role="tab" aria-controls="unitCriteriaPanel" aria-selected="false" data-unit-tab="criteria">Tiêu chí</button><button id="unitTrendTab" role="tab" aria-controls="unitTrendPanel" aria-selected="false" data-unit-tab="trend">Diễn biến</button></nav>
+<section id="unitOverviewPanel" role="tabpanel" aria-labelledby="unitOverviewTab">
+<div class="section-title unit-title"><h2>Điểm 6 nhóm</h2><span>Điểm / tối đa</span></div><div id="unitGroupSummary" class="groups"></div>
+<div class="section-title"><h2>Ưu tiên theo dõi</h2><span id="unitPriorityCount"></span></div>
+<div id="unitPriorityNote" class="neutral"></div>
+<div class="table-wrap"><table class="priority-table"><thead><tr><th>Tiêu chí</th><th>Điểm hiện tại</th><th>Biến động</th><th>Điểm chưa đạt</th><th>Đánh giá</th></tr></thead><tbody id="unitPriorities"></tbody></table></div>
+<div id="unitQualityNote" class="data-note"></div>
+</section>
+<section id="unitTrendPanel" role="tabpanel" aria-labelledby="unitTrendTab" hidden>
+<div class="section-title"><h2>Diễn biến tiêu chí</h2><select id="unitMetric" aria-label="Tiêu chí biểu đồ"></select></div>
+<div class="trend-controls"><div class="range-buttons" role="group" aria-label="Khoảng thời gian"><button data-unit-range="7" aria-pressed="false">7 ngày</button><button data-unit-range="30" aria-pressed="false">30 ngày</button><button data-unit-range="all" aria-pressed="true">Toàn kỳ</button></div><span id="unitTrendCount" class="neutral"></span></div>
+<div class="unit-trend"><canvas id="unitMetricChart" aria-label="Biểu đồ tiêu chí của đơn vị" role="img"></canvas></div>
+<p id="unitDetailNote" class="neutral"></p>
+</section>
+<section id="unitCriteriaPanel" role="tabpanel" aria-labelledby="unitCriteriaTab" hidden>
+<div class="section-title unit-title"><h2>Chi tiết tiêu chí</h2><span id="unitDetailCount"></span></div>
+<div class="detail-filters"><input id="unitMetricSearch" type="search" placeholder="Tìm tiêu chí..." aria-label="Tìm tiêu chí"><select id="unitStatus" aria-label="Trạng thái tiêu chí"><option value="all">Tất cả trạng thái</option><option value="red">Đỏ · Cần chú ý</option><option value="yellow">Vàng · Theo dõi</option><option value="temporary">Số liệu tạm</option><option value="empty">Không phát sinh</option><option value="unknown">Chưa có đối chiếu</option><option value="normal">Trong ngưỡng</option></select></div>
+<div class="table-wrap"><table class="criteria-table"><thead><tr><th>Nhóm / tiêu chí</th><th>Điểm / tối đa</th><th>Thay đổi điểm</th><th>Thay đổi tỷ lệ / giá trị</th><th>Trạng thái</th></tr></thead><tbody id="unitDetailRows"></tbody></table></div>
+</section>
+</section>
 <section id="summary" class="summary" aria-label="Tổng quan"></section>
-<section class="section"><div class="section-title"><h2>Điểm các nhóm tiêu chí</h2><span>Điểm / điểm tối đa</span></div><div id="groups" class="groups"></div></section>
+<section id="cityGroups" class="section"><details class="group-breakdown"><summary>Điểm theo 6 nhóm</summary><div id="groups" class="groups"></div></details></section>
 <section class="section map-section" aria-labelledby="mapTitle">
 <div class="section-title"><h2 id="mapTitle">Bản đồ chất lượng phục vụ · Hà Nội</h2><span id="mapCoverage" role="status"></span></div>
-<div class="map-filters">
-<label>Tô màu theo<select id="mapMode"><option value="score">Mức điểm đạt được</option><option value="delta">Suy giảm so với ngày đối chiếu</option></select></label>
+<details class="map-options"><summary>Bộ lọc bản đồ</summary><div class="map-filters">
+<label>Tô màu theo<select id="mapMode"><option value="score" selected>Mức điểm đạt được</option><option value="delta">Suy giảm so với ngày đối chiếu</option></select></label>
 <label>Nhóm tiêu chí<select id="mapGroup"><option value="all">Tất cả nhóm</option></select></label>
 <label>Loại địa bàn<select id="mapType"><option value="all">Xã và phường</option><option value="xa">Xã</option><option value="phuong">Phường</option></select></label>
 <label>Trạng thái<select id="mapStatus"><option value="all">Tất cả trạng thái</option><option value="red">Đỏ · Cần chú ý</option><option value="yellow">Vàng · Theo dõi</option><option value="green">Xanh · Trong ngưỡng</option><option value="unknown">Chưa đủ số liệu</option></select></label>
@@ -25,17 +52,18 @@
 <button id="mapFit" class="icon-button" title="Xem toàn Hà Nội" aria-label="Xem toàn Hà Nội"><i data-lucide="maximize"></i></button>
 </div>
 <div class="map-thresholds"><label>Đỏ khi điểm đạt dưới <input id="mapRed" type="number" min="0" max="100" step="1" value="50"> %</label><label>Vàng khi điểm đạt dưới <input id="mapYellow" type="number" min="0" max="100" step="1" value="70"> %</label><span id="mapRule"></span></div>
+</details>
 <p id="mapNotice" class="notice" role="status" hidden></p>
 <div class="map-layout"><div class="map-surface"><div id="hanoiMap" aria-label="Bản đồ các xã, phường Hà Nội"></div><div id="mapLegend" class="map-legend"></div></div>
 <aside class="map-details"><div class="section-title"><h3 id="mapDetailTitle">Toàn Hà Nội</h3><span id="mapDetailDay"></span></div><div id="mapKpis" class="map-kpis"></div><div id="mapDetail" class="map-detail"></div><h3>Điểm các nhóm</h3><div class="map-chart"><canvas id="unitGroupsChart" role="img" aria-label="Điểm các nhóm của địa bàn"></canvas></div><h3>Diễn biến địa bàn</h3><div class="map-chart trend-chart"><canvas id="unitTrendChart" role="img" aria-label="Điểm địa bàn theo ngày"></canvas></div><p id="mapTrendNote" class="neutral"></p></aside></div>
 <div class="section-title unit-title"><h3>Địa bàn cần chú ý</h3><span id="mapAlertCount"></span></div><div id="mapAlerts" class="map-alerts" aria-live="polite"></div>
 <p class="map-source">Ranh giới tham khảo: <a href="https://github.com/thanglequoc/vietnamese-provinces-database/blob/master/docs/gis/README.md" target="_blank" rel="noreferrer">Vietnamese Provinces Database</a> · Không dùng để xác định địa giới pháp lý. Màu cảnh báo là ngưỡng theo dõi của ứng dụng, không phải xếp loại chính thức.</p>
 </section>
-<section class="analysis"><div><div class="section-title"><h2>Diễn biến theo ngày</h2><select id="chartMetric" aria-label="Chỉ số biểu đồ"><option value="total">Điểm tổng hợp</option></select></div><canvas id="chart" role="img" aria-label="Biểu đồ điểm theo ngày"></canvas><div id="chartDates"></div></div><aside><h2>Cảnh báo biến động</h2><div id="alerts" aria-live="polite"></div></aside></section>
-<section class="section"><div class="section-title"><h2>Chỉ tiêu chi tiết</h2><span id="count"></span></div><div class="table-wrap"><table><thead><tr><th>Nhóm / chỉ tiêu</th><th>Ngày đối chiếu</th><th>Ngày theo dõi</th><th>Tăng / giảm</th><th>Điểm</th><th>Tử số / mẫu số</th><th>Đánh giá</th></tr></thead><tbody id="metrics"></tbody></table></div></section>
-<section class="section"><div class="section-title"><h2>Đơn vị thuộc Hà Nội</h2><input id="search" type="search" placeholder="Tìm sở, xã, phường..." aria-label="Tìm đơn vị"></div>
+<section id="cityAnalysis" class="analysis"><div><div class="section-title"><h2>Diễn biến theo ngày</h2><select id="chartMetric" aria-label="Chỉ số biểu đồ"><option value="total">Điểm tổng hợp</option></select></div><canvas id="chart" role="img" aria-label="Biểu đồ điểm theo ngày"></canvas><div id="chartDates"></div></div><aside><h2>Cảnh báo biến động</h2><div id="alerts" aria-live="polite"></div></aside></section>
+<section id="cityMetrics" class="section"><div class="section-title"><h2>Chỉ tiêu chi tiết</h2><span id="count"></span></div><div class="table-wrap"><table><thead><tr><th>Nhóm / chỉ tiêu</th><th>Ngày đối chiếu</th><th>Ngày theo dõi</th><th>Tăng / giảm</th><th>Điểm</th><th>Tử số / mẫu số</th><th>Đánh giá</th></tr></thead><tbody id="metrics"></tbody></table></div></section>
+<section id="unitsSection" class="section"><div class="section-title"><h2>Danh sách đơn vị</h2><input id="search" type="search" placeholder="Tìm sở, xã, phường..." aria-label="Tìm đơn vị"></div>
 <p id="unitScoreContext" class="neutral"></p>
 <div class="section-title unit-title"><h3>Sở, ngành và cơ quan</h3><span id="agencyCount"></span></div><div class="table-wrap"><table class="unit-table" aria-label="Sở, ngành và cơ quan"><thead><tr><th>STT</th><th>Đơn vị</th><th>Điểm đối chiếu</th><th aria-sort="descending"><button id="agenciesSort" class="score-sort" title="Đổi chiều sắp xếp theo điểm">Điểm hiện tại ↓</button></th><th>Biến động</th></tr></thead><tbody id="agencies"></tbody></table></div>
 <div class="section-title unit-title"><h3>Xã, phường</h3><span id="communeCount"></span></div><div class="table-wrap"><table class="unit-table" aria-label="Xã, phường"><thead><tr><th>STT</th><th>Đơn vị</th><th>Điểm đối chiếu</th><th aria-sort="descending"><button id="communesSort" class="score-sort" title="Đổi chiều sắp xếp theo điểm">Điểm hiện tại ↓</button></th><th>Biến động</th></tr></thead><tbody id="communes"></tbody></table></div>
 <div id="otherUnits" hidden><div class="section-title unit-title"><h3>Đơn vị chưa phân loại</h3><span id="otherCount"></span></div><div class="table-wrap"><table class="unit-table" aria-label="Đơn vị chưa phân loại"><thead><tr><th>STT</th><th>Đơn vị</th><th>Điểm đối chiếu</th><th aria-sort="descending"><button id="othersSort" class="score-sort" title="Đổi chiều sắp xếp theo điểm">Điểm hiện tại ↓</button></th><th>Biến động</th></tr></thead><tbody id="others"></tbody></table></div></div></section>
-<footer id="footer"></footer></main><script src="config.js"></script><script src="data/quality-history.js"></script><script src="data/hanoi-boundaries.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/chart.umd.js"></script><script src="vendor/lucide.js"></script><script src="map-model.js"></script><script src="quality-map.js"></script><script src="app.js"></script></body></html>
+<details class="data-notes"><summary>Thông tin dữ liệu</summary><footer id="footer"></footer></details></main><script src="config.js"></script><script src="data/quality-history.js"></script><script src="data/hanoi-boundaries.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/chart.umd.js"></script><script src="vendor/lucide.js"></script><script src="map-model.js"></script><script src="quality-map.js"></script><script src="unit-leader-model.js"></script><script src="unit-detail.js"></script><script src="app.js"></script></body></html>

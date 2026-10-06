@@ -33,12 +33,12 @@ const finite = n => typeof n === 'number' && Number.isFinite(n) ? n : null;
 function ratioMetric(code, name, numerator, denominator, direction = 'up') {
   return { code, name, numerator: finite(numerator), denominator: finite(denominator), ratio: denominator > 0 && finite(numerator) !== null ? Math.round(numerator / denominator * 10000) / 100 : null, score: null, maxScore: null, direction, unit: '%' };
 }
-export function extractMetrics(group, data) {
+export function extractMetrics(group, data, detailed = false) {
   const p = data.overview || data.parent;
   if (!p) throw new Error(`Thiếu số liệu Hà Nội: ${group.name}`);
   const metrics = (p.metrics || []).map(m => ({ ...m, ratio: finite(m.ratio), score: finite(m.score), maxScore: finite(m.maxScore), direction: m.code.startsWith('PETITION_CLASSIFICATION') ? 'neutral' : 'up', unit: '%' }));
   if (group.code === 'TDGQ') metrics.push(
-    { code: 'ON_TIME', name: 'Tỷ lệ hồ sơ đúng hạn, trong hạn', ratio: finite(p.ratio), direction: 'up', unit: '%' },
+    { code: 'ON_TIME', name: 'Tỷ lệ hồ sơ đúng hạn, trong hạn', ratio: finite(p.ratio), ...(detailed ? { numerator: finite(p.totalOnTime), denominator: finite(p.totalReceived), score: finite(p.totalScore), maxScore: finite(p.totalMaxScore) } : {}), direction: 'up', unit: '%' },
     { code: 'AVG_DAYS', name: 'Thời gian giải quyết trung bình', value: finite(p.avgProcessingDays), direction: 'down', unit: 'ngày' },
     { code: 'RECEIVED', name: 'Tổng hồ sơ tiếp nhận', value: finite(p.totalReceived), direction: 'neutral', unit: 'hồ sơ' },
     { code: 'COMPLETED', name: 'Hồ sơ đã hoàn thành', value: finite(p.totalCompleted), direction: 'neutral', unit: 'hồ sơ' });
@@ -54,9 +54,15 @@ export function extractMetrics(group, data) {
   return { code: group.code, name: group.name, score: finite(p.totalScore), maxScore: finite(p.totalMaxScore), ratio: finite(p.ratio), metrics };
 }
 let running = null;
-export function extractDepartmentScores(departments, raw) {
+export function extractDepartmentScores(departments, raw, includeDetails = false) {
   const indexes = new Map(groups.map(group => [group.code, new Map((raw[group.endpoint]?.evaluation || raw[group.endpoint]?.children || []).map(d => [d.departmentId, d]))]));
   return departments.map(d => ({ code: d.departmentCode, name: d.departmentName, score: finite(d.totalScore), type: d.childGroup,
+    ...(includeDetails ? { id: d.departmentId, groupDetails: Object.fromEntries(groups.map(group => {
+      const record = raw.unitDetails?.[d.departmentId]?.[group.code] || indexes.get(group.code).get(d.departmentId);
+      if (!record) return [group.code, null];
+      const normalized = { ...record, totalScore: record.totalScore ?? record.score, totalMaxScore: record.totalMaxScore ?? record.maxScore };
+      return [group.code, extractMetrics(group, { overview: normalized }, true)];
+    })) } : {}),
     groupScores: Object.fromEntries(groups.map(group => {
       const record = indexes.get(group.code).get(d.departmentId);
       return [group.code, { score: finite(record?.totalScore) ?? finite(record?.score), maxScore: finite(record?.totalMaxScore) ?? finite(record?.maxScore) }];
@@ -83,7 +89,26 @@ async function collectSnapshot() {
   }
   const overview = raw['service-results'].overview;
   if (overview?.departmentCode !== 'H26' || finite(overview.totalScore) === null) throw new Error('Điểm tổng hợp không hợp lệ');
-  const snapshot = { day, capturedAt: new Date().toISOString(), period, department: { id: hanoi.departmentId, code: 'H26', name: hanoi.departmentName }, totalScore: overview.totalScore, totalMaxScore: overview.totalMaxScore, rank: [...nationwide.evaluation].sort((a, b) => b.totalScore - a.totalScore).findIndex(d => d.departmentId === hanoi.departmentId) + 1, provinceCount: nationwide.evaluation.length, groups: collected, departments: extractDepartmentScores(raw['service-results'].evaluation, raw) };
+  const detailed = process.env.QUALITY_UNIT_DETAILS === '1';
+  if (detailed) {
+    raw.unitDetails = {};
+    const queue = [...raw['service-results'].evaluation];
+    // Other list responses include full metrics; progress and online lists omit detail fields.
+    await Promise.all(Array.from({ length: 3 }, async () => {
+      while (queue.length) {
+        const unit = queue.shift();
+        raw.unitDetails[unit.departmentId] = {};
+        for (const group of groups.filter(g => ['CLGQ', 'TDGQ'].includes(g.code))) {
+          const data = await post(group.endpoint, { ...body, rootDepartmentId: unit.departmentId });
+          const record = data.parent || data.overview;
+          if (record?.departmentId !== unit.departmentId) throw new Error(`Sai đơn vị chi tiết: ${unit.departmentCode}`);
+          raw.unitDetails[unit.departmentId][group.code] = record;
+          await new Promise(resolve => setTimeout(resolve, 150));
+        }
+      }
+    }));
+  }
+  const snapshot = { day, capturedAt: new Date().toISOString(), period, department: { id: hanoi.departmentId, code: 'H26', name: hanoi.departmentName }, totalScore: overview.totalScore, totalMaxScore: overview.totalMaxScore, rank: [...nationwide.evaluation].sort((a, b) => b.totalScore - a.totalScore).findIndex(d => d.departmentId === hanoi.departmentId) + 1, provinceCount: nationwide.evaluation.length, groups: collected, departments: extractDepartmentScores(raw['service-results'].evaluation, raw, detailed) };
   await fs.mkdir(path.join(store, 'raw'), { recursive: true });
   const rawFile = `${day}-${Date.now()}.json`;
   await fs.writeFile(path.join(store, 'raw', rawFile), JSON.stringify({ snapshot, requests: { period, rootDepartmentId: hanoi.departmentId }, raw }, null, 2));

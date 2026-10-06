@@ -24,10 +24,11 @@ test('Pages build includes only public assets and relative paths', async t => {
   assert.ok(!html.includes('src="/')); assert.match(html, /src="config.js"/);
   await assert.rejects(buildPages({ dataDir, outDir, repository: 'https://malicious.invalid' }), /Invalid GitHub repository/);
 });
-test('Workflow saves history and deploys in the same run with limited permissions', async () => {
+test('Workflow publishes locally collected history with read-only source access', async () => {
   const workflow = await fs.readFile(path.join(root, '.github', 'workflows', 'update-quality.yml'), 'utf8');
-  assert.match(workflow, /cron: '17 1,10 \* \* \*'/);
+  assert.ok(!workflow.includes('schedule:'));
+  assert.ok(!workflow.includes('node tools/crawl-quality.mjs'));
   assert.match(workflow, /QUALITY_DATA_DIR:.*history\/quality/);
-  assert.match(workflow, /contents: write/); assert.match(workflow, /pages: write/); assert.match(workflow, /id-token: write/);
+  assert.match(workflow, /contents: read/); assert.ok(!workflow.includes('contents: write')); assert.match(workflow, /pages: write/); assert.match(workflow, /id-token: write/);
   assert.match(workflow, /needs: collect-and-build/); assert.match(workflow, /cancel-in-progress: false/);
 });

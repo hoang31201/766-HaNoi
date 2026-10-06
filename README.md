@@ -7,18 +7,20 @@ Web tinh hien thi 6 nhom va 27 chi tieu cua Ha Noi tu Cong DVCQG, luu so lieu na
 1. Repository PUBLIC cua ban: https://github.com/hoang31201/766-HaNoi, nhanh mac dinh `main`. GitHub Pages tren GitHub Free can repository public; runner Ubuntu tieu chuan cua Actions tren repository public khong tinh phi thoi gian chay.
 2. Dua NOI DUNG thu muc `outputs/github-ready` len goc repository, gom ca `.github/workflows/update-quality.yml`. Khong upload thu muc API ho so, database, cookie hay file Excel.
 3. Settings > Pages > Build and deployment > Source: GitHub Actions.
-4. Actions > Update Hanoi quality and publish > Run workflow > main > Run workflow. Tac vu lay so lieu, luu JSON vao repository va publish Pages.
+4. Actions > Update Hanoi quality and publish > Run workflow > main > Run workflow chi publish lai du lieu da luu. Du lieu moi duoc lay tren may Windows va dua len repository.
 5. Xem URL tai Settings > Pages hoac deployment github-pages. Duong dan cua ban: `https://hoang31201.github.io/766-HaNoi/` (chi hoat dong sau khi deploy thanh cong).
 
 ## Lich lay va luu
 
-Workflow chay luc 01:17 va 10:17 UTC, tuong ung 08:17 va 17:17 Viet Nam. GitHub co the chay tre khi tai cao. Lich chi chay tren nhanh mac dinh; repository public khong co hoat dong trong 60 ngay co the bi tat lich. Neu tac vu loi, trang giu du lieu cua lan publish thanh cong truoc do; xem Actions de chay lai.
+Task Windows `Hanoi-766-Daily-Sync` chay luc 08:17, 17:17 Viet Nam va khi dang nhap. May can bat va co mang; task chay bu khi co the. GitHub Actions chi kiem tra va publish Pages sau commit, khong crawl tu runner vi ket noi nguon hien bi timeout. Khi may tat, web van hien thi du lieu da publish gan nhat.
 
-Lich su chinh luu trong `history/quality/YYYY-MM-DD.json` va duoc commit sau moi lan lay. Cung ngay giu lan thanh cong moi nhat. Phan raw khong commit; response goc duoc luu bang artifact cua Actions trong 7 ngay. Artifact trang web luu 1 ngay. Khong su dung runner lon, dich vu tra phi hay khoa API.
+Lich su chinh luu trong `history/quality/YYYY-MM-DD.json` va duoc commit sau moi lan lay. Cung ngay giu lan thanh cong moi nhat. Phan raw chi luu tren may trong `outputs/local-sync/history/raw`, khong commit. Nhat ky dong bo: `outputs/local-sync/sync.log`. Dang nhap duoc Git Credential Manager luu trong kho bao mat Windows, khong trong source. Email commit dung noreply. Artifact trang web luu 1 ngay. Khong su dung runner lon, dich vu tra phi hay khoa API.
+
+Cong cu tren may: `tools/sync-quality-local.ps1`; cai lich bang `tools/install-quality-sync.ps1`. Chay ngay bang `powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync-quality-local.ps1`. Dung lich bang Disable task `Hanoi-766-Daily-Sync` trong Task Scheduler. Cong cu dung neu checkout co thay doi chua luu hoac pull khong the fast-forward, khong ghi de. Crawl loi thi giu du lieu cu; push loi thi giu commit tren may de thu lai. Bo chi so nam duoc chup theo ngay, khong phai so ho so phat sinh rieng trong ngay.
 
 ## Nut tren web
 
-Lam moi du lieu tai ban da cong bo moi nhat. Lay so lieu moi mo trang workflow; chu repository dang nhap va bam Run workflow. Khach xem web khong duoc cap token hay quyen ghi.
+Lam moi du lieu tai ban da cong bo moi nhat. Lich su cap nhat mo trang workflow de xem ket qua publish. Khach xem web khong duoc cap token hay quyen ghi.
 
 Trang va cac chi tieu tong hop la cong khai. Toan bo app dung du lieu cong khai cua Cong DVCQG. Danh sach ho so, cookie va SQLite khong nam trong ban nay.
 

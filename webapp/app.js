@@ -17,7 +17,7 @@ if (pages) {
     const url = new URL(settings.workflowUrl);
     if (url.protocol === 'https:' && url.hostname === 'github.com') {
       const link = document.createElement('a');
-      link.href = url.href; link.target = '_blank'; link.rel = 'noreferrer'; link.textContent = 'Lấy số liệu mới ↗'; link.id = 'runWorkflow';
+      link.href = url.href; link.target = '_blank'; link.rel = 'noreferrer'; link.textContent = 'Lịch sử cập nhật ↗'; link.id = 'runWorkflow';
       $('refresh').after(link);
     }
   }
@@ -89,7 +89,7 @@ function render() {
     const prior = baseline?.departments.find(p => p.code === d.code);
     return `<tr><td>${esc(d.name)}</td><td>${fmt(prior?.score)}</td><td>${fmt(d.score)}</td><td>${deltaHTML(diff(d.score, prior?.score))}</td></tr>`;
   }).join('') || '<tr><td colspan="4">Không có đơn vị phù hợp.</td></tr>';
-  $('footer').textContent = `Số liệu năm ${current.period.year}, lưu theo ngày tại múi giờ Việt Nam. Cảnh báo tỷ lệ tính bằng điểm phần trăm; điểm nhóm tính bằng điểm. Thời gian giải quyết tăng được tính là suy giảm; số lượng và cơ cấu chỉ ghi nhận biến động. Bản lưu trong cùng ngày là lần cập nhật thành công mới nhất. ${pages ? 'Lịch lấy số liệu: 08:17 và 17:17 giờ Việt Nam; thời gian thực tế có thể trễ hơn.' : 'Tự lưu ngày mới khi ứng dụng đang chạy.'}`;
+  $('footer').textContent = `Số liệu năm ${current.period.year}, lưu theo ngày tại múi giờ Việt Nam. Cảnh báo tỷ lệ tính bằng điểm phần trăm; điểm nhóm tính bằng điểm. Thời gian giải quyết tăng được tính là suy giảm; số lượng và cơ cấu chỉ ghi nhận biến động. Bản lưu trong cùng ngày là lần cập nhật thành công mới nhất. ${pages ? 'Lịch lấy số liệu trên máy cá nhân: 08:17 và 17:17 giờ Việt Nam; chỉ cập nhật khi máy hoạt động và có mạng.' : 'Tự lưu ngày mới khi ứng dụng đang chạy.'}`;
   drawChart();
 }
 function drawChart() {

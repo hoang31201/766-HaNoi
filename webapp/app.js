@@ -15,6 +15,7 @@ function vietnamDay() {
 }
 const previousDay = day => new Date(Date.parse(`${day}T00:00:00Z`) - 86400000).toISOString().slice(0, 10);
 const historyView = () => location.hash.split('?')[0] === '#history';
+const unitSort = { agencies: 'desc', communes: 'desc', others: 'desc' };
 function routeDay() { return new URLSearchParams(location.hash.split('?')[1] || '').get('day'); }
 today = vietnamDay();
 if (pages) {
@@ -106,14 +107,20 @@ function render() {
     return `<tr><td><small>${esc(m.group.name)}</small>${esc(m.name)}${m.dataQualityMessage ? `<small class="warning">Nguồn ghi chú: ${esc(m.dataQualityMessage)}</small>` : ''}</td><td>${fmt(m.before)}${num(m.before) ? ' ' + esc(m.unit) : ''}</td><td>${fmt(m.after)}${num(m.after) ? ' ' + esc(m.unit) : ''}</td><td>${deltaHTML(m.delta, m.unit === '%' ? 'điểm %' : m.unit, m.direction)}</td><td>${fmt(m.score)} / ${fmt(m.maxScore)}</td><td>${fmt(m.numerator)} / ${fmt(m.denominator)}</td><td class="${num(m.delta) && Math.abs(m.delta) >= threshold() ? tone(m.delta, m.direction) : 'neutral'}">${evaluation}</td></tr>`;
   }).join('') || '<tr><td colspan="7">Không có chỉ tiêu phù hợp.</td></tr>';
   const term = $('search').value.toLocaleLowerCase('vi');
-  const departmentRow = d => {
+  const departmentRow = (d, index) => {
     const prior = baseline?.departments.find(p => p.code === d.code);
-    return `<tr><td>${esc(d.name)}</td><td>${fmt(prior?.score)}</td><td>${fmt(d.score)}</td><td>${deltaHTML(diff(d.score, prior?.score))}</td></tr>`;
+    return `<tr><td>${index + 1}</td><td>${esc(d.name)}</td><td>${fmt(prior?.score)}</td><td>${fmt(d.score)}</td><td>${deltaHTML(diff(d.score, prior?.score))}</td></tr>`;
   };
   for (const [id, countId, category] of [['agencies', 'agencyCount', 'AGENCY'], ['communes', 'communeCount', 'COMMUNE'], ['others', 'otherCount', 'OTHER']]) {
     const units = current.departments.filter(d => category === 'OTHER' ? !['AGENCY', 'COMMUNE'].includes(d.type) : d.type === category);
-    const matches = units.filter(d => d.name.toLocaleLowerCase('vi').includes(term));
-    $(id).innerHTML = matches.map(departmentRow).join('') || '<tr><td colspan="4">Không có đơn vị phù hợp.</td></tr>';
+    const ascending = unitSort[id] === 'asc';
+    const matches = units.filter(d => d.name.toLocaleLowerCase('vi').includes(term)).sort((a, b) => {
+      if (num(a.score) !== num(b.score)) return num(a.score) ? -1 : 1;
+      return (num(a.score) ? (a.score - b.score) * (ascending ? 1 : -1) : 0) || a.name.localeCompare(b.name, 'vi') || String(a.code).localeCompare(String(b.code));
+    });
+    $(id).innerHTML = matches.map(departmentRow).join('') || '<tr><td colspan="5">Không có đơn vị phù hợp.</td></tr>';
+    $(`${id}Sort`).textContent = `Điểm hiện tại ${ascending ? '↑' : '↓'}`;
+    $(`${id}Sort`).closest('th').setAttribute('aria-sort', ascending ? 'ascending' : 'descending');
     $(countId).textContent = `${matches.length} / ${units.length} đơn vị`;
     if (category === 'OTHER') $('otherUnits').hidden = !units.length;
   }
@@ -149,6 +156,7 @@ function drawChart() {
 }
 $('current').addEventListener('change', () => { location.hash = `history?day=${encodeURIComponent($('current').value)}`; });
 window.addEventListener('hashchange', () => populate());
+for (const id of ['agencies', 'communes', 'others']) $(`${id}Sort`).addEventListener('click', () => { unitSort[id] = unitSort[id] === 'desc' ? 'asc' : 'desc'; render(); });
 for (const id of ['baseline', 'group', 'onlyChanged', 'threshold', 'search']) $(id).addEventListener('input', () => { if (id === 'threshold') { try { localStorage.setItem('quality-threshold', String(threshold())); } catch {} } render(); });
 $('chartMetric').addEventListener('change', drawChart);
 window.addEventListener('resize', drawChart);

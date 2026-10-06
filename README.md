@@ -22,6 +22,8 @@ Cong cu tren may: `tools/sync-quality-local.ps1`; cai lich bang `tools/install-q
 
 Trang chinh tu doi chieu ban luu hom nay voi dung ngay hom qua (mui gio Viet Nam), khong dung ngay gan nhat thay the. Neu thieu hom nay/hom qua hoac khac nam thi khong tinh bien dong. Trang `#history` liet ke cac ngay da luu; `#history?day=YYYY-MM-DD` mo chi tiet ngay do, cho phep chon ngay doi chieu cung nam. Bang don vi tach thanh So, nganh va co quan (`AGENCY`) va Xa, phuong (`COMMUNE`) theo phan loai cua nguon; don vi chua phan loai duoc hien rieng neu co.
 
+Moi bang don vi co STT va mac dinh sap xep diem hien tai giam dan; bam tieu de diem de doi chieu tang/giam rieng tung bang. Diem bang nhau sap theo ten, don vi chua co diem o cuoi. STT danh lai theo ket qua dang hien thi khi tim kiem.
+
 Lam moi du lieu tai ban da cong bo moi nhat. Lich su cap nhat mo trang workflow de xem ket qua publish. Khach xem web khong duoc cap token hay quyen ghi.
 
 Trang va cac chi tieu tong hop la cong khai. Toan bo app dung du lieu cong khai cua Cong DVCQG. Danh sach ho so, cookie va SQLite khong nam trong ban nay.

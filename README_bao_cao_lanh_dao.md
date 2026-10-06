@@ -1,6 +1,6 @@
 # Khung bao cao chi so 766 phuc vu lanh dao UBND thanh pho
 
-Trang thai: bot HNi766_bot da cau hinh tren may ca nhan, gui vao nhom da chon luc 06:30 hang ngay (Viet Nam). Danh sach toi da 3 so/nganh va 10 xa/phuong. Token duoc Windows ma hoa, khong dua len GitHub.
+Trang thai: bot HNi766_bot da cau hinh, danh sach toi da 3 so/nganh va 10 xa/phuong. Ban GitHub-first duoc thiet ke gui luc 06:30 hang ngay (Viet Nam) hoac khi du lieu den muon; chi kich hoat sau khi duyet commit va kiem tra tren GitHub. Token da duoc luu trong GitHub Actions Secrets theo chap thuan cua nguoi dung, khong nam trong ma nguon. Xem README_github_automation.md.
 
 Mau dang dung da rut gon: khong hien nguon/do phu, de xuat xu ly, luu y va nguong trong tin nhan. Thong tin chat luong du lieu van duoc giu trong ket qua tao bao cao (`qualityNotes`). Cac muc duoi day mo ta khung phan tich ban dau; khong phai tat ca deu duoc gui vao nhom.
 
@@ -138,10 +138,10 @@ Day la mau, khong phai bao cao so lieu ngay 07/10/2026.
 
 ## 6. Quy trinh gui de xuat
 
-- Cao du lieu luc 05:00 tren may ca nhan; chi gui bao cao moi sau khi cao thanh cong va kiem tra.
+- Cao du lieu luc 05:00 tren may ca nhan, thu lai moi gio den 23:00 cho toi khi ban hom nay duoc day len GitHub. May chi cao va day du lieu; GitHub tao va gui bao cao.
 - Gui luc 06:30 hang ngay theo mui gio Asia/Ho_Chi_Minh. Neu cao chua xong hoac khong co ban hop le cua ngay hien tai thi khong gui du lieu cu duoi nhan ngay moi.
 - Gio cao 05:00 va gio gui 06:30 la hai moc rieng; may ca nhan can bat, dang nhap Windows va co Internet vao thoi diem chay.
-- Neu cao that bai: gui mot tin bao chua co so lieu moi va ngay ban gan nhat; khong lap tin lien tuc.
+- Neu chua co du lieu luc 06:30: GitHub gui mot tin bao chua cap nhat, khong lap tin lien tuc. Khi du lieu hom nay duoc day len sau 06:30, GitHub tu dong gui bao cao.
 - Gui vao nhom Telegram rieng da duoc phe duyet; chi du lieu cong khai/tong hop, khong thong tin ca nhan ho so.
 - Gio gui va so luong don vi da duoc nguoi dung xac nhan. Can xac dinh bot, nhom/nguoi nhan va duyet nguong truoc khi kich hoat.
 - Khong tao bot, luu token hay gui tin thu truoc khi nguoi dung duyet khung nay.

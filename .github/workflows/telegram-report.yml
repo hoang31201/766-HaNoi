@@ -1,0 +1,53 @@
+name: Daily Telegram report
+
+on:
+  push:
+    branches: [main]
+    paths: ['history/quality/*.json']
+  schedule:
+    # Vietnam UTC+7: 06:30, then hourly fallback checks 07:35 through 23:35.
+    - cron: '30 23 * * *'
+    - cron: '35 0-16 * * *'
+  workflow_dispatch:
+    inputs:
+      check_connection:
+        description: Verify Telegram and delivery storage without sending a report
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: telegram-daily-report
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check report and delivery logic
+        run: node --test tools/telegram-quality-report.test.mjs tools/telegram-github.test.mjs
+      - name: Notify group using latest daily data
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_THREAD_ID: ${{ secrets.TELEGRAM_THREAD_ID }}
+          CHECK_CONNECTION: ${{ inputs.check_connection == true }}
+        run: |
+          if [ "$CHECK_CONNECTION" = "true" ]; then
+            node tools/telegram-github.mjs --check-connection
+          else
+            node tools/telegram-github.mjs
+          fi

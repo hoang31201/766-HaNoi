@@ -110,9 +110,9 @@ export function buildReport(snapshots, day = vietnamDay(), { allowSecondary = fa
   }
   return { day, kind: 'report', qualityNotes: quality, messages: [...splitMessages(summary), ...splitMessages(units.join('\n'))] };
 }
-export async function readHistory() {
+export async function readHistory(directories = ['outputs/github-sync/history/quality', 'outputs/local-sync/history']) {
   const byDay = new Map();
-  for (const directory of ['outputs/github-sync/history/quality', 'outputs/local-sync/history']) {
+  for (const directory of directories) {
     let files;
     try { files = await fs.readdir(path.join(root, directory)); } catch (e) { if (e.code === 'ENOENT') continue; throw e; }
     for (const file of files.filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))) {

@@ -9,6 +9,14 @@ const colors = ['#26798a', '#46865a', '#7662a0', '#b68127', '#bc5268', '#388c89'
 const settings = window.QUALITY_CONFIG || { mode: 'server' };
 const pages = settings.mode === 'pages';
 let snapshots = window.QUALITY_HISTORY || [], rows = [], offline = location.protocol === 'file:', today = '', lastError = '';
+function vietnamDay() {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(p => [p.type, p.value]));
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
+const previousDay = day => new Date(Date.parse(`${day}T00:00:00Z`) - 86400000).toISOString().slice(0, 10);
+const historyView = () => location.hash.split('?')[0] === '#history';
+function routeDay() { return new URLSearchParams(location.hash.split('?')[1] || '').get('day'); }
+today = vietnamDay();
 if (pages) {
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(p => [p.type, p.value]));
   today = `${parts.year}-${parts.month}-${parts.day}`;
@@ -34,9 +42,21 @@ function deltaText(delta, unit = 'điểm') {
 function deltaHTML(delta, unit = 'điểm', direction = 'up') { return `<span class="delta ${tone(delta, direction)}">${deltaText(delta, unit)}</span>`; }
 function notify(message) { $('notice').hidden = !message; $('notice').textContent = message; }
 function populate(preferred) {
+  today = vietnamDay();
   snapshots.sort((a, b) => a.day.localeCompare(b.day));
+  const archive = historyView();
+  $('historyPage').hidden = !archive;
+  document.querySelector('h1').textContent = archive ? 'Số liệu theo ngày' : 'Chất lượng phục vụ';
+  document.title = archive ? 'Số liệu theo ngày · Hà Nội' : 'Chất lượng phục vụ Hà Nội';
+  for (const [id, active] of [['overviewLink', !archive], ['historyLink', archive]]) {
+    if (active) $(id).setAttribute('aria-current', 'page'); else $(id).removeAttribute('aria-current');
+  }
+  $('current').disabled = !archive; $('baseline').disabled = !archive;
   $('current').innerHTML = snapshots.map(s => `<option value="${esc(s.day)}">${dateLabel(s.day)}</option>`).reverse().join('');
-  $('current').value = snapshots.some(s => s.day === preferred) ? preferred : snapshots.at(-1)?.day || '';
+  const requested = archive ? routeDay() || preferred : today;
+  $('current').value = snapshots.some(s => s.day === requested) ? requested : snapshots.at(-1)?.day || '';
+  $('historyCount').textContent = `${snapshots.length} ngày`;
+  $('historyRows').innerHTML = [...snapshots].reverse().map(s => `<tr${s.day === $('current').value ? ' class="selected-day"' : ''}><td><a href="#history?day=${encodeURIComponent(s.day)}"${s.day === $('current').value ? ' aria-current="date"' : ''}>${dateLabel(s.day)}</a></td><td>${esc(new Date(s.capturedAt).toLocaleTimeString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }))}</td><td>${fmt(s.totalScore)} / ${fmt(s.totalMaxScore)}</td>${['CKMB', 'TDGQ', 'CLGQ', 'TTTT', 'MDHL', 'MDSH'].map(code => `<td>${fmt(s.groups.find(g => g.code === code)?.score)}</td>`).join('')}</tr>`).join('') || '<tr><td colspan="9">Chưa có ngày đã lưu.</td></tr>';
   const groups = snapshots.at(-1)?.groups || [];
   $('group').innerHTML = '<option value="all">Tất cả nhóm</option>' + groups.map(g => `<option value="${esc(g.code)}">${esc(g.name)}</option>`).join('');
   $('chartMetric').innerHTML = '<option value="total">Điểm tổng hợp</option>' + groups.map(g => `<option value="${esc(g.code)}">${esc(g.name)}</option>`).join('');
@@ -46,22 +66,23 @@ function fillBaseline() {
   const current = snapshots.find(s => s.day === $('current').value);
   const options = snapshots.filter(s => s.day !== current?.day && s.period.year === current?.period.year);
   $('baseline').innerHTML = '<option value="">Chưa chọn đối chiếu</option>' + options.map(s => `<option value="${esc(s.day)}">${dateLabel(s.day)}</option>`).reverse().join('');
-  $('baseline').value = options.filter(s => s.day < current.day).at(-1)?.day || '';
+  const target = previousDay(historyView() && current ? current.day : today);
+  $('baseline').value = (historyView() || current?.day === today) && options.some(s => s.day === target) ? target : '';
 }
 function render() {
   const current = snapshots.find(s => s.day === $('current').value), baseline = snapshots.find(s => s.day === $('baseline').value);
-  if (!current) { notify(pages ? 'Chưa có số liệu được công bố. Đang chờ lần lấy số liệu đầu tiên.' : 'Chưa có số liệu chất lượng phục vụ. Bấm Cập nhật số liệu để lấy dữ liệu Hà Nội.'); $('summary').innerHTML = ''; $('groups').innerHTML = ''; $('metrics').innerHTML = ''; $('departments').innerHTML = ''; $('alerts').innerHTML = '<p class="empty">Chưa có dữ liệu.</p>'; $('updated').textContent = 'Chưa có số liệu'; $('export').disabled = true; return; }
+  if (!current) { notify(pages ? 'Chưa có số liệu được công bố. Đang chờ lần lấy số liệu đầu tiên.' : 'Chưa có số liệu chất lượng phục vụ. Bấm Cập nhật số liệu để lấy dữ liệu Hà Nội.'); rows = []; for (const id of ['summary', 'groups', 'metrics', 'agencies', 'communes', 'others', 'period', 'comparison', 'count', 'agencyCount', 'communeCount', 'otherCount', 'chartDates', 'footer']) $(id).textContent = ''; $('otherUnits').hidden = true; $('chart').getContext('2d').clearRect(0, 0, $('chart').width, $('chart').height); $('alerts').innerHTML = '<p class="empty">Chưa có dữ liệu.</p>'; $('updated').textContent = 'Chưa có số liệu'; $('export').disabled = true; return; }
   $('export').disabled = false;
   const warnings = [];
   if (offline && !pages) warnings.push('Đang xem bản đã lưu. Mở ứng dụng qua địa chỉ localhost để cập nhật trực tiếp.');
   if (lastError) warnings.push(`Lần cập nhật gần nhất thất bại: ${lastError}. Đang giữ số liệu đã lưu.`);
   if (today && current.day === snapshots.at(-1).day && current.day < today) warnings.push(`Chưa có số liệu ngày ${dateLabel(today)}.`);
-  if (!baseline) warnings.push('Chưa có ngày đối chiếu. Các cảnh báo tăng giảm sẽ xuất hiện khi đã lưu ít nhất hai ngày trong cùng năm.');
+  if (!baseline) warnings.push(!historyView() ? `Chưa thể đối chiếu hôm qua (${dateLabel(previousDay(today))}): cần đủ bản lưu hôm nay và hôm qua trong cùng năm.` : `Chưa có ngày đối chiếu cùng năm. Ngày liền trước là ${dateLabel(previousDay(current.day))}.`);
   notify(warnings.join(' '));
   $('updated').textContent = `Lấy số liệu lúc ${new Date(current.capturedAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}`;
   $('period').textContent = `Kỳ số liệu: năm ${current.period.year} · Ngày lưu: ${dateLabel(current.day)}`;
   const gap = baseline ? Math.abs((Date.parse(current.day) - Date.parse(baseline.day)) / 86400000) : 0;
-  $('comparison').textContent = baseline ? `So với ${dateLabel(baseline.day)} · Cách ${gap} ngày` : 'Chưa có đối chiếu';
+  $('comparison').textContent = baseline ? `${historyView() ? 'So với' : 'Đối chiếu hôm qua:'} ${dateLabel(baseline.day)} · Cách ${gap} ngày` : !historyView() ? `Hôm qua: ${dateLabel(previousDay(today))} · Chưa đủ số liệu` : 'Chưa có đối chiếu';
   const flattened = current.groups.flatMap(g => g.metrics.map(m => {
     const prior = baseline?.groups.find(b => b.code === g.code)?.metrics.find(b => b.code === m.code);
     return { ...m, group: g, before: value(prior), after: value(m), delta: diff(value(m), value(prior)) };
@@ -85,10 +106,17 @@ function render() {
     return `<tr><td><small>${esc(m.group.name)}</small>${esc(m.name)}${m.dataQualityMessage ? `<small class="warning">Nguồn ghi chú: ${esc(m.dataQualityMessage)}</small>` : ''}</td><td>${fmt(m.before)}${num(m.before) ? ' ' + esc(m.unit) : ''}</td><td>${fmt(m.after)}${num(m.after) ? ' ' + esc(m.unit) : ''}</td><td>${deltaHTML(m.delta, m.unit === '%' ? 'điểm %' : m.unit, m.direction)}</td><td>${fmt(m.score)} / ${fmt(m.maxScore)}</td><td>${fmt(m.numerator)} / ${fmt(m.denominator)}</td><td class="${num(m.delta) && Math.abs(m.delta) >= threshold() ? tone(m.delta, m.direction) : 'neutral'}">${evaluation}</td></tr>`;
   }).join('') || '<tr><td colspan="7">Không có chỉ tiêu phù hợp.</td></tr>';
   const term = $('search').value.toLocaleLowerCase('vi');
-  $('departments').innerHTML = current.departments.filter(d => d.name.toLocaleLowerCase('vi').includes(term)).map(d => {
+  const departmentRow = d => {
     const prior = baseline?.departments.find(p => p.code === d.code);
     return `<tr><td>${esc(d.name)}</td><td>${fmt(prior?.score)}</td><td>${fmt(d.score)}</td><td>${deltaHTML(diff(d.score, prior?.score))}</td></tr>`;
-  }).join('') || '<tr><td colspan="4">Không có đơn vị phù hợp.</td></tr>';
+  };
+  for (const [id, countId, category] of [['agencies', 'agencyCount', 'AGENCY'], ['communes', 'communeCount', 'COMMUNE'], ['others', 'otherCount', 'OTHER']]) {
+    const units = current.departments.filter(d => category === 'OTHER' ? !['AGENCY', 'COMMUNE'].includes(d.type) : d.type === category);
+    const matches = units.filter(d => d.name.toLocaleLowerCase('vi').includes(term));
+    $(id).innerHTML = matches.map(departmentRow).join('') || '<tr><td colspan="4">Không có đơn vị phù hợp.</td></tr>';
+    $(countId).textContent = `${matches.length} / ${units.length} đơn vị`;
+    if (category === 'OTHER') $('otherUnits').hidden = !units.length;
+  }
   $('footer').textContent = `Số liệu năm ${current.period.year}, lưu theo ngày tại múi giờ Việt Nam. Cảnh báo tỷ lệ tính bằng điểm phần trăm; điểm nhóm tính bằng điểm. Thời gian giải quyết tăng được tính là suy giảm; số lượng và cơ cấu chỉ ghi nhận biến động. Bản lưu trong cùng ngày là lần cập nhật thành công mới nhất. ${pages ? 'Lịch lấy số liệu trên máy cá nhân: 08:17 và 17:17 giờ Việt Nam; chỉ cập nhật khi máy hoạt động và có mạng.' : 'Tự lưu ngày mới khi ứng dụng đang chạy.'}`;
   drawChart();
 }
@@ -119,7 +147,8 @@ function drawChart() {
   $('chartDates').textContent = points.length === 1 ? `Mới có số liệu ngày ${dateLabel(points[0].day)}.` : `${points.length} ngày đã lưu · Đường đứt: ngày chưa có bản lưu.`;
   canvas.onmousemove = e => { const mx = e.clientX - rect.left; const nearest = [...points].sort((a, b) => Math.abs(x(a) - mx) - Math.abs(x(b) - mx))[0]; canvas.title = `${dateLabel(nearest.day)}: ${fmt(nearest.v)} điểm`; };
 }
-$('current').addEventListener('change', () => { fillBaseline(); render(); });
+$('current').addEventListener('change', () => { location.hash = `history?day=${encodeURIComponent($('current').value)}`; });
+window.addEventListener('hashchange', () => populate());
 for (const id of ['baseline', 'group', 'onlyChanged', 'threshold', 'search']) $(id).addEventListener('input', () => { if (id === 'threshold') { try { localStorage.setItem('quality-threshold', String(threshold())); } catch {} } render(); });
 $('chartMetric').addEventListener('change', drawChart);
 window.addEventListener('resize', drawChart);

@@ -3,9 +3,11 @@
   "deliveries": {
     "2026-10-07-latency-37510908500": {
       "digest": "5bd48b05ba1f30a5f87a601cfb6bc6667e871accfbfc2b13473aa7e53e881e24",
-      "sent": [],
-      "pending": 0,
-      "complete": false
+      "sent": [
+        0
+      ],
+      "pending": null,
+      "complete": true
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

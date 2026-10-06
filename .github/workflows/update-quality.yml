@@ -23,6 +23,7 @@ jobs:
     env:
       QUALITY_DATA_DIR: ${{ github.workspace }}/history/quality
       NODE_ENV: production
+      NODE_OPTIONS: --dns-result-order=ipv4first
     steps:
       - uses: actions/checkout@v4
         with:

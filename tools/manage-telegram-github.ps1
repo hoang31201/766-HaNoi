@@ -1,4 +1,4 @@
-param([ValidateSet('DispatchCheck','Status','Jobs')][string]$Operation = 'Status', [long]$RunId)
+param([ValidateSet('DispatchCheck','DispatchLatency','Status','Jobs','LatencyMetrics')][string]$Operation = 'Status', [long]$RunId)
 $ErrorActionPreference = 'Stop'
 $git = 'C:/Users/ADMIN/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/git.exe'
 $env:GIT_TERMINAL_PROMPT = '0'
@@ -10,10 +10,34 @@ try {
     if ($line.Count -ne 1) { throw 'GitHub credential unavailable.' }
     $headers = @{ Authorization = 'Bearer ' + $line[0].Substring(9); Accept = 'application/vnd.github+json'; 'X-GitHub-Api-Version' = '2022-11-28' }
     $base = 'https://api.github.com/repos/hoang31201/766-HaNoi'
-    if ($Operation -eq 'DispatchCheck') {
-        $body = @{ ref = 'main'; inputs = @{ check_connection = $true } } | ConvertTo-Json -Depth 4
+    if ($Operation -in @('DispatchCheck','DispatchLatency')) {
+        $requestedAt = [DateTime]::UtcNow.ToString('o')
+        $inputs = if ($Operation -eq 'DispatchLatency') { @{ latency_test = $true; requested_at = $requestedAt } } else { @{ check_connection = $true } }
+        $body = @{ ref = 'main'; inputs = $inputs } | ConvertTo-Json -Depth 4
         Invoke-RestMethod -Uri "$base/actions/workflows/telegram-report.yml/dispatches" -Headers $headers -Method Post -ContentType 'application/json' -Body $body -TimeoutSec 30 | Out-Null
-        Write-Output 'GitHub connection verification dispatched.'
+        Write-Output ('GitHub workflow dispatched: {0}; request time {1}' -f $Operation, $requestedAt)
+    } elseif ($Operation -eq 'LatencyMetrics') {
+        if ($RunId -le 0) { throw 'Run ID required.' }
+        $jobs = Invoke-RestMethod -Uri "$base/actions/runs/$RunId/jobs" -Headers $headers -TimeoutSec 30
+        $job = @($jobs.jobs | Where-Object { $_.name -eq 'notify' })[0]
+        Add-Type -AssemblyName System.Net.Http
+        $handler = New-Object Net.Http.HttpClientHandler
+        $handler.AllowAutoRedirect = $false
+        $client = New-Object Net.Http.HttpClient($handler)
+        try {
+            $client.DefaultRequestHeaders.Authorization = New-Object Net.Http.Headers.AuthenticationHeaderValue('Bearer', $line[0].Substring(9))
+            $client.DefaultRequestHeaders.UserAgent.ParseAdd('hanoi-766-latency-check')
+            $response = $client.GetAsync("$base/actions/jobs/$($job.id)/logs").GetAwaiter().GetResult()
+            if ([int]$response.StatusCode -eq 302) {
+                $location = $response.Headers.Location
+                if ($location.Scheme -ne 'https') { throw 'Unexpected logs destination.' }
+                $client.DefaultRequestHeaders.Authorization = $null
+                $response = $client.GetAsync($location).GetAwaiter().GetResult()
+            }
+            if (!$response.IsSuccessStatusCode) { throw 'Logs unavailable.' }
+            $logs = $response.Content.ReadAsStringAsync().GetAwaiter().GetResult()
+            $logs -split "`n" | Where-Object { $_ -match 'LATENCY_METRICS \{' } | ForEach-Object { $_.Substring($_.IndexOf('LATENCY_METRICS ')) }
+        } finally { $client.Dispose(); $handler.Dispose() }
     } elseif ($Operation -eq 'Jobs') {
         if ($RunId -le 0) { throw 'Run ID required.' }
         $result = Invoke-RestMethod -Uri "$base/actions/runs/$RunId/jobs" -Headers $headers -TimeoutSec 30

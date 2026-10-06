@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import { notificationPlan, deliverReport, githubStateStore, telegramSender, checkConnection } from './telegram-github.mjs';
+import { notificationPlan, deliverReport, githubStateStore, telegramSender, checkConnection, latencyTestPlan } from './telegram-github.mjs';
 import { validDailySnapshot } from './quality-sync-policy.mjs';
 
 const snapshot = day => ({ day, capturedAt: day + 'T00:00:00Z', department: { code: 'H26' }, period: { year: 2026, timeType: 'year' }, totalScore: 60, totalMaxScore: 100, rank: 20, provinceCount: 34, groups: Array.from({ length: 6 }, (_, i) => ({ code: String(i), name: `Group ${i}`, score: 10, maxScore: 20, metrics: [] })), departments: [{ code: 'a', name: 'A', type: 'COMMUNE', score: 60 }] });
@@ -81,6 +81,20 @@ test('Connection verification checks the bot, group and permissions without send
   const message = await checkConnection({ token: 'fake', chatId: '-1', store: memoryStore(), fetchImpl: async url => { calls.push(url.split('/').at(-1)); return Response.json({ ok: true, result: results.shift() }); } });
   assert.deepEqual(calls, ['getMe', 'getChat', 'getChatMember']);
   assert.match(message, /no message sent/);
+});
+
+test('Manual latency test sends one message and reruns do not resend it', async () => {
+  const plan = latencyTestPlan('2026-10-06T18:00:00Z', '123', new Date('2026-10-06T18:00:20Z'));
+  assert.equal(plan.messages.length, 1);
+  assert.match(plan.messages[0], /20\.0 giây/);
+  let sends = 0;
+  const store = memoryStore();
+  await deliverReport(plan, store, async () => { sends++; }, '-1:');
+  const rerun = latencyTestPlan('2026-10-06T18:00:00Z', '123', new Date('2026-10-06T18:00:40Z'));
+  assert.equal(await deliverReport(rerun, store, async () => { sends++; }, '-1:'), 'already-sent');
+  assert.equal(sends, 1);
+  assert.throws(() => latencyTestPlan('invalid', '123'), /Invalid/);
+  assert.throws(() => latencyTestPlan('2026-10-01T00:00:00Z', '123'), /Invalid/);
 });
 
 test('Workflow only uses repository history and local hourly schedule stops crawling after publication', async () => {

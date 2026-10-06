@@ -14,6 +14,14 @@ on:
         description: Verify Telegram and delivery storage without sending a report
         type: boolean
         default: false
+      latency_test:
+        description: Send exactly one latency-test message to the configured group
+        type: boolean
+        default: false
+      requested_at:
+        description: UTC request timestamp for latency measurement
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -45,8 +53,12 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_THREAD_ID: ${{ secrets.TELEGRAM_THREAD_ID }}
           CHECK_CONNECTION: ${{ inputs.check_connection == true }}
+          LATENCY_TEST: ${{ inputs.latency_test == true }}
+          REQUESTED_AT: ${{ inputs.requested_at }}
         run: |
-          if [ "$CHECK_CONNECTION" = "true" ]; then
+          if [ "$LATENCY_TEST" = "true" ]; then
+            node tools/telegram-github.mjs --latency-test
+          elif [ "$CHECK_CONNECTION" = "true" ]; then
             node tools/telegram-github.mjs --check-connection
           else
             node tools/telegram-github.mjs

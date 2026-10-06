@@ -3,6 +3,14 @@ import { pathToFileURL } from 'node:url';
 import { buildReport, formatTelegramHtml, readHistory, vietnamDay } from './telegram-quality-report.mjs';
 import { validDailySnapshot } from './quality-sync-policy.mjs';
 
+export function latencyTestPlan(requestedAt, runId, now = new Date()) {
+  const requested = Date.parse(requestedAt);
+  const elapsed = now.getTime() - requested;
+  if (!/^\d{4}-\d{2}-\d{2}T/.test(requestedAt || '') || !Number.isFinite(requested) || elapsed < -60000 || elapsed > 86400000 || !/^\d{1,30}$/.test(runId || '')) throw new Error('Invalid latency test request.');
+  const time = date => date.toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
+  return { day: vietnamDay(now), kind: `latency-${runId}`, messages: [`<b>KIỂM TRA ĐỘ TRỄ TỪ GITHUB</b>\nYêu cầu lúc: ${time(new Date(requested))}\nGitHub xử lý lúc: ${time(now)}\nThời gian từ yêu cầu đến xử lý: ${Math.max(0, elapsed / 1000).toFixed(1)} giây.\nĐây là tin thử, không phải báo cáo hằng ngày.`] };
+}
+
 export function notificationPlan(snapshots, now = new Date()) {
   const day = vietnamDay(now);
   const clock = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Ho_Chi_Minh', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(now);
@@ -116,13 +124,23 @@ export async function checkConnection({ token, chatId, store, fetchImpl = fetch 
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
-    const plan = notificationPlan(await readHistory(['history/quality']));
+    const testingLatency = process.argv.includes('--latency-test');
+    if (testingLatency && process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch') throw new Error('Latency tests require explicit manual dispatch.');
+    const plan = testingLatency ? latencyTestPlan(process.env.REQUESTED_AT, process.env.GITHUB_RUN_ID) : notificationPlan(await readHistory(['history/quality']));
     if (process.argv.includes('--preview')) console.log(JSON.stringify(plan));
     else if (!plan && !process.argv.includes('--check-connection')) console.log('Before 06:30 Vietnam time; no message.');
     else {
       const { GITHUB_TOKEN, GITHUB_REPOSITORY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, TELEGRAM_THREAD_ID } = process.env;
       if (!GITHUB_TOKEN) throw new Error('Missing GitHub state token.');
-      const sender = telegramSender({ token: TELEGRAM_BOT_TOKEN, chatId: TELEGRAM_CHAT_ID, threadId: TELEGRAM_THREAD_ID });
+      const telegram = telegramSender({ token: TELEGRAM_BOT_TOKEN, chatId: TELEGRAM_CHAT_ID, threadId: TELEGRAM_THREAD_ID });
+      const sender = async text => {
+        const startedAt = new Date();
+        await telegram(text);
+        if (testingLatency) {
+          const confirmedAt = new Date();
+          console.log('LATENCY_METRICS ' + JSON.stringify({ requestedAt: process.env.REQUESTED_AT, sendStartedAt: startedAt.toISOString(), confirmedAt: confirmedAt.toISOString(), requestToSendSeconds: (startedAt - Date.parse(process.env.REQUESTED_AT)) / 1000, telegramApiSeconds: (confirmedAt - startedAt) / 1000, totalSeconds: (confirmedAt - Date.parse(process.env.REQUESTED_AT)) / 1000 }));
+        }
+      };
       const store = githubStateStore({ token: GITHUB_TOKEN, repository: GITHUB_REPOSITORY });
       if (process.argv.includes('--check-connection')) console.log(await checkConnection({ token: TELEGRAM_BOT_TOKEN, chatId: TELEGRAM_CHAT_ID, store }));
       else console.log(`${plan.day} ${plan.kind}: ${await deliverReport(plan, store, sender, `${TELEGRAM_CHAT_ID}:${TELEGRAM_THREAD_ID || ''}`)}`);

@@ -1,0 +1,26 @@
+name: Diagnose DVC network connectivity
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: DNS TCP TLS and API probes
+        run: node tools/diagnose-quality-network.mjs diagnostics/${{ matrix.os }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: network-${{ matrix.os }}
+          path: diagnostics/*.json
+          retention-days: 3

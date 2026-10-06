@@ -26,7 +26,8 @@ async function post(endpoint, body) {
       return result.data;
     } catch (err) { error = err; }
   }
-  throw new Error(`${endpoint}: ${error.message}`);
+  const reason = error.cause ? `${error.cause.code || ''} ${error.cause.message || ''}`.trim() : '';
+  throw new Error(`${endpoint}: ${error.message}${reason ? ` (${reason})` : ''}`, { cause: error });
 }
 const finite = n => typeof n === 'number' && Number.isFinite(n) ? n : null;
 function ratioMetric(code, name, numerator, denominator, direction = 'up') {

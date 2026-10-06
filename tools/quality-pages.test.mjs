@@ -3,7 +3,18 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import { root } from './quality-data.mjs';
+import { root, groups, extractDepartmentScores } from './quality-data.mjs';
+
+test('Unit group points join by department ID and preserve zero and missing data', () => {
+  const raw = Object.fromEntries(groups.map(g => [g.endpoint, { evaluation: [{ departmentId: 'b', totalScore: 3, totalMaxScore: 18 }, { departmentId: 'a', totalScore: 0, totalMaxScore: 18 }] }]));
+  raw['dvc-progress-tree'] = { children: [{ departmentId: 'a', score: 2, maxScore: 20 }] };
+  const records = extractDepartmentScores([{ departmentId: 'a', departmentCode: 'H26.1', departmentName: 'A', totalScore: 10, childGroup: 'AGENCY' }, { departmentId: 'b', departmentCode: 'H26.2', departmentName: 'B', totalScore: 12, childGroup: 'COMMUNE' }], raw);
+  assert.equal(records[0].score, 10);
+  assert.deepEqual(records[0].groupScores.CKMB, { score: 0, maxScore: 18 });
+  assert.deepEqual(records[0].groupScores.TDGQ, { score: 2, maxScore: 20 });
+  assert.equal(records[1].groupScores.CKMB.score, 3);
+  assert.deepEqual(records[1].groupScores.TDGQ, { score: null, maxScore: null });
+});
 import { buildPages } from './build-quality-pages.mjs';
 
 test('Pages build includes only public assets and relative paths', async t => {

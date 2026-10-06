@@ -22,14 +22,6 @@ if (pages) {
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(p => [p.type, p.value]));
   today = `${parts.year}-${parts.month}-${parts.day}`;
   $('refresh').textContent = '↻ Làm mới dữ liệu';
-  if (settings.workflowUrl) {
-    const url = new URL(settings.workflowUrl);
-    if (url.protocol === 'https:' && url.hostname === 'github.com') {
-      const link = document.createElement('a');
-      link.href = url.href; link.target = '_blank'; link.rel = 'noreferrer'; link.textContent = 'Lịch sử cập nhật ↗'; link.id = 'runWorkflow';
-      $('refresh').after(link);
-    }
-  }
 }
 try { $('threshold').value = localStorage.getItem('quality-threshold') || '0.5'; } catch {}
 function threshold() { const n = Number($('threshold').value); return Number.isFinite(n) && n >= 0.01 ? n : 0.5; }
@@ -59,7 +51,9 @@ function populate(preferred) {
   $('historyCount').textContent = `${snapshots.length} ngày`;
   $('historyRows').innerHTML = [...snapshots].reverse().map(s => `<tr${s.day === $('current').value ? ' class="selected-day"' : ''}><td><a href="#history?day=${encodeURIComponent(s.day)}"${s.day === $('current').value ? ' aria-current="date"' : ''}>${dateLabel(s.day)}</a></td><td>${esc(new Date(s.capturedAt).toLocaleTimeString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }))}</td><td>${fmt(s.totalScore)} / ${fmt(s.totalMaxScore)}</td>${['CKMB', 'TDGQ', 'CLGQ', 'TTTT', 'MDHL', 'MDSH'].map(code => `<td>${fmt(s.groups.find(g => g.code === code)?.score)}</td>`).join('')}</tr>`).join('') || '<tr><td colspan="9">Chưa có ngày đã lưu.</td></tr>';
   const groups = snapshots.at(-1)?.groups || [];
+  const selectedGroup = $('group').value;
   $('group').innerHTML = '<option value="all">Tất cả nhóm</option>' + groups.map(g => `<option value="${esc(g.code)}">${esc(g.name)}</option>`).join('');
+  if (groups.some(g => g.code === selectedGroup)) $('group').value = selectedGroup;
   $('chartMetric').innerHTML = '<option value="total">Điểm tổng hợp</option>' + groups.map(g => `<option value="${esc(g.code)}">${esc(g.name)}</option>`).join('');
   fillBaseline(); render();
 }
@@ -79,6 +73,11 @@ function render() {
   if (lastError) warnings.push(`Lần cập nhật gần nhất thất bại: ${lastError}. Đang giữ số liệu đã lưu.`);
   if (today && current.day === snapshots.at(-1).day && current.day < today) warnings.push(`Chưa có số liệu ngày ${dateLabel(today)}.`);
   if (!baseline) warnings.push(!historyView() ? `Chưa thể đối chiếu hôm qua (${dateLabel(previousDay(today))}): cần đủ bản lưu hôm nay và hôm qua trong cùng năm.` : `Chưa có ngày đối chiếu cùng năm. Ngày liền trước là ${dateLabel(previousDay(current.day))}.`);
+  const selectedGroup = $('group').value;
+  const unitPoints = d => selectedGroup === 'all' ? d?.score : d?.groupScores?.[selectedGroup]?.score;
+  const unitScore = d => num(unitPoints(d)) ? `${fmt(unitPoints(d))}${selectedGroup !== 'all' && num(d?.groupScores?.[selectedGroup]?.maxScore) ? ` / ${fmt(d.groupScores[selectedGroup].maxScore)}` : ''}` : '—';
+  const missingUnits = selectedGroup !== 'all' ? current.departments.filter(d => !num(unitPoints(d))).length : 0;
+  if (missingUnits) warnings.push(`${missingUnits} đơn vị chưa có điểm nhóm này trong bản lưu ngày ${dateLabel(current.day)}.`);
   notify(warnings.join(' '));
   $('updated').textContent = `Lấy số liệu lúc ${new Date(current.capturedAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}`;
   $('period').textContent = `Kỳ số liệu: năm ${current.period.year} · Ngày lưu: ${dateLabel(current.day)}`;
@@ -109,14 +108,15 @@ function render() {
   const term = $('search').value.toLocaleLowerCase('vi');
   const departmentRow = (d, index) => {
     const prior = baseline?.departments.find(p => p.code === d.code);
-    return `<tr><td>${index + 1}</td><td>${esc(d.name)}</td><td>${fmt(prior?.score)}</td><td>${fmt(d.score)}</td><td>${deltaHTML(diff(d.score, prior?.score))}</td></tr>`;
+    return `<tr><td>${index + 1}</td><td>${esc(d.name)}</td><td>${unitScore(prior)}</td><td>${unitScore(d)}</td><td>${deltaHTML(diff(unitPoints(d), unitPoints(prior)))}</td></tr>`;
   };
+  $('unitScoreContext').textContent = selectedGroup === 'all' ? `Điểm tổng hợp · Điểm / ${fmt(current.totalMaxScore)}` : `${current.groups.find(g => g.code === selectedGroup)?.name || selectedGroup} · Điểm / ${fmt(current.groups.find(g => g.code === selectedGroup)?.maxScore)}`;
   for (const [id, countId, category] of [['agencies', 'agencyCount', 'AGENCY'], ['communes', 'communeCount', 'COMMUNE'], ['others', 'otherCount', 'OTHER']]) {
     const units = current.departments.filter(d => category === 'OTHER' ? !['AGENCY', 'COMMUNE'].includes(d.type) : d.type === category);
     const ascending = unitSort[id] === 'asc';
     const matches = units.filter(d => d.name.toLocaleLowerCase('vi').includes(term)).sort((a, b) => {
-      if (num(a.score) !== num(b.score)) return num(a.score) ? -1 : 1;
-      return (num(a.score) ? (a.score - b.score) * (ascending ? 1 : -1) : 0) || a.name.localeCompare(b.name, 'vi') || String(a.code).localeCompare(String(b.code));
+      if (num(unitPoints(a)) !== num(unitPoints(b))) return num(unitPoints(a)) ? -1 : 1;
+      return (num(unitPoints(a)) ? (unitPoints(a) - unitPoints(b)) * (ascending ? 1 : -1) : 0) || a.name.localeCompare(b.name, 'vi') || String(a.code).localeCompare(String(b.code));
     });
     $(id).innerHTML = matches.map(departmentRow).join('') || '<tr><td colspan="5">Không có đơn vị phù hợp.</td></tr>';
     $(`${id}Sort`).textContent = `Điểm hiện tại ${ascending ? '↑' : '↓'}`;

@@ -24,6 +24,8 @@ Trang chinh tu doi chieu ban luu hom nay voi dung ngay hom qua (mui gio Viet Nam
 
 Moi bang don vi co STT va mac dinh sap xep diem hien tai giam dan; bam tieu de diem de doi chieu tang/giam rieng tung bang. Diem bang nhau sap theo ten, don vi chua co diem o cuoi. STT danh lai theo ket qua dang hien thi khi tim kiem.
 
+Chon Nhom tieu chi de xem diem nhom cua tung don vi, kem diem toi da. Diem doi chieu, bien dong va sap xep deu theo nhom dang chon. Tat ca nhom hien diem tong hop. Snapshot moi luu `departments[].groupScores` tu tung endpoint nguon, ghep theo ID don vi; ban luu cu chua co diem nhom hien dau gach, khong thay bang diem tong hop. Da bo lien ket Lich su cap nhat o goc tren.
+
 Lam moi du lieu tai ban da cong bo moi nhat. Lich su cap nhat mo trang workflow de xem ket qua publish. Khach xem web khong duoc cap token hay quyen ghi.
 
 Trang va cac chi tieu tong hop la cong khai. Toan bo app dung du lieu cong khai cua Cong DVCQG. Danh sach ho so, cookie va SQLite khong nam trong ban nay.

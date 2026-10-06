@@ -54,6 +54,14 @@ export function extractMetrics(group, data) {
   return { code: group.code, name: group.name, score: finite(p.totalScore), maxScore: finite(p.totalMaxScore), ratio: finite(p.ratio), metrics };
 }
 let running = null;
+export function extractDepartmentScores(departments, raw) {
+  const indexes = new Map(groups.map(group => [group.code, new Map((raw[group.endpoint]?.evaluation || raw[group.endpoint]?.children || []).map(d => [d.departmentId, d]))]));
+  return departments.map(d => ({ code: d.departmentCode, name: d.departmentName, score: finite(d.totalScore), type: d.childGroup,
+    groupScores: Object.fromEntries(groups.map(group => {
+      const record = indexes.get(group.code).get(d.departmentId);
+      return [group.code, { score: finite(record?.totalScore) ?? finite(record?.score), maxScore: finite(record?.totalMaxScore) ?? finite(record?.maxScore) }];
+    })) }));
+}
 export function collect() {
   if (running) return running;
   running = collectSnapshot().finally(() => { running = null; });
@@ -75,7 +83,7 @@ async function collectSnapshot() {
   }
   const overview = raw['service-results'].overview;
   if (overview?.departmentCode !== 'H26' || finite(overview.totalScore) === null) throw new Error('Điểm tổng hợp không hợp lệ');
-  const snapshot = { day, capturedAt: new Date().toISOString(), period, department: { id: hanoi.departmentId, code: 'H26', name: hanoi.departmentName }, totalScore: overview.totalScore, totalMaxScore: overview.totalMaxScore, rank: [...nationwide.evaluation].sort((a, b) => b.totalScore - a.totalScore).findIndex(d => d.departmentId === hanoi.departmentId) + 1, provinceCount: nationwide.evaluation.length, groups: collected, departments: raw['service-results'].evaluation.map(d => ({ code: d.departmentCode, name: d.departmentName, score: d.totalScore, type: d.childGroup })) };
+  const snapshot = { day, capturedAt: new Date().toISOString(), period, department: { id: hanoi.departmentId, code: 'H26', name: hanoi.departmentName }, totalScore: overview.totalScore, totalMaxScore: overview.totalMaxScore, rank: [...nationwide.evaluation].sort((a, b) => b.totalScore - a.totalScore).findIndex(d => d.departmentId === hanoi.departmentId) + 1, provinceCount: nationwide.evaluation.length, groups: collected, departments: extractDepartmentScores(raw['service-results'].evaluation, raw) };
   await fs.mkdir(path.join(store, 'raw'), { recursive: true });
   const rawFile = `${day}-${Date.now()}.json`;
   await fs.writeFile(path.join(store, 'raw', rawFile), JSON.stringify({ snapshot, requests: { period, rootDepartmentId: hanoi.departmentId }, raw }, null, 2));

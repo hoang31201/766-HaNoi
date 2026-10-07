@@ -11,8 +11,10 @@
     },
     "2026-10-07-report": {
       "digest": "2f8c3479f51cd9aa8fe50af532176ce20a307e6ca76393e50101d3c37e6df971",
-      "sent": [],
-      "pending": 0,
+      "sent": [
+        0
+      ],
+      "pending": null,
       "complete": false
     }
   },

@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { buildReport, formatTelegramHtml, readHistory, vietnamDay } from './telegram-quality-report.mjs';
-import { validDailySnapshot } from './quality-sync-policy.mjs';
+import { validDailySnapshot, hasNewSourceData } from './quality-sync-policy.mjs';
 
 export function latencyTestPlan(requestedAt, runId, now = new Date()) {
   const requested = Date.parse(requestedAt);
@@ -16,24 +16,24 @@ export function notificationPlan(snapshots, now = new Date()) {
   const clock = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Ho_Chi_Minh', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(now);
   if (clock < '06:30') return null;
   const current = snapshots.find(snapshot => snapshot.day === day && validDailySnapshot(snapshot, day));
-  if (!current) return {
-    day, kind: 'missing', messages: [formatTelegramHtml(`BÁO CÁO 766 HÀ NỘI | ${day.split('-').reverse().join('/')}\nSố liệu hôm nay chưa được cập nhật.\nMáy cào sẽ thử lại mỗi 1 giờ khi máy đang bật, đã đăng nhập và có Internet.\nBot sẽ tự gửi báo cáo khi số liệu mới được cập nhật lên GitHub.`)],
+  if (!current || !hasNewSourceData(current, snapshots)) return {
+    day, kind: 'missing', messages: [formatTelegramHtml(`BÁO CÁO 766 HÀ NỘI | ${day.split('-').reverse().join('/')}\nChưa ghi nhận dữ liệu mới từ nguồn${current ? '; số liệu chi tiết chưa thay đổi hoặc chưa đủ để xác minh' : ''}.\nMáy cào sẽ thử lại mỗi 1 giờ khi máy đang bật, đã đăng nhập và có Internet.\nBot sẽ tự gửi báo cáo khi phát hiện số liệu nguồn thay đổi.`)],
   };
   const report = buildReport(snapshots.filter(snapshot => snapshot.day !== day || snapshot === current), day);
-  return { ...report, messages: report.messages.map(formatTelegramHtml) };
+  return { ...report, deliveryKey: `${day}-report-fresh`, messages: report.messages.map(formatTelegramHtml) };
 }
 
 export async function deliverReport(plan, store, send, recipient) {
   if (!plan) return 'before-report-time';
   const state = await store.load();
-  const key = `${plan.day}-${plan.kind}`;
+  const key = plan.deliveryKey || `${plan.day}-${plan.kind}`;
   const recipientKey = crypto.createHash('sha256').update(recipient).digest('hex');
   if (state.recipientKey && state.recipientKey !== recipientKey) throw new Error('Recipient changed; review delivery state before sending.');
   state.recipientKey = recipientKey;
   state.deliveries ??= {};
   // Any uncertain request blocks later sends, including a new day, until reviewed.
   if (Object.values(state.deliveries).some(entry => entry.pending !== null && entry.pending !== undefined)) throw new Error('Uncertain Telegram delivery; check the group and review state before retrying.');
-  if (plan.kind === 'missing' && state.deliveries[`${plan.day}-report`]?.complete) return 'already-reported';
+  if (plan.kind === 'missing' && state.deliveries[`${plan.day}-report-fresh`]?.complete) return 'already-reported';
   let delivery = state.deliveries[key];
   if (delivery?.complete) return 'already-sent';
   const digest = crypto.createHash('sha256').update(JSON.stringify(plan.messages)).digest('hex');

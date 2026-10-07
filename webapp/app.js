@@ -77,7 +77,9 @@ function fillBaseline() {
   $('baseline').value = (contextual || current?.day === today) && options.some(s => s.day === target) ? target : '';
 }
 function render() {
-  const current = snapshots.find(s => s.day === $('current').value), baseline = snapshots.find(s => s.day === $('baseline').value);
+  const current = snapshots.find(s => s.day === $('current').value);
+  const waitingForSource = ['unchanged', 'incomplete'].includes(current?.freshness?.status);
+  const baseline = waitingForSource ? null : snapshots.find(s => s.day === $('baseline').value);
   window.renderUnitDetail?.({ current, baseline, snapshots, threshold: threshold() });
   window.renderQualityMap?.({ current, baseline, snapshots, group: $('group').value, groupName: $('group').selectedOptions[0]?.textContent === 'Tất cả nhóm' ? 'Điểm tổng hợp' : $('group').selectedOptions[0]?.textContent, threshold: threshold() });
   if (!current) { notify(pages ? 'Chưa có số liệu được công bố. Đang chờ lần lấy số liệu đầu tiên.' : 'Chưa có số liệu chất lượng phục vụ. Bấm Cập nhật số liệu để lấy dữ liệu Hà Nội.'); rows = []; for (const id of ['summary', 'groups', 'metrics', 'agencies', 'communes', 'others', 'period', 'comparison', 'count', 'agencyCount', 'communeCount', 'otherCount', 'chartDates', 'footer']) $(id).textContent = ''; $('otherUnits').hidden = true; $('chart').getContext('2d').clearRect(0, 0, $('chart').width, $('chart').height); $('alerts').innerHTML = '<p class="empty">Chưa có dữ liệu.</p>'; $('updated').textContent = 'Chưa có số liệu'; $('export').disabled = true; return; }
@@ -86,7 +88,8 @@ function render() {
   if (offline && !pages) warnings.push('Đang xem bản đã lưu. Mở ứng dụng qua địa chỉ localhost để cập nhật trực tiếp.');
   if (lastError) warnings.push(`Lần cập nhật gần nhất thất bại: ${lastError}. Đang giữ số liệu đã lưu.`);
   if (today && current.day === snapshots.at(-1).day && current.day < today) warnings.push(`Chưa có số liệu ngày ${dateLabel(today)}.`);
-  if (!baseline && !document.querySelector('.shell').classList.contains('mode-history')) warnings.push(`Chưa có dữ liệu đối chiếu ngày ${dateLabel(previousDay(current.day))}.`);
+  if (waitingForSource) warnings.push(current.freshness.status === 'unchanged' ? 'Các số liệu chi tiết chưa thay đổi so với bản nguồn trước. Đang tiếp tục kiểm tra mỗi giờ.' : 'Chưa đủ chi tiết để xác minh dữ liệu mới. Đang tiếp tục kiểm tra mỗi giờ.');
+  if (!baseline && !waitingForSource && !document.querySelector('.shell').classList.contains('mode-history')) warnings.push(`Chưa có dữ liệu đối chiếu ngày ${dateLabel(previousDay(current.day))}.`);
   for (const imported of [current, baseline].filter(s => s?.source)) warnings.push(`Ngày ${dateLabel(imported.day)}: nguồn ${imported.source.name}. ${imported.source.note} Chênh lệch giữa hai nguồn chỉ mang tính tham khảo.`);
   const selectedGroup = $('group').value;
   const unitPoints = d => selectedGroup === 'all' ? d?.score : d?.groupScores?.[selectedGroup]?.score;
@@ -95,10 +98,12 @@ function render() {
   if (missingUnits) warnings.push(`${missingUnits} đơn vị chưa có điểm nhóm này trong bản lưu ngày ${dateLabel(current.day)}.`);
   notify(warnings.join(' '));
   $('updated').textContent = `${current.importedAt ? 'Nhập bản lưu lúc' : 'Lấy số liệu lúc'} ${new Date(current.capturedAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}`;
+  if (['unchanged', 'incomplete'].includes(current.freshness?.status)) $('updated').textContent += current.freshness.status === 'unchanged' ? ' · Chưa ghi nhận dữ liệu mới từ nguồn' : ' · Chưa đủ chi tiết để xác minh dữ liệu mới';
+  if (current.freshness?.status === 'changed') $('updated').textContent += ' · Đã ghi nhận số liệu nguồn thay đổi';
   document.querySelector('header .actions a').href = current.source?.url || 'https://dichvucong.gov.vn/danh-gia-chat-luong-phuc-vu';
   $('period').textContent = `Kỳ số liệu: năm ${current.period.year} · Ngày lưu: ${dateLabel(current.day)}`;
   const gap = baseline ? Math.abs((Date.parse(current.day) - Date.parse(baseline.day)) / 86400000) : 0;
-  $('comparison').textContent = baseline ? `${historyView() ? 'So với' : 'Đối chiếu hôm qua:'} ${dateLabel(baseline.day)} · Cách ${gap} ngày` : !historyView() ? `Hôm qua: ${dateLabel(previousDay(today))} · Chưa đủ số liệu` : 'Chưa có đối chiếu';
+  $('comparison').textContent = waitingForSource ? 'Đang chờ dữ liệu nguồn thay đổi; chưa đánh giá biến động hôm nay' : baseline ? `${historyView() ? 'So với' : 'Đối chiếu hôm qua:'} ${dateLabel(baseline.day)} · Cách ${gap} ngày` : !historyView() ? `Hôm qua: ${dateLabel(previousDay(today))} · Chưa đủ số liệu` : 'Chưa có đối chiếu';
   const flattened = current.groups.flatMap(g => g.metrics.map(m => {
     const prior = baseline?.groups.find(b => b.code === g.code)?.metrics.find(b => b.code === m.code);
     return { ...m, group: g, before: value(prior), after: value(m), delta: diff(value(m), value(prior)) };

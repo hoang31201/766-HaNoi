@@ -49,12 +49,13 @@ try {
         finally { $ErrorActionPreference = $previous }
         if ($publishedCode -eq 0) {
             [IO.File]::WriteAllText($publishedFile, ($publishedJson -join "`n"), [Text.UTF8Encoding]::new($false))
-            & $node (Join-Path $root 'tools/quality-sync-policy.mjs') $publishedFile $day
-            if ($LASTEXITCODE -eq 0) { Write-Log "SKIP: $day already published; no additional crawl"; exit 0 }
+            & $node (Join-Path $root 'tools/quality-sync-policy.mjs') $publishedFile $day (Join-Path $repo 'history/quality') --ready
+            if ($LASTEXITCODE -eq 0) { Write-Log "SKIP: $day new source data already published; no additional crawl"; exit 0 }
         }
     }
     $env:QUALITY_DATA_DIR = Join-Path $state 'history'
     $env:NODE_ENV = 'production'
+    $env:QUALITY_UNIT_DETAILS = '1'
     $previous = $ErrorActionPreference
     try { $ErrorActionPreference = 'Continue'; $result = & $node (Join-Path $root 'tools/crawl-quality.mjs') 2>&1; $code = $LASTEXITCODE }
     finally { $ErrorActionPreference = $previous }
@@ -63,11 +64,17 @@ try {
     if ([TimeZoneInfo]::ConvertTimeFromUtc([DateTime]::UtcNow, $zone).ToString('yyyy-MM-dd') -ne $day) { throw 'Vietnam day changed during collection; retry at the next scheduled time.' }
     & $node (Join-Path $root 'tools/quality-sync-policy.mjs') (Join-Path $env:QUALITY_DATA_DIR "$day.json") $day
     if ($LASTEXITCODE -ne 0) { throw 'Snapshot is not a valid official capture for today.' }
+    & $node (Join-Path $root 'tools/quality-sync-policy.mjs') (Join-Path $env:QUALITY_DATA_DIR "$day.json") $day (Join-Path $repo 'history/quality') --annotate
+    if ($LASTEXITCODE -ne 0) { throw 'Unable to classify source freshness.' }
     $record = Get-Content -LiteralPath (Join-Path $env:QUALITY_DATA_DIR "$day.json") -Raw -Encoding UTF8 | ConvertFrom-Json
     if ($record.day -ne $day -or $record.department.code -ne 'H26' -or $record.groups.Count -ne 6) { throw 'Snapshot validation failed.' }
     if ($CollectOnly) { Write-Log 'COLLECTED: publication skipped for test'; exit 0 }
     $record.PSObject.Properties.Remove('rawFile')
     $destination = Join-Path $repo "history/quality/$day.json"
+    if ($record.freshness.status -in @('unchanged','incomplete') -and (Test-Path -LiteralPath $destination)) {
+        $published = Get-Content -LiteralPath $destination -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($published.freshness.status -eq $record.freshness.status -and $published.freshness.compared -eq $record.freshness.compared) { Write-Log 'WAIT: no new source data; retry next hour without another identical publication'; exit 0 }
+    }
     $json = $record | ConvertTo-Json -Depth 100
     [IO.File]::WriteAllText($destination, $json, [Text.UTF8Encoding]::new($false))
     Run-Git @('config', 'user.name', 'hoang31201')
@@ -78,7 +85,7 @@ try {
     if ($different -eq 1) { Run-Git @('commit', '-m', "Update Hanoi quality $day from personal computer") }
     elseif ($different -ne 0) { throw 'Unable to check staged data.' }
     Run-Git @('push', 'origin', 'HEAD:main')
-    Write-Log "SUCCESS: $day published to GitHub"
+    Write-Log "SUCCESS: $day published to GitHub; source freshness $($record.freshness.status)"
     [IO.File]::WriteAllText((Join-Path $state 'last-success.json'), (@{ day = $day; publishedAt = [DateTime]::UtcNow.ToString('o') } | ConvertTo-Json), [Text.UTF8Encoding]::new($false))
 }
 catch { Write-Log "ERROR: $($_.Exception.Message)"; exit 1 }

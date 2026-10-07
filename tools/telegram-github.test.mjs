@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { notificationPlan, deliverReport, githubStateStore, telegramSender, checkConnection, latencyTestPlan } from './telegram-github.mjs';
-import { validDailySnapshot } from './quality-sync-policy.mjs';
+import { validDailySnapshot, sourceFreshness, hasNewSourceData } from './quality-sync-policy.mjs';
 
 const snapshot = day => ({ day, capturedAt: day + 'T00:00:00Z', department: { code: 'H26' }, period: { year: 2026, timeType: 'year' }, totalScore: 60, totalMaxScore: 100, rank: 20, provinceCount: 34, groups: Array.from({ length: 6 }, (_, i) => ({ code: String(i), name: `Group ${i}`, score: 10, maxScore: 20, metrics: [] })), departments: [{ code: 'a', name: 'A', type: 'COMMUNE', score: 60 }] });
 function memoryStore() {
@@ -109,4 +109,49 @@ test('Workflow only uses repository history and local hourly schedule stops craw
   const sync = await fs.readFile(new URL('./sync-quality-local.ps1', import.meta.url), 'utf8');
   assert.match(sync, /origin\/main:history\/quality/);
   assert.match(sync, /already published; no additional crawl/);
+});
+
+function detailedSnapshot(day) {
+  const record = snapshot(day);
+  record.groups[0].metrics = [{ code: 'COUNT', numerator: 100, denominator: 100, ratio: 100 }];
+  record.departments[0].groupDetails = Object.fromEntries(record.groups.map(group => [group.code, { score: 10, maxScore: 20, metrics: [{ code: 'COUNT', numerator: 100, denominator: 100, ratio: 100 }] }]));
+  return record;
+}
+
+test('Same detailed content is stale even with new capture time; metadata and ordering do not count', () => {
+  const before = detailedSnapshot('2026-10-06'), today = detailedSnapshot('2026-10-07');
+  today.rank = 19; today.rawFile = 'new-file.json'; today.departments[0].id = 'new-internal-id'; today.groups.reverse();
+  assert.equal(sourceFreshness(today, [before]).status, 'unchanged');
+  assert.equal(hasNewSourceData(today, [before]), false);
+  assert.equal(notificationPlan([before, today], new Date('2026-10-06T23:30:00Z')).kind, 'missing');
+});
+
+test('Changed counts with identical scores and ratios are genuine new source content', () => {
+  const before = detailedSnapshot('2026-10-06'), today = detailedSnapshot('2026-10-07');
+  today.departments[0].groupDetails['0'].metrics[0].numerator = 101;
+  today.departments[0].groupDetails['0'].metrics[0].denominator = 101;
+  const result = sourceFreshness(today, [before]);
+  assert.equal(result.status, 'changed'); assert.equal(result.changed, 2);
+  assert.equal(today.totalScore, before.totalScore);
+  assert.equal(notificationPlan([before, today], new Date('2026-10-06T23:30:00Z')).kind, 'report');
+});
+
+test('Lost detail coverage and source-only baselines cannot masquerade as changed content', () => {
+  const before = detailedSnapshot('2026-10-06'), today = detailedSnapshot('2026-10-07');
+  delete today.departments[0].groupDetails;
+  assert.equal(sourceFreshness(today, [before]).status, 'incomplete');
+  assert.equal(hasNewSourceData(today, [before]), false);
+  before.source = { name: 'secondary' };
+  assert.equal(sourceFreshness(today, [before]).status, 'no-baseline');
+});
+
+test('An old unverified zero-change report does not suppress the corrected fresh report', async () => {
+  const store = memoryStore();
+  const old = { day: '2026-10-07', kind: 'report', messages: ['old report'] };
+  await deliverReport(old, store, async () => {}, '-1:');
+  const missing = notificationPlan([], new Date('2026-10-06T23:30:00Z'));
+  assert.equal(await deliverReport(missing, store, async () => {}, '-1:'), 'sent');
+  const report = notificationPlan([detailedSnapshot('2026-10-07')], new Date('2026-10-06T23:30:00Z'));
+  assert.equal(await deliverReport(report, store, async () => {}, '-1:'), 'sent');
+  assert.equal(await deliverReport(report, store, async () => {}, '-1:'), 'already-sent');
 });

@@ -4,7 +4,8 @@
 
 - GitHub builds and publishes the dashboard, creates reports, checks current-day data, sends Telegram notifications, and stores delivery state.
 - The personal computer only collects DVCQG data and pushes it because GitHub-hosted collection has failed to connect to this source.
-- Collection runs at 05:00 Vietnam time, then hourly through 23:00 until a valid official snapshot is present on origin/main for today. Unchanged scores still count as a successful new daily capture.
+- Collection runs at 05:00 Vietnam time, then hourly through 23:00 until official source content changes compared with the previous official snapshot in the same period. Each capture includes unit details. Capture timestamps, internal IDs, ranking and array order do not count as changed Hanoi data. Unchanged scores with changed counts or detailed metrics do count as new source content.
+- Identical detailed data is marked unchanged; incomplete detail coverage without a proven numeric change is marked incomplete. Both keep hourly retries active and produce a missing-source-update notice at 06:30 rather than a zero-change report. Without a prior official baseline, the initial valid capture establishes the baseline.
 - The computer must be on, logged in and online. GitHub does not remotely power on or execute commands on this computer.
 - At 06:30 Vietnam time, GitHub sends today's report or a single missing-data notice. New data pushed after 06:30 triggers the report without waiting until the next hour.
 - Hourly GitHub checks at 07:35-23:35 provide fallback detection. Schedules can be delayed by GitHub; these are not guaranteed exact-time deliveries.

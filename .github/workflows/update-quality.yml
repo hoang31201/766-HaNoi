@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: '22'
       - name: Check application
-        run: node --test tools/quality-deployment.test.mjs tools/quality-pages.test.mjs
+        run: node --test tools/quality-deployment.test.mjs tools/quality-pages.test.mjs tools/branch-ranking.test.mjs
       - name: Build public dashboard
         run: node tools/build-quality-pages.mjs
       - name: Upload website

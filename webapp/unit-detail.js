@@ -39,6 +39,7 @@
     document.querySelector('h1').textContent = unit?.name || 'Chi tiết đơn vị';
     document.title = `${unit?.name || 'Chi tiết đơn vị'} · Hà Nội`;
     $('unitBack').href = `#units?day=${encodeURIComponent(state.current?.day || '')}`;
+    if (params.get('fromBranch')) $('unitBack').href = `#branches?day=${encodeURIComponent(state.current?.day || '')}&branch=${encodeURIComponent(params.get('fromBranch'))}`;
     if (!unit) { for (const id of ['unitKpis', 'unitGroupSummary', 'unitQualityNote', 'unitPriorityCount']) $(id).textContent = ''; $('unitPriorities').innerHTML = '<tr><td colspan="5">Đơn vị không có trong bản lưu này.</td></tr>'; $('unitDetailRows').innerHTML = '<tr><td colspan="5">Đơn vị không có trong bản lưu này.</td></tr>'; $('unitMetric').innerHTML = ''; chart?.destroy(); chart = null; showTab('overview'); return; }
     try { localStorage.setItem('quality-leader-unit', code); } catch {}
     const prior = state.baseline?.departments.find(d => d.code === code);

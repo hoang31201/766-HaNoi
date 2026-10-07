@@ -51,7 +51,8 @@ test('Pages build includes only public assets and relative paths', async t => {
   await fs.writeFile(path.join(dataDir, '2026-10-06.json'), JSON.stringify({ day: '2026-10-06', department: { code: 'H26' }, totalScore: 54.79, groups: [], rawFile: 'private-response.json' }));
   await fs.writeFile(path.join(dataDir, 'raw', 'private-response.json'), '{"not_for_website":true}');
   await buildPages({ dataDir, outDir, repository: 'owner/hanoi-quality-766' });
-  assert.deepEqual((await fs.readdir(outDir)).sort(), ['.nojekyll', 'app.js', 'config.js', 'data', 'index.html', 'map-model.js', 'quality-map.js', 'styles.css', 'unit-detail.js', 'unit-leader-model.js', 'vendor']);
+  assert.deepEqual((await fs.readdir(outDir)).sort(), ['.nojekyll', 'app.js', 'branch-model.js', 'branch-page.js', 'config.js', 'data', 'index.html', 'map-model.js', 'quality-map.js', 'styles.css', 'unit-detail.js', 'unit-leader-model.js', 'vendor']);
+  assert.match(await fs.readFile(path.join(outDir, 'data', 'branch-assignments.js'), 'utf8'), /2026-10-01/);
   const config = await fs.readFile(path.join(outDir, 'config.js'), 'utf8');
   assert.match(config, /"mode":"pages"/);
   assert.match(config, /https:\/\/github.com\/owner\/hanoi-quality-766\/actions\/workflows\/update-quality.yml/);

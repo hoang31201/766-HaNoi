@@ -1,4 +1,4 @@
-window.BRANCH_ASSIGNMENTS = {
+(typeof window === 'undefined' ? globalThis : window).BRANCH_ASSIGNMENTS = {
   version: 'support-point-names-2026-10-01',
   effectiveFrom: '2026-10-01',
   effectiveDateBasis: 'user-confirmed-for-app',

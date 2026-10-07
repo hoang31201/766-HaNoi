@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { buildReport, formatTelegramHtml, readHistory, vietnamDay } from './telegram-quality-report.mjs';
 import { validDailySnapshot, hasNewSourceData } from './quality-sync-policy.mjs';
+import { buildBranchReport } from './telegram-branch-report.mjs';
 
 export function latencyTestPlan(requestedAt, runId, now = new Date()) {
   const requested = Date.parse(requestedAt);
@@ -21,6 +22,14 @@ export function notificationPlan(snapshots, now = new Date()) {
   };
   const report = buildReport(snapshots.filter(snapshot => snapshot.day !== day || snapshot === current), day);
   return { ...report, deliveryKey: `${day}-report-fresh`, messages: report.messages.map(formatTelegramHtml) };
+}
+
+export function notificationPlans(snapshots, now = new Date()) {
+  const report = notificationPlan(snapshots, now);
+  if (!report) return [];
+  if (report.kind !== 'report') return [report];
+  const branches = buildBranchReport(snapshots, report.day);
+  return branches ? [report, branches] : [report];
 }
 
 export async function deliverReport(plan, store, send, recipient) {
@@ -126,9 +135,9 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   try {
     const testingLatency = process.argv.includes('--latency-test');
     if (testingLatency && process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch') throw new Error('Latency tests require explicit manual dispatch.');
-    const plan = testingLatency ? latencyTestPlan(process.env.REQUESTED_AT, process.env.GITHUB_RUN_ID) : notificationPlan(await readHistory(['history/quality']));
-    if (process.argv.includes('--preview')) console.log(JSON.stringify(plan));
-    else if (!plan && !process.argv.includes('--check-connection')) console.log('Before 06:30 Vietnam time; no message.');
+    const plans = testingLatency ? [latencyTestPlan(process.env.REQUESTED_AT, process.env.GITHUB_RUN_ID)] : notificationPlans(await readHistory(['history/quality']));
+    if (process.argv.includes('--preview')) console.log(JSON.stringify(plans));
+    else if (!plans.length && !process.argv.includes('--check-connection')) console.log('Before 06:30 Vietnam time; no message.');
     else {
       const { GITHUB_TOKEN, GITHUB_REPOSITORY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, TELEGRAM_THREAD_ID } = process.env;
       if (!GITHUB_TOKEN) throw new Error('Missing GitHub state token.');
@@ -143,7 +152,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
       };
       const store = githubStateStore({ token: GITHUB_TOKEN, repository: GITHUB_REPOSITORY });
       if (process.argv.includes('--check-connection')) console.log(await checkConnection({ token: TELEGRAM_BOT_TOKEN, chatId: TELEGRAM_CHAT_ID, store }));
-      else console.log(`${plan.day} ${plan.kind}: ${await deliverReport(plan, store, sender, `${TELEGRAM_CHAT_ID}:${TELEGRAM_THREAD_ID || ''}`)}`);
+      else for (const plan of plans) console.log(`${plan.day} ${plan.kind}: ${await deliverReport(plan, store, sender, `${TELEGRAM_CHAT_ID}:${TELEGRAM_THREAD_ID || ''}`)}`);
     }
   } catch (error) { console.error(error.message); process.exitCode = 1; }
 }

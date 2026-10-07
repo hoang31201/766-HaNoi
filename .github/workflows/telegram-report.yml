@@ -45,7 +45,7 @@ jobs:
         with:
           node-version: '22'
       - name: Check report and delivery logic
-        run: node --test tools/telegram-quality-report.test.mjs tools/telegram-github.test.mjs
+        run: node --test tools/telegram-quality-report.test.mjs tools/telegram-github.test.mjs tools/telegram-branch-report.test.mjs
       - name: Notify group using latest daily data
         env:
           GITHUB_TOKEN: ${{ github.token }}

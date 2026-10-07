@@ -8,6 +8,12 @@
       ],
       "pending": null,
       "complete": true
+    },
+    "2026-10-07-report": {
+      "digest": "2f8c3479f51cd9aa8fe50af532176ce20a307e6ca76393e50101d3c37e6df971",
+      "sent": [],
+      "pending": 0,
+      "complete": false
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

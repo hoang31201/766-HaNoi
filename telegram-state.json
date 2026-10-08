@@ -37,8 +37,10 @@
     },
     "2026-10-08-report-fresh": {
       "digest": "0a43916e2a87ea4f99b23c33da45743080e0b6bc24efb92f63358634c5b349cb",
-      "sent": [],
-      "pending": 0,
+      "sent": [
+        0
+      ],
+      "pending": null,
       "complete": false
     }
   },

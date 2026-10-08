@@ -1,4 +1,4 @@
-param([ValidateSet('DispatchCheck','DispatchLatency','Status','Jobs','LatencyMetrics')][string]$Operation = 'Status', [long]$RunId)
+param([ValidateSet('DispatchCheck','DispatchLatency','DispatchReport','Status','Jobs','LatencyMetrics')][string]$Operation = 'Status', [long]$RunId)
 $ErrorActionPreference = 'Stop'
 $git = 'C:/Users/ADMIN/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/git.exe'
 $env:GIT_TERMINAL_PROMPT = '0'
@@ -10,9 +10,9 @@ try {
     if ($line.Count -ne 1) { throw 'GitHub credential unavailable.' }
     $headers = @{ Authorization = 'Bearer ' + $line[0].Substring(9); Accept = 'application/vnd.github+json'; 'X-GitHub-Api-Version' = '2022-11-28' }
     $base = 'https://api.github.com/repos/hoang31201/766-HaNoi'
-    if ($Operation -in @('DispatchCheck','DispatchLatency')) {
+    if ($Operation -in @('DispatchCheck','DispatchLatency','DispatchReport')) {
         $requestedAt = [DateTime]::UtcNow.ToString('o')
-        $inputs = if ($Operation -eq 'DispatchLatency') { @{ latency_test = $true; requested_at = $requestedAt } } else { @{ check_connection = $true } }
+        $inputs = if ($Operation -eq 'DispatchLatency') { @{ latency_test = $true; requested_at = $requestedAt } } elseif ($Operation -eq 'DispatchCheck') { @{ check_connection = $true } } else { @{} }
         $body = @{ ref = 'main'; inputs = $inputs } | ConvertTo-Json -Depth 4
         Invoke-RestMethod -Uri "$base/actions/workflows/telegram-report.yml/dispatches" -Headers $headers -Method Post -ContentType 'application/json' -Body $body -TimeoutSec 30 | Out-Null
         Write-Output ('GitHub workflow dispatched: {0}; request time {1}' -f $Operation, $requestedAt)

@@ -72,10 +72,11 @@
     "2026-10-10-report-fresh": {
       "digest": "af24c377160c64fe490ebc15a2bed3f034fdf4ce2cb35d576d18b9b6368da001",
       "sent": [
-        0
+        0,
+        1
       ],
-      "pending": 1,
-      "complete": false
+      "pending": null,
+      "complete": true
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

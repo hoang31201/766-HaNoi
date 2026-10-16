@@ -164,9 +164,11 @@
     },
     "2026-10-16-missing": {
       "digest": "9aa7c5ecb6eb6dfb577237c5da18b81e847923ca9227f7de1808dd1897dc44e6",
-      "sent": [],
-      "pending": 0,
-      "complete": false
+      "sent": [
+        0
+      ],
+      "pending": null,
+      "complete": true
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

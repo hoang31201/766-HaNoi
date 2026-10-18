@@ -180,9 +180,11 @@
     },
     "2026-10-18-missing": {
       "digest": "77e67f27de5bd7b24970c180d0e2dab3644c4c29c0299a60bb058b39d02c2e92",
-      "sent": [],
-      "pending": 0,
-      "complete": false
+      "sent": [
+        0
+      ],
+      "pending": null,
+      "complete": true
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

@@ -25,6 +25,20 @@ class ImportTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             module.number({'text': '—'})
 
+    def test_current_score_excludes_marked_previous_score(self):
+        parser = module.Tables()
+        parser.feed('<table id="provincesTable"><tr><td>'
+                    '<span class="font-medium">11.20<i></i></span>'
+                    '<span class="block text-slate-400 font-normal">'
+                    '<span>10.80</span></span></td><td>9.25</td></tr></table>')
+        row = parser.tables['provincesTable'][0]
+        self.assertEqual(module.number(row[0]), 11.20)
+        self.assertEqual(module.number(row[1]), 9.25)
+
+    def test_ambiguous_multiple_scores_are_rejected(self):
+        with self.assertRaises(ValueError):
+            module.number({'text': '11.20 10.80'})
+
     def test_wrong_row_date_rejected(self):
         with self.assertRaises(ValueError):
             module.identifier({'href': '/unit/example?query_date=2026-10-06'}, '2026-10-05')

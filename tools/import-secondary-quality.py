@@ -16,9 +16,15 @@ class Tables(HTMLParser):
         self.row = None
         self.cell = None
         self.selected_day = None
+        self.previous_span_depth = 0
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if self.cell is not None and tag == 'span':
+            classes = set(attrs.get('class', '').split())
+            # The source renders the previous day's score in a muted secondary span.
+            if self.previous_span_depth or {'text-slate-400', 'font-normal'} <= classes:
+                self.previous_span_depth += 1
         if tag == 'input' and attrs.get('name') == 'query_date':
             self.selected_day = attrs.get('value')
         if tag == 'table':
@@ -32,14 +38,17 @@ class Tables(HTMLParser):
             self.cell['href'] = attrs.get('href')
 
     def handle_data(self, data):
-        if self.cell is not None:
+        if self.cell is not None and not self.previous_span_depth:
             self.cell['text'] += data
 
     def handle_endtag(self, tag):
+        if tag == 'span' and self.previous_span_depth:
+            self.previous_span_depth -= 1
         if tag == 'td' and self.cell is not None:
             self.cell['text'] = ' '.join(self.cell['text'].split())
             self.row.append(self.cell)
             self.cell = None
+            self.previous_span_depth = 0
         elif tag == 'tr' and self.row is not None:
             if self.row:
                 self.tables[self.table].append(self.row)

@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { once } from 'node:events';
-import { createQualityServer } from './quality-server.mjs';
+import { createQualityServer, isGitHistoryDirectory } from './quality-server.mjs';
 import { seedHistory, localDay } from './quality-data.mjs';
 
 async function fixture(t, options = {}) {
@@ -52,6 +52,26 @@ test('Daily scheduling skips existing days and collects a missing Vietnam date',
   const missing = await fixture(t, { history: async () => [], collect: async () => { calls++; } });
   await missing.refreshIfMissing(); assert.equal(calls, 1);
   assert.equal(localDay(new Date('2026-10-05T17:00:00Z')), '2026-10-06');
+});
+
+test('Read-only preview never collects, even when today is missing', async t => {
+  let calls = 0;
+  const app = await fixture(t, {readOnly: true, history: async () => [], collect: async () => {calls++;}});
+  await app.refreshIfMissing();
+  assert.equal((await fetch(app.url + '/api/collect', {method:'POST'})).status, 403);
+  assert.equal((await fetch(app.url + '/api/history')).status, 200);
+  assert.equal(calls, 0);
+});
+
+test('Preview protection detects nested Git checkout data and worktree markers', async t => {
+  const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'quality-readonly-'));
+  t.after(() => fs.rm(temp, {recursive:true, force:true}));
+  const checkout = path.join(temp, 'checkout');
+  const data = path.join(checkout, 'history', 'quality');
+  await fs.mkdir(data, {recursive:true});
+  assert.equal(await isGitHistoryDirectory(data), false);
+  await fs.writeFile(path.join(checkout, '.git'), 'gitdir: ../managed-git');
+  assert.equal(await isGitHistoryDirectory(data), true);
 });
 test('Seed migration survives repeat launches and preserves cloud history', async t => {
   const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'quality-deploy-'));

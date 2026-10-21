@@ -38,11 +38,13 @@ try {
     $branch = & $git -C $repo branch --show-current
     if ($LASTEXITCODE -ne 0 -or $branch.Trim() -ne 'main') { throw 'Expected main branch.' }
     $dirty = & $git -C $repo status --porcelain
-    if ($LASTEXITCODE -ne 0 -or $dirty) { throw 'Checkout has unsaved changes; nothing was overwritten.' }
+    if ($LASTEXITCODE -ne 0) { throw 'Unable to inspect checkout; nothing was overwritten.' }
+    $deferPublication = [bool]$dirty -or [bool]$CollectOnly
+    if ($dirty) { Write-Log 'WAIT: checkout has pending changes; collection continues locally, publication deferred.' }
     $env:GIT_TERMINAL_PROMPT = '0'
     $env:GCM_INTERACTIVE = 'never'
-    Run-Git @('pull', '--ff-only', 'origin', 'main')
-    if (!$CollectOnly) {
+    if (!$deferPublication) { Run-Git @('pull', '--ff-only', 'origin', 'main') }
+    if (!$deferPublication) {
         $publishedFile = Join-Path $state 'published-check.json'
         $previous = $ErrorActionPreference
         try { $ErrorActionPreference = 'Continue'; $publishedJson = & $git -C $repo show "origin/main:history/quality/$day.json" 2>$null; $publishedCode = $LASTEXITCODE }
@@ -68,7 +70,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Unable to classify source freshness.' }
     $record = Get-Content -LiteralPath (Join-Path $env:QUALITY_DATA_DIR "$day.json") -Raw -Encoding UTF8 | ConvertFrom-Json
     if ($record.day -ne $day -or $record.department.code -ne 'H26' -or $record.groups.Count -ne 6) { throw 'Snapshot validation failed.' }
-    if ($CollectOnly) { Write-Log 'COLLECTED: publication skipped for test'; exit 0 }
+    if ($deferPublication) { Write-Log "COLLECTED: $day saved locally; publication deferred, no commit or push."; exit 0 }
     $record.PSObject.Properties.Remove('rawFile')
     $destination = Join-Path $repo "history/quality/$day.json"
     if ($record.freshness.status -in @('unchanged','incomplete') -and (Test-Path -LiteralPath $destination)) {

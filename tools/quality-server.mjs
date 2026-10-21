@@ -2,12 +2,24 @@ import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { root, history, collect, localDay, seedHistory } from './quality-data.mjs';
+import { root, store, history, collect, localDay, seedHistory } from './quality-data.mjs';
+
+export async function isGitHistoryDirectory(directory) {
+  let current = path.resolve(directory);
+  while (true) {
+    try { await fs.access(path.join(current, '.git')); return true; }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+    const parent = path.dirname(current);
+    if (parent === current) return false;
+    current = parent;
+  }
+}
 
 export function createQualityServer(options = {}) {
   const readHistory = options.history || history, crawl = options.collect || collect;
   const day = options.localDay || localDay;
   const production = options.production ?? process.env.NODE_ENV === 'production';
+  const readOnly = options.readOnly ?? false;
   const webRoot = options.webRoot || path.join(root, 'webapp');
   const configuredOrigin = options.publicOrigin ?? process.env.PUBLIC_ORIGIN ?? process.env.RENDER_EXTERNAL_URL;
   const publicOrigin = configuredOrigin ? new URL(configuredOrigin).origin : '';
@@ -32,6 +44,7 @@ export function createQualityServer(options = {}) {
       if (url.pathname === '/healthz' && req.method === 'GET') return send(res, 200, { status: 'ok' });
       if (url.pathname === '/api/history' && req.method === 'GET') return send(res, 200, { snapshots: await readHistory(), lastError, today: day() });
       if (url.pathname === '/api/collect' && req.method === 'POST') {
+        if (readOnly) return send(res, 403, { error: 'Bản xem thử chỉ đọc dữ liệu; không cào hoặc ghi vào kho xuất bản.' });
         const allowed = production ? [publicOrigin].filter(Boolean) : [publicOrigin, 'http://localhost:' + server.address().port, 'http://127.0.0.1:' + server.address().port].filter(Boolean);
         if (req.headers.origin && !allowed.includes(req.headers.origin)) return send(res, 403, { error: 'Origin không hợp lệ' });
         if (!refreshPromise && Date.now() - lastAttempt < cooldownMs) {
@@ -56,6 +69,7 @@ export function createQualityServer(options = {}) {
   });
   server.requestTimeout = 180000;
   async function refreshIfMissing() {
+    if (readOnly) return;
     try {
       const snapshots = await readHistory();
       if (!snapshots.some(s => s.day === day())) await refresh();
@@ -65,13 +79,14 @@ export function createQualityServer(options = {}) {
 }
 
 async function main() {
-  await seedHistory();
+  const readOnly = process.env.QUALITY_READ_ONLY === '1' || await isGitHistoryDirectory(store);
+  if (!readOnly) await seedHistory();
   const production = process.env.NODE_ENV === 'production';
   const host = process.env.HOST || (production || process.env.PORT ? '0.0.0.0' : '127.0.0.1');
   const fixedPort = process.env.PORT || process.env.QUALITY_PORT;
   let port = Number(fixedPort || 8766);
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid PORT');
-  const { server, refreshIfMissing } = createQualityServer({ production });
+  const { server, refreshIfMissing } = createQualityServer({ production, readOnly });
   server.on('error', error => {
     if (!fixedPort && error.code === 'EADDRINUSE' && port < 8790) server.listen(++port, host);
     else { console.error(error.message); process.exitCode = 1; }
@@ -79,6 +94,7 @@ async function main() {
   server.once('listening', async () => {
     const address = process.env.PUBLIC_ORIGIN || process.env.RENDER_EXTERNAL_URL || `http://127.0.0.1:${port}`;
     console.log(`Quality dashboard: ${address}`);
+    if (readOnly) console.log('Read-only preview: automatic and manual collection disabled.');
     if (!production) {
       await fs.mkdir(path.join(root, 'outputs'), { recursive: true });
       await fs.writeFile(path.join(root, 'outputs', 'quality-server-url.txt'), address);
@@ -86,8 +102,8 @@ async function main() {
     await refreshIfMissing();
   });
   server.listen(port, host);
-  const timer = setInterval(refreshIfMissing, 5 * 60 * 1000);
-  timer.unref();
+  const timer = readOnly ? null : setInterval(refreshIfMissing, 5 * 60 * 1000);
+  timer?.unref();
   function shutdown() { clearInterval(timer); server.close(() => { process.exitCode = 0; }); setTimeout(() => process.exit(0), 10000).unref(); }
   process.on('SIGTERM', shutdown); process.on('SIGINT', shutdown);
 }

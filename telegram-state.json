@@ -266,7 +266,7 @@
       "sent": [
         0
       ],
-      "pending": null,
+      "pending": 1,
       "complete": false
     }
   },

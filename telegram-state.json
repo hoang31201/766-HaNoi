@@ -260,6 +260,12 @@
       ],
       "pending": null,
       "complete": true
+    },
+    "2026-10-23-report-fresh": {
+      "digest": "9921c6b9fecaa5fe5c19a21eb9870e24a844945106e81a48e2b053c7237ae6f6",
+      "sent": [],
+      "pending": 0,
+      "complete": false
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

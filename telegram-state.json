@@ -289,9 +289,11 @@
     },
     "2026-10-24-branches-fresh": {
       "digest": "c7837c7cf9bf21d23f913f24f086f2906e5716cf8f71bdf1abdc92ed6f8e3522",
-      "sent": [],
-      "pending": 0,
-      "complete": false
+      "sent": [
+        0
+      ],
+      "pending": null,
+      "complete": true
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

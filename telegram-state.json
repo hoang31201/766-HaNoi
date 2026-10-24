@@ -297,8 +297,10 @@
     },
     "2026-10-25-report-fresh": {
       "digest": "7cc06f05092a9805ce574d908d7cc8b3147acdffc0665eab6cb562760f561715",
-      "sent": [],
-      "pending": 0,
+      "sent": [
+        0
+      ],
+      "pending": null,
       "complete": false
     }
   },

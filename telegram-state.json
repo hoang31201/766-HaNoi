@@ -328,6 +328,12 @@
       ],
       "pending": null,
       "complete": true
+    },
+    "2026-10-27-report-fresh": {
+      "digest": "38aa79db0a1822f1989207438b4efc09d77fb06d09494e42f0730b0ba6e67b9d",
+      "sent": [],
+      "pending": 0,
+      "complete": false
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

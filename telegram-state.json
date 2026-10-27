@@ -349,10 +349,11 @@
     "2026-10-28-report-fresh": {
       "digest": "6bb48eccde3ed03ccba2f528b11b1cdb918af83b52dafa9810689053768f2e15",
       "sent": [
-        0
+        0,
+        1
       ],
-      "pending": 1,
-      "complete": false
+      "pending": null,
+      "complete": true
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"

@@ -365,9 +365,11 @@
     },
     "2026-10-29-missing": {
       "digest": "2b694fdfebe5159461cb62f805190bed51ac73ffa138d45b23aeca0b2726f8af",
-      "sent": [],
-      "pending": 0,
-      "complete": false
+      "sent": [
+        0
+      ],
+      "pending": null,
+      "complete": true
     }
   },
   "recipientKey": "84090797e70912895c5c688b47a2455d1221c0da177ccce85e3192a13e32e6e4"
